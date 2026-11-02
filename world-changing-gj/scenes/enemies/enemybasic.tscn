@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dm4p68lwbrfab"]
+
+[ext_resource type="Script" uid="uid://bq0qm7xivwm5v" path="res://scenes/enemies/enemybasic.gd" id="1_i7xyq"]
+[ext_resource type="Texture2D" uid="uid://ce6txmic805jb" path="res://Assets-Placeholder/Enemies/spr_goblin.png" id="2_i7xyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6anyp"]
+atlas = ExtResource("2_i7xyq")
+region = Rect2(0, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36f2d"]
+atlas = ExtResource("2_i7xyq")
+region = Rect2(11, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysrmo"]
+atlas = ExtResource("2_i7xyq")
+region = Rect2(22, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynsyh"]
+atlas = ExtResource("2_i7xyq")
+region = Rect2(33, 0, 11, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88s62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6anyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36f2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysrmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynsyh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7v4m"]
+radius = 19.026299
+
+[node name="Enemy" type="Area2D" unique_id=2142404571]
+collision_mask = 2
+script = ExtResource("1_i7xyq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=44202288]
+texture_filter = 3
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_88s62")
+frame_progress = 0.033255618
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919958085]
+shape = SubResource("CircleShape2D_l7v4m")
