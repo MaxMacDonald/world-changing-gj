@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://drr6kecvm8eeq"]
 
 [ext_resource type="Texture2D" uid="uid://k4jjory0eb5o" path="res://Assets-Placeholder/Towers/Combat Towers Projectiles/spr_tower_cannon_projectile.png" id="1_2flq5"]
+[ext_resource type="Script" uid="uid://tfrl47lna5o8" path="res://scenes/bullets/bullet.gd" id="1_5f1na"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fgg7"]
 radius = 4.0
 
 [node name="Bullet" type="Area2D" unique_id=858738243]
 collision_layer = 2
+script = ExtResource("1_5f1na")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=185445757]
 texture_filter = 3

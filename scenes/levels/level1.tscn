@@ -20,6 +20,6 @@ curve = SubResource("Curve2D_83ld5")
 script = ExtResource("2_dd0lh")
 
 [node name="TowerBasic" parent="Towers" unique_id=761654335 instance=ExtResource("3_bfxgj")]
-position = Vector2(467, 301)
+position = Vector2(193, 421)
 
 [node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
