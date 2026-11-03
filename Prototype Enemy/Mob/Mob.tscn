@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjsvs2u50oby2"]
+
+[ext_resource type="Script" uid="uid://b2o1a0vam8bws" path="res://Prototype Enemy/Mob/Mob.gd" id="1_sh1tp"]
+[ext_resource type="Texture2D" uid="uid://pk0m7dejemhq" path="res://icon.svg" id="2_3l14s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igbk0"]
+size = Vector2(117, 118)
+
+[node name="Mob" type="Area2D" unique_id=961981340 groups=["Mobs"]]
+position = Vector2(509, 303)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_sh1tp")
+speed = 50.0
+angular_speed = 1.571
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=687653684]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_igbk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1949310726]
+texture = ExtResource("2_3l14s")

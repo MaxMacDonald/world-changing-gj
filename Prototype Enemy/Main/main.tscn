@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cplq6pjnc5k5o"]
+
+[ext_resource type="Script" uid="uid://bxlfjdk5ht2dr" path="res://Prototype Enemy/Main/main.gd" id="1_2w1kt"]
+[ext_resource type="Script" uid="uid://ksqpfuu1af6b" path="res://Prototype Enemy/Main/enemy_spawner.gd" id="3_eunhr"]
+[ext_resource type="Script" uid="uid://cgmaxiggmaitt" path="res://Prototype Enemy/Main/endpoint.gd" id="3_qvhan"]
+
+[node name="Main" type="Node" unique_id=143306160]
+script = ExtResource("1_2w1kt")
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=772374292]
+script = ExtResource("3_eunhr")
+
+[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=309763487]
+wait_time = 0.73
+autostart = true
+
+[node name="Endpoint" type="Marker2D" parent="." unique_id=494664111]
+position = Vector2(990, 68)
+script = ExtResource("3_qvhan")
+
+[node name="RandomiseEndpoint" type="Button" parent="." unique_id=475765276]
+offset_left = 7.0
+offset_top = 591.0
+offset_right = 176.0
+offset_bottom = 641.0
+text = "Randomise Endpoint
+"
+
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="RandomiseEndpoint" to="Endpoint" method="_on_randomise_endpoint_pressed"]
