@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://istbmwh6vr0q"]
+
+[ext_resource type="PackedScene" uid="uid://ctcau21ljcoom" path="res://scenes/towers/tower.tscn" id="1_so3js"]
+[ext_resource type="Texture2D" uid="uid://d3iymlh8wqbu0" path="res://Assets-Placeholder/Towers/Castle/spr_castle_blue.png" id="2_t8dm2"]
+[ext_resource type="Script" path="res://scenes/towers/homebase.gd" id="3_hbase"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1byl"]
+radius = 89.26926
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6xyy"]
+size = Vector2(50, 23)
+
+[node name="Tower" unique_id=761654335 instance=ExtResource("1_so3js")]
+script = ExtResource("3_hbase")
+
+[node name="Sprite2D" parent="." index="0" unique_id=661667892]
+texture_filter = 3
+texture = ExtResource("2_t8dm2")
+hframes = 4
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(66676875) index="0" unique_id=2053249093]
+shape = SubResource("CircleShape2D_k1byl")
+
+[node name="AttackPoint" type="Area2D" parent="." index="3" unique_id=1816672077]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPoint" index="0" unique_id=1547697443]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_l6xyy")

@@ -1,5 +1,8 @@
 extends Area2D
 
+## Health removed from an enemy on hit. Editable per bullet scene in the inspector.
+@export var damage := 1
+
 var direction: Vector2
 var speed := 200
 

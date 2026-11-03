@@ -1,25 +1,51 @@
 [gd_scene format=3 uid="uid://7h6swl3nvvho"]
 
 [ext_resource type="Script" uid="uid://cpfplu8a1pjau" path="res://scenes/levels/level_1.gd" id="1_x6ivy"]
-[ext_resource type="Script" uid="uid://cqfyuimq4jvrh" path="res://scenes/towers/tower_basic.gd" id="2_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://b8mxrhp32tjr4" path="res://scenes/towers/tower_basic.tscn" id="3_bfxgj"]
+[ext_resource type="PackedScene" uid="uid://istbmwh6vr0q" path="res://scenes/towers/homebase.tscn" id="4_bfxgj"]
+[ext_resource type="Script" uid="uid://clv6qj81vau1d" path="res://scenes/spawning/spawn_point.gd" id="5_spawnpt"]
+[ext_resource type="Script" uid="uid://bg86r1cvsys7y" path="res://scenes/spawning/enemy_spawner.gd" id="6_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="7_hud"]
 
-[sub_resource type="Curve2D" id="Curve2D_83ld5"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 93, 565, 0, 0, 0, 0, 368, 315, 0, 0, 0, 0, 827, 545, 0, 0, 0, 0, 1122, 297, 0, 0, 0, 0, 732, 347)
-}
-point_count = 5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(120, 120)
 
 [node name="Level" type="Node2D" unique_id=1259410256]
 script = ExtResource("1_x6ivy")
 
-[node name="Path2D" type="Path2D" parent="." unique_id=596071238]
-curve = SubResource("Curve2D_83ld5")
-
 [node name="Towers" type="Node2D" parent="." unique_id=1403035586]
-script = ExtResource("2_dd0lh")
 
 [node name="TowerBasic" parent="Towers" unique_id=761654335 instance=ExtResource("3_bfxgj")]
-position = Vector2(193, 421)
+position = Vector2(388, 967)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=2038259248]
 
 [node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=2066319431]
+
+[node name="SpawnLeft" type="Area2D" parent="SpawnPoints" unique_id=1154559287]
+position = Vector2(250, 1052)
+script = ExtResource("5_spawnpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnLeft" unique_id=1996796742]
+shape = SubResource("RectangleShape2D_left")
+
+[node name="SpawnRight" type="Area2D" parent="SpawnPoints" unique_id=333613984]
+position = Vector2(1700, 950)
+script = ExtResource("5_spawnpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnRight" unique_id=245547337]
+shape = SubResource("RectangleShape2D_right")
+
+[node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
+position = Vector2(922, 180)
+max_lives = 20
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=876067627]
+script = ExtResource("6_spawner")
+
+[node name="HUD" parent="." unique_id=1106455020 instance=ExtResource("7_hud")]

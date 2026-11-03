@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjsvs2u50oby2"]
 
 [ext_resource type="Script" uid="uid://b2o1a0vam8bws" path="res://Prototype Enemy/Mob/Mob.gd" id="1_sh1tp"]
-[ext_resource type="Texture2D" uid="uid://pk0m7dejemhq" path="res://icon.svg" id="2_3l14s"]
+[ext_resource type="Texture2D" uid="uid://cb7on7q6ori6l" path="res://icon.svg" id="2_3l14s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igbk0"]
 size = Vector2(117, 118)

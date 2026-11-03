@@ -1,20 +1,26 @@
 extends Node2D
 
+const LEVEL_WAVES = preload("res://scenes/levels/level_1_waves.gd")
 
-var basic_enemy_scene = preload("res://scenes/enemies/enemybasic.tscn")
 var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 
-
 func _ready() -> void:
-	var path_follow = PathFollow2D.new()
-	var enemy = basic_enemy_scene.instantiate()
 	RenderingServer.set_default_clear_color('c976a9')
-	enemy.setup(path_follow)
-	path_follow.add_child(enemy)
-	$Path2D.add_child(path_follow)
 	$Towers/TowerBasic.connect("shoot", create_bullet)
-	
+
+	$HUD.set_lives($Homebase.lives)
+	$Homebase.lives_changed.connect($HUD.set_lives)
+	$Homebase.destroyed.connect(_on_homebase_destroyed)
+	$EnemySpawner.wave_started.connect(func(n): print("Wave ", n))
+	$EnemySpawner.all_waves_cleared.connect(func(): print("Level cleared!"))
+
+	$EnemySpawner.start(LEVEL_WAVES.WAVES)
+
 func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet):
 	var bullet = bullet_scene.instantiate()
 	bullet.setup(pos, angle, bullet_enum)
 	$Bullets.add_child(bullet)
+
+func _on_homebase_destroyed() -> void:
+	$HUD.show_game_over()
+	$EnemySpawner.stop()

@@ -1,6 +1,6 @@
 extends Node2D
 
-var enemy_scene = preload("res://Mob/Mob.tscn")
+var enemy_scene = preload("res://Prototype Enemy/Mob/Mob.tscn")
 var spawn_location = [Vector2(100,100), Vector2(1000,550)] #can be set to anything
 @onready var endpoint: Marker2D = $"../Endpoint"
 
