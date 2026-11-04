@@ -5,8 +5,11 @@ const LEVEL_WAVES = preload("res://scenes/levels/level_1_waves.gd")
 var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 
 func _ready() -> void:
+	$FadeTransition.show()
+	$FadeTransition/fade_timer.start()
+	$FadeTransition/AnimationPlayer.play("fade_out")
 	RenderingServer.set_default_clear_color('c976a9')
-	$Towers/TowerBasic.connect("shoot", create_bullet)
+	#$Towers/TowerBasic.connect("shoot", create_bullet)
 
 	$Terrain.setup($Homebase, $SpawnPoints)
 	$EnemySpawner.terrain = $Terrain

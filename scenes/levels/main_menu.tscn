@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c6nnomwvq0tmw"]
 
 [ext_resource type="Script" uid="uid://exp6cw4yugsy" path="res://scenes/levels/main_menu.gd" id="1_fsby3"]
+[ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="2_leamy"]
 
 [node name="MainMenu" type="Node2D" unique_id=1690912587]
 script = ExtResource("1_fsby3")
@@ -37,6 +38,12 @@ offset_right = 1371.0
 offset_bottom = 636.0
 text = "Quit"
 
+[node name="FadeTransition" parent="." unique_id=1391081048 instance=ExtResource("2_leamy")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=898522706]
+
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="FadeTransition/fade_timer" to="." method="_on_fade_timer_timeout"]

@@ -3,7 +3,7 @@ class_name Wallet extends Node
 
 signal changed(amount: int)
 
-@export var starting_money := 2000000
+@export var starting_money := 200
 
 var money := 0
 
