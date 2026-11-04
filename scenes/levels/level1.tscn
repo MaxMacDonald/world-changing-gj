@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://clv6qj81vau1d" path="res://scenes/spawning/spawn_point.gd" id="5_spawnpt"]
 [ext_resource type="Script" uid="uid://bg86r1cvsys7y" path="res://scenes/spawning/enemy_spawner.gd" id="6_spawner"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="7_hud"]
+[ext_resource type="Script" uid="uid://ce5m6u6v3tm4s" path="res://scenes/build/wallet.gd" id="8_wallet"]
+[ext_resource type="Script" uid="uid://ft5et1jgu0cc" path="res://scenes/build/build_controller.gd" id="9_build"]
+[ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
 size = Vector2(120, 120)
@@ -16,36 +19,47 @@ size = Vector2(120, 120)
 [node name="Level" type="Node2D" unique_id=1259410256]
 script = ExtResource("1_x6ivy")
 
+[node name="Terrain" type="Node2D" parent="." unique_id=1146821143]
+script = ExtResource("10_terrain")
+
 [node name="Towers" type="Node2D" parent="." unique_id=1403035586]
 
 [node name="TowerBasic" parent="Towers" unique_id=761654335 instance=ExtResource("3_bfxgj")]
 position = Vector2(388, 967)
 
-[node name="Enemies" type="Node2D" parent="." unique_id=2038259248]
+[node name="Enemies" type="Node2D" parent="." unique_id=2074312030]
 
 [node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
 
-[node name="SpawnPoints" type="Node2D" parent="." unique_id=2066319431]
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=984475403]
 
-[node name="SpawnLeft" type="Area2D" parent="SpawnPoints" unique_id=1154559287]
+[node name="SpawnLeft" type="Area2D" parent="SpawnPoints" unique_id=1475097196]
 position = Vector2(250, 1052)
 script = ExtResource("5_spawnpt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnLeft" unique_id=1996796742]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnLeft" unique_id=50449477]
 shape = SubResource("RectangleShape2D_left")
 
-[node name="SpawnRight" type="Area2D" parent="SpawnPoints" unique_id=333613984]
+[node name="SpawnRight" type="Area2D" parent="SpawnPoints" unique_id=1778571146]
 position = Vector2(1700, 950)
 script = ExtResource("5_spawnpt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnRight" unique_id=245547337]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnRight" unique_id=739722200]
 shape = SubResource("RectangleShape2D_right")
 
 [node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
 position = Vector2(922, 180)
-max_lives = 20
 
-[node name="EnemySpawner" type="Node" parent="." unique_id=876067627]
+[node name="EnemySpawner" type="Node" parent="." unique_id=153372410]
 script = ExtResource("6_spawner")
+homebase = NodePath("../Homebase")
+spawn_points_root = NodePath("../SpawnPoints")
+enemy_container = NodePath("../Enemies")
 
-[node name="HUD" parent="." unique_id=1106455020 instance=ExtResource("7_hud")]
+[node name="HUD" parent="." unique_id=794922828 instance=ExtResource("7_hud")]
+
+[node name="Wallet" type="Node" parent="." unique_id=463121066]
+script = ExtResource("8_wallet")
+
+[node name="BuildController" type="Node" parent="." unique_id=380839138]
+script = ExtResource("9_build")

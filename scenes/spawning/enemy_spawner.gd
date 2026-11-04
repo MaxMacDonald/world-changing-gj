@@ -4,6 +4,8 @@ signal wave_started(wave_number: int)
 signal wave_finished(wave_number: int)
 ## Every wave has been spawned AND every enemy is gone.
 signal all_waves_cleared
+## An enemy was killed by the player; passes along its gold reward.
+signal enemy_killed(reward: int)
 
 ## Add new enemy types here; the key is what you write in the wave data.
 const ENEMY_SCENES := {
@@ -13,6 +15,7 @@ const ENEMY_SCENES := {
 @export var homebase: Homebase
 @export var spawn_points_root: Node
 @export var enemy_container: Node
+@export var terrain: TerrainGrid
 
 var _groups_running := 0
 var _enemies_alive := 0
@@ -26,6 +29,8 @@ func _ready() -> void:
 		spawn_points_root = get_node_or_null("../SpawnPoints")
 	if enemy_container == null:
 		enemy_container = get_node_or_null("../Enemies")
+	if terrain == null:
+		terrain = get_node_or_null("../Terrain") as TerrainGrid
 
 	if homebase == null: push_error("EnemySpawner: no Homebase found")
 	if spawn_points_root == null: push_error("EnemySpawner: no SpawnPoints node found")
@@ -95,7 +100,8 @@ func _spawn_enemy(enemy_id: String, point_def) -> void:
 		return
 
 	var enemy: Enemy = ENEMY_SCENES[enemy_id].instantiate()
-	enemy.setup(homebase.attack_point)
+	enemy.setup(homebase.attack_point, terrain)
+	enemy.killed.connect(func(reward: int): enemy_killed.emit(reward))
 	enemy_container.add_child(enemy)
 	enemy.global_position = point.get_spawn_position()
 

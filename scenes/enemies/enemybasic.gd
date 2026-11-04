@@ -1,30 +1,114 @@
 class_name Enemy extends Area2D
 
+## Emitted when the enemy is killed (not when it reaches the base).
+signal killed(reward: int)
+
 @export var speed := 50.0
 ## How many lives the player loses when this enemy reaches the base.
 @export var damage := 1
 @export var max_health := 3
+## Gold awarded to the player when this enemy is killed.
+@export var reward := 6
+## Seconds to dig through ONE +2 block.
+@export var dig_time := 3.0
+## How close (px) it walks up to a wall block before it starts digging.
+@export var dig_reach := 22.0
 ## Where the health bar sits relative to the enemy's centre.
 @export var health_bar_offset := Vector2(0, -26)
 
 var target: Node2D
+var terrain: TerrainGrid
 var health: int
 var health_bar: EnemyHealthBar
+var dig_bar: EnemyHealthBar
+
+# --- pathing state ---
+var _mode_version := -1                      # terrain version the dig/around decision was made for
+var _through := false                        # true = following the "dig through" route
+var _plan_cell := Vector2i(-9999, -9999)     # cell the current step was planned from
+var _step := Vector2i(-1, -1)                # next cell to walk into
+var _dig_cell := Vector2i(-1, -1)
+var _dig_progress := 0.0
 
 func _ready() -> void:
+	add_to_group("enemies")
 	health = max_health
+
 	health_bar = EnemyHealthBar.new()
 	health_bar.position = health_bar_offset
 	add_child(health_bar)
 
-func setup(new_target: Node2D) -> void:
+	dig_bar = EnemyHealthBar.new()
+	dig_bar.size = Vector2(36, 4)
+	dig_bar.auto_hide = false
+	dig_bar.flat_color = Color(0.85, 0.6, 0.25)
+	dig_bar.position = health_bar_offset + Vector2(0, 7)
+	add_child(dig_bar)
+
+func setup(new_target: Node2D, new_terrain: TerrainGrid = null) -> void:
 	target = new_target
+	terrain = new_terrain
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(target):
 		return
-	# Walk in a straight line toward the target (the homebase's AttackPoint).
-	global_position = global_position.move_toward(target.global_position, speed * delta)
+	if terrain == null:
+		# No terrain in the level: just walk straight at the base.
+		global_position = global_position.move_toward(target.global_position, speed * delta)
+		return
+	_move_with_terrain(delta)
+
+func _move_with_terrain(delta: float) -> void:
+	var cell := terrain.clamp_cell(terrain.world_to_cell(global_position))
+	var current_speed := speed * terrain.speed_multiplier_at(global_position)
+
+	# In the base's own cell (or with no usable route) head straight for the attack point.
+	if not terrain.has_route() or cell == terrain.goal_cell:
+		_stop_digging()
+		global_position = global_position.move_toward(target.global_position, current_speed * delta)
+		return
+
+	# Terrain changed (player edit or a tunnel was dug): decide again whether
+	# to go around or dig through.
+	if _mode_version != terrain.version:
+		_mode_version = terrain.version
+		_through = terrain.should_dig(cell, speed, dig_time)
+		_plan_cell = Vector2i(-9999, -9999)
+
+	if cell != _plan_cell:
+		_plan_cell = cell
+		_step = terrain.get_step(cell, speed, dig_time, _through)
+
+	if _step.x < 0:
+		_stop_digging()
+		global_position = global_position.move_toward(target.global_position, current_speed * delta)
+		return
+
+	if terrain.is_undug_wall(_step) and terrain.distance_to_cell(global_position, _step) <= dig_reach:
+		_dig(delta)
+		return
+
+	_stop_digging()
+	global_position = global_position.move_toward(terrain.cell_to_world(_step), current_speed * delta)
+
+func _dig(delta: float) -> void:
+	if _dig_cell != _step:
+		_dig_cell = _step
+		_dig_progress = 0.0
+	_dig_progress += delta
+	var total := maxf(dig_time, 0.01)
+	dig_bar.visible = true
+	dig_bar.set_ratio(_dig_progress / total)
+	if _dig_progress >= total:
+		var finished := _dig_cell
+		_stop_digging()
+		terrain.dig_tunnel(finished)
+
+func _stop_digging() -> void:
+	_dig_cell = Vector2i(-1, -1)
+	_dig_progress = 0.0
+	if dig_bar:
+		dig_bar.visible = false
 
 func take_damage(amount: int) -> void:
 	if health <= 0:
@@ -32,6 +116,7 @@ func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
 	if health == 0:
+		killed.emit(reward)
 		queue_free()
 
 func _on_area_entered(bullet: Area2D) -> void:

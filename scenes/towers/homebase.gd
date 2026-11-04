@@ -9,6 +9,7 @@ var lives: int
 @onready var attack_point: Area2D = $AttackPoint
 
 func _ready() -> void:
+	super()
 	lives = max_lives
 	attack_point.area_entered.connect(_on_attack_point_area_entered)
 
