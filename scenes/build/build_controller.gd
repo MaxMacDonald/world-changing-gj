@@ -29,6 +29,7 @@ var _ghost: TowerGhost
 var _placing: Dictionary = {}
 
 var _paint_button := 0          # which mouse button is currently painting terrain (0 = none)
+var _erase_mode: bool = false
 var _paint_last_pos := Vector2.ZERO
 var _stroke: Dictionary = {}    # cells already changed during the current drag
 var _message := ""
@@ -211,7 +212,9 @@ func _exit_terraform() -> void:
 	terrain.set_overlay(false)
 
 func _terraform_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and (event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT):
+	_erase_mode = event.shift_pressed if event is InputEventWithModifiers else Input.is_key_pressed(KEY_SHIFT)
+	print(_erase_mode)
+	if event is InputEventMouseButton and (event.button_index == MOUSE_BUTTON_LEFT):
 		if event.pressed:
 			_paint_button = event.button_index
 			_stroke.clear()
@@ -227,16 +230,18 @@ func _terraform_input(event: InputEvent) -> void:
 		for s in range(1, steps + 1):
 			_paint_cell(terrain.world_to_cell(_paint_last_pos.lerp(pos, float(s) / steps)))
 		_paint_last_pos = pos
-	elif event.is_action_pressed("ui_cancel"):
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		_exit_terraform()
+		
+	
 
 func _paint_cell(cell: Vector2i) -> void:
 	if _stroke.has(cell):
 		return
 	_stroke[cell] = true
-	if _paint_button == MOUSE_BUTTON_LEFT:
+	if _paint_button == MOUSE_BUTTON_LEFT and _erase_mode == false:
 		_raise(cell)
-	else:
+	elif _erase_mode == true:
 		_lower(cell)
 
 func _raise(cell: Vector2i) -> void:
@@ -278,4 +283,4 @@ func _update_terraform_hover() -> void:
 		info += "    |    Lower: +%d gold" % terrain.get_lower_refund(cell)
 	if _message_time > 0.0:
 		info = _message
-	_hint.text = "TERRAFORM   Left click: raise    Right click: lower    Esc: exit\n" + info
+	_hint.text = "TERRAFORM   Left Click: raise    L-Shift + Left Click: lower    Right Click: exit\n" + info
