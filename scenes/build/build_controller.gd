@@ -62,11 +62,14 @@ func setup(new_wallet: Wallet, new_tower_container: Node, new_terrain: TerrainGr
 # ------------------------------------------------------------------ input
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if _mode == Mode.TERRAFORM:
+		
 		_terraform_input(event)
 		return
 
 	if event is InputEventMouseButton and event.pressed:
+		
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if _mode == Mode.PLACING:
 				_cancel_placement()

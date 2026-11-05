@@ -33,21 +33,31 @@ func _reset_visuals():
 		
 		
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	# Only handle when bubble is visible
+	
+	if not event.is_action("ui_accept"):
+		return
+		
 	if current_state == "idle":
 		if event.is_action_pressed("ui_accept"):  # Spacebar
 			is_holding = true
 			current_state = "charging"
 			_start_charge()
+			get_viewport().set_input_as_handled()
+			
+		
 		
 		elif event.is_action_released("ui_accept"):
 			is_holding = false
+			get_viewport().set_input_as_handled()
 	
 	elif current_state == "charging":
 		if event.is_action_released("ui_accept"):
 			is_holding = false
 			_cancel_charge()
+			get_viewport().set_input_as_handled()
+	
 
 func _process(delta):
 	match current_state:
@@ -65,9 +75,8 @@ func _process(delta):
 		
 		"bursting":
 			# Burst animation completes, then signal
-			await get_tree().create_timer(0.15).timeout
-			complete_burst()
-			queue_free()
+			pass
+	return
 
 func _start_charge():
 	hold_time = 0.0
@@ -116,6 +125,7 @@ func _handle_strain(delta):
 
 func _cancel_charge():
 	# Shrink back down
+	current_state = "cancelling"
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.3)
 	tween.tween_callback(_reset_after_cancel)
@@ -134,11 +144,13 @@ func _pop_effect():
 	tween.tween_property(self, "scale", Vector2.ONE * burst_scale, 0.1)
 	tween.parallel().tween_property(self, "modulate:a", 0.0, 0.15)
 	tween.tween_callback(_hide_bubble)
+	tween.tween_callback(complete_burst)
 
 func _hide_bubble():
 	visible = false
 
 func complete_burst():
+	queue_free()
 	emit_signal("wave_ready")  # Tell parent to start waves
 
 func set_label_text(text: String):

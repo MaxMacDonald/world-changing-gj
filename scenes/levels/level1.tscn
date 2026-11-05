@@ -66,10 +66,12 @@ script = ExtResource("9_build")
 
 [node name="FadeTransition" parent="." unique_id=1391081048 instance=ExtResource("9_plydf")]
 visible = false
+mouse_filter = 2
 
 [node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=242412097]
 
 [node name="Bubble" type="Node2D" parent="." unique_id=1845146576]
+visible = false
 position = Vector2(960, 1000)
 script = ExtResource("10_nkeig")
 
