@@ -24,9 +24,15 @@ func _ready() -> void:
 	$Homebase.destroyed.connect(_on_homebase_destroyed)
 	$EnemySpawner.wave_started.connect(func(n): print("Wave ", n))
 	$EnemySpawner.all_waves_cleared.connect(func(): print("Level cleared!"))
+	if $Bubble:
+		$Bubble.wave_ready.connect(_on_wave_ready)
+	
 
+
+func _on_wave_ready():
+	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)
-
+	
 func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet):
 	var bullet = bullet_scene.instantiate()
 	bullet.setup(pos, angle, bullet_enum)

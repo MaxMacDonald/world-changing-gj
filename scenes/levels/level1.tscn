@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://ce5m6u6v3tm4s" path="res://scenes/build/wallet.gd" id="8_wallet"]
 [ext_resource type="Script" uid="uid://ft5et1jgu0cc" path="res://scenes/build/build_controller.gd" id="9_build"]
 [ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="9_plydf"]
+[ext_resource type="Texture2D" uid="uid://c0yvvld7dhdbj" path="res://Assets-Placeholder/Ellipse 1.png" id="10_5ntmo"]
+[ext_resource type="Script" uid="uid://cbkc66gdmaxo6" path="res://scenes/levels/bubble.gd" id="10_nkeig"]
 [ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
@@ -66,3 +68,19 @@ script = ExtResource("9_build")
 visible = false
 
 [node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=242412097]
+
+[node name="Bubble" type="Node2D" parent="." unique_id=1845146576]
+position = Vector2(960, 1000)
+script = ExtResource("10_nkeig")
+
+[node name="BubbleSprite" type="Sprite2D" parent="Bubble" unique_id=348797926]
+texture = ExtResource("10_5ntmo")
+
+[node name="BubbleLabel" type="Label" parent="Bubble" unique_id=2068944294]
+offset_left = -80.0
+offset_top = -30.0
+offset_right = 80.0
+offset_bottom = 30.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
