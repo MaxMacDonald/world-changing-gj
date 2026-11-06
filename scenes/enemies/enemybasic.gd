@@ -143,4 +143,5 @@ func _bounce_loop() -> void:
 	
 func _on_area_entered(bullet: Area2D) -> void:
 	take_damage(bullet.damage)
-	bullet.queue_free()
+	if not bullet.has_node("Sparks"):
+		bullet.queue_free()
