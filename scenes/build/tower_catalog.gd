@@ -16,4 +16,10 @@ const TOWERS := [
 		"scene": preload("res://scenes/towers/tower_basic.tscn"),
 		"icon": preload("res://Assets-Placeholder/Towers/Combat Towers/spr_tower_crossbow.png"),
 	},
+	{
+		"name": "Kelvin",
+		"cost": 80,
+		"scene": preload("res://scenes/towers/tower_kelvin.tscn"),
+		"icon": preload("res://Assets-Placeholder/Towers/Combat Towers/spr_tower_lightning_tower.png")
+	}
 ]
