@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://dm4p68lwbrfab"]
 
 [ext_resource type="Script" uid="uid://bq0qm7xivwm5v" path="res://scenes/enemies/enemybasic.gd" id="1_i7xyq"]
-[ext_resource type="Texture2D" uid="uid://ccwd68dj7x8m4" path="res://kori-orro (smallest bouncy).png" id="2_i7xyq"]
+[ext_resource type="Texture2D" uid="uid://dhjd2mbyjy3yt" path="res://kori-orro (smallest bouncy)resized.png" id="2_i7xyq"]
 
 [node name="Enemy" type="Area2D" unique_id=2142404571]
+position = Vector2(1, -13)
 collision_mask = 2
 script = ExtResource("1_i7xyq")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=995429767]
-texture_filter = 3
-position = Vector2(32, -27)
-scale = Vector2(0.5, 0.5)
+[node name="KorriOrroSprite" type="Sprite2D" parent="." unique_id=1874883561]
+position = Vector2(0.25000095, 17.031822)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_i7xyq")
+offset = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=154743816]
-position = Vector2(-37, 9)
-polygon = PackedVector2Array(-1, 5, -3, -9, 24, -30, 50, -30, 77, -4, 77, 5)
+position = Vector2(-21, 17)
+scale = Vector2(0.46540713, 1.1866647)
+polygon = PackedVector2Array(8.594627, -1.6853961, 2.1486588, -6.7415843, 30.081192, -16.85396, 58.013725, -16.85396, 88.09491, -5.056188, 85.94626, -1.6853961)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -16,11 +16,19 @@ signal killed(reward: int)
 ## Where the health bar sits relative to the enemy's centre.
 @export var health_bar_offset := Vector2(0, -26)
 
+@export var squash_amount := 0.10   # how much it deforms
+@onready var visual: Node2D = $KorriOrroSprite  # sprite or node at the feet
+@export var base_duration := 0.5       # average cycle time
+@export var duration_jitter := 0.15     # +/- 15% variation
+
 var target: Node2D
 var terrain: TerrainGrid
 var health: int
 var health_bar: EnemyHealthBar
 var dig_bar: EnemyHealthBar
+var _tween: Tween
+var _cycle_duration: float
+var _base_scale: Vector2
 
 # --- pathing state ---
 var _mode_version := -1                      # terrain version the dig/around decision was made for
@@ -44,6 +52,9 @@ func _ready() -> void:
 	dig_bar.flat_color = Color(0.85, 0.6, 0.25)
 	dig_bar.position = health_bar_offset + Vector2(0, 7)
 	add_child(dig_bar)
+	_cycle_duration = base_duration * randf_range(1.0 - duration_jitter, 1.0 + duration_jitter)
+	_base_scale = visual.scale          # remembers what you set in the editor
+	_bounce_loop()
 
 func setup(new_target: Node2D, new_terrain: TerrainGrid = null) -> void:
 	target = new_target
@@ -119,6 +130,17 @@ func take_damage(amount: int) -> void:
 		killed.emit(reward)
 		queue_free()
 
+func _bounce_loop() -> void:
+	_tween = create_tween().set_loops()
+	_tween.tween_property(visual, "scale",
+		_base_scale * Vector2(1.0 - squash_amount, 1.0 + squash_amount), _cycle_duration * 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(visual, "scale",
+		_base_scale * Vector2(1.0 + squash_amount, 1.0 - squash_amount), _cycle_duration * 0.4)\
+		.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(visual, "scale", _base_scale, _cycle_duration * 0.3)
+	
+	
 func _on_area_entered(bullet: Area2D) -> void:
 	take_damage(bullet.damage)
 	bullet.queue_free()
