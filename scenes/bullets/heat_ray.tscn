@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bquruejw2m68g"]
+
+[ext_resource type="Script" uid="uid://vyy7x8ie7p1j" path="res://scenes/bullets/heat_ray.gd" id="1_2kney"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lpgqh"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4vpr"]
+blend_mode = 1
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_igbk0"]
+b = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ra4je"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_lpgqh"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4301075, 92.85714), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g4vpr"]
+_data = [Vector2(0.043010756, 1), 0.0, 0.0, 0, 0, Vector2(0.6505376, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7sbt6"]
+offsets = PackedFloat32Array(0, 0.2647059, 0.5)
+colors = PackedColorArray(0.96464974, 0.89483434, 0.3361717, 1, 0.8407462, 0.22203723, 0.33203498, 1, 0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7sbt6"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_g4vpr"]
+offsets = PackedFloat32Array(0, 0.10150376, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.5451128, 0.5451128, 0.5451128, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_id5dh"]
+gradient = SubResource("Gradient_g4vpr")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.502)
+fill_to = Vector2(0.6220657, 0.6971831)
+
+[node name="HeatRay" type="Area2D" unique_id=232544908]
+collision_layer = 2
+script = ExtResource("1_2kney")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1576571752]
+modulate = Color(1, 0.1764706, 0, 0.5882353)
+material = SubResource("CanvasItemMaterial_lpgqh")
+points = PackedVector2Array(0, 0, 0, 0)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=57815337]
+modulate = Color(1, 0.67058825, 0.5176471, 1)
+material = SubResource("CanvasItemMaterial_g4vpr")
+width = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=317496461]
+shape = SubResource("SegmentShape2D_igbk0")
+
+[node name="Sparks" type="CPUParticles2D" parent="." unique_id=700220356]
+material = SubResource("CanvasItemMaterial_ra4je")
+position = Vector2(50, 50)
+emitting = false
+amount = 15
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 0.28
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 396.04
+initial_velocity_max = 502.0
+damping_max = 46.535
+damping_curve = SubResource("Curve_lpgqh")
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_g4vpr")
+color = Color(1.2502502, 1.2502502, 0, 1)
+color_ramp = SubResource("Gradient_7sbt6")
+
+[node name="LightFlash" type="PointLight2D" parent="." unique_id=1340473980]
+light_mask = 3
+material = SubResource("CanvasItemMaterial_7sbt6")
+color = Color(1, 0.7529412, 0.3137255, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_id5dh")
