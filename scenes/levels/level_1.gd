@@ -3,12 +3,21 @@ extends Node2D
 const LEVEL_WAVES = preload("res://scenes/levels/level_1_waves.gd")
 
 var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
+var heat_ray_bullet_scene = preload("res://scenes/bullets/heat_ray.tscn")
 
 func _ready() -> void:
 	$FadeTransition.show()
 	$FadeTransition/fade_timer.start()
 	$FadeTransition/AnimationPlayer.play("fade_out")
-	RenderingServer.set_default_clear_color('c976a9')
+	var bg := Polygon2D.new()
+	bg.color = Color("c976a9")
+	bg.polygon = PackedVector2Array([
+		Vector2(-6000, -6000), Vector2(6000, -6000),
+		Vector2(6000, 6000), Vector2(-6000, 6000)
+	])
+	bg.z_index = -100
+	add_child(bg)
+	move_child(bg, 0)
 	#$Towers/TowerBasic.connect("shoot", create_bullet)
 
 	$Terrain.setup($Homebase, $SpawnPoints)
@@ -33,10 +42,19 @@ func _on_wave_ready():
 	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)
 	
-func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet):
-	var bullet = bullet_scene.instantiate()
-	bullet.setup(pos, angle, bullet_enum)
-	$Bullets.add_child(bullet)
+func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target: Area2D):
+	match bullet_enum:
+		
+		Data.Bullet.SINGLE:
+			var bullet = bullet_scene.instantiate()
+			$Bullets.add_child(bullet)
+			bullet.setup(pos, angle, bullet_enum)
+			
+		Data.Bullet.HEATRAY:
+			var heatray = heat_ray_bullet_scene.instantiate()
+			$Bullets.add_child(heatray)
+			heatray.setup(pos, target.global_position)
+
 
 func _on_tower_placed(tower: Tower) -> void:
 	tower.shoot.connect(create_bullet)
