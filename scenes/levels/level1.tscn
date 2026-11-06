@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c0yvvld7dhdbj" path="res://Assets-Placeholder/Ellipse 1.png" id="10_5ntmo"]
 [ext_resource type="Script" uid="uid://cbkc66gdmaxo6" path="res://scenes/levels/bubble.gd" id="10_nkeig"]
 [ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
+[ext_resource type="Texture2D" uid="uid://di3lwu0rxbh3d" path="res://final ground.png" id="12_lgguw"]
+[ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
 size = Vector2(120, 120)
@@ -33,22 +35,22 @@ script = ExtResource("10_terrain")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=984475403]
 
 [node name="SpawnLeft" type="Area2D" parent="SpawnPoints" unique_id=1475097196]
-position = Vector2(250, 1052)
+position = Vector2(241, 1157)
 script = ExtResource("5_spawnpt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnLeft" unique_id=50449477]
 shape = SubResource("RectangleShape2D_left")
 
 [node name="SpawnRight" type="Area2D" parent="SpawnPoints" unique_id=1778571146]
-position = Vector2(1700, 950)
+position = Vector2(1687, 1151)
 script = ExtResource("5_spawnpt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnRight" unique_id=739722200]
 shape = SubResource("RectangleShape2D_right")
 
 [node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
-position = Vector2(922, 180)
-max_lives = 20
+z_index = -2
+position = Vector2(960, 340)
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=153372410]
 script = ExtResource("6_spawner")
@@ -86,3 +88,19 @@ offset_bottom = 30.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="BackgroudSprite" type="Sprite2D" parent="." unique_id=1539055485]
+z_index = -3
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_lgguw")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="BackgroudSprite" unique_id=95086032]
+
+[node name="Foregroud" type="Sprite2D" parent="." unique_id=1642029407]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_jprdt")
+metadata/_edit_lock_ = true
