@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://hkc1csvsvokg"]
+
+[ext_resource type="PackedScene" uid="uid://dm4p68lwbrfab" path="res://scenes/enemies/enemybasic.tscn" id="1_1bn38"]
+[ext_resource type="Script" uid="uid://c3ncgm2q8immv" path="res://scenes/enemies/bigslime.gd" id="2_8rr8h"]
+[ext_resource type="Texture2D" uid="uid://brcfw3kikk0nd" path="res://magna (big).png" id="2_iyjns"]
+
+[node name="Enemy" unique_id=2142404571 instance=ExtResource("1_1bn38")]
+script = ExtResource("2_8rr8h")
+
+[node name="KorriOrroSprite" parent="." index="0" unique_id=1874883561]
+texture = ExtResource("2_iyjns")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=154743816]
+position = Vector2(-57.046875, 36.493046)
+scale = Vector2(1.0980699, 3.6671236)
+polygon = PackedVector2Array(-18.171085, -0.9525299, -19.081776, -9.406021, 22.80991, -17.859512, 61.96953, -17.859512, 104.771904, -8.3152485, 106.59328, 0.1382432)

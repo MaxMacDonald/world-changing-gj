@@ -24,7 +24,7 @@ const WAVES := [
 	# Wave 2
 	{
 		"spawns": [
-			{"enemy": "basic", "point": "SpawnLeft", "count": 6, "interval": 1.0},
+			{"enemy": "big_slime", "point": "SpawnLeft", "count": 6, "interval": 1.0},
 			{"enemy": "basic", "point": "SpawnRight", "count": 4, "interval": 1.5, "delay": 3.0},
 		],
 		"time_after": 5.0,
