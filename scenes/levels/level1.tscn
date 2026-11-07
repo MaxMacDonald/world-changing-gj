@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c0yvvld7dhdbj" path="res://Assets-Placeholder/Ellipse 1.png" id="10_5ntmo"]
 [ext_resource type="Script" uid="uid://cbkc66gdmaxo6" path="res://scenes/levels/bubble.gd" id="10_nkeig"]
 [ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
+[ext_resource type="Texture2D" uid="uid://di3lwu0rxbh3d" path="res://final ground.png" id="12_lgguw"]
+[ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
 size = Vector2(120, 120)
@@ -57,7 +59,8 @@ script = ExtResource("5_spawnpt")
 shape = SubResource("RectangleShape2D_right")
 
 [node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
-position = Vector2(922, 180)
+z_index = -2
+position = Vector2(960, 340)
 max_lives = 20
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=153372410]
@@ -96,6 +99,22 @@ offset_bottom = 30.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="BackgroudSprite" type="Sprite2D" parent="." unique_id=1539055485]
+z_index = -3
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_lgguw")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="BackgroudSprite" unique_id=95086032]
+
+[node name="Foregroud" type="Sprite2D" parent="." unique_id=1642029407]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_jprdt")
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1050082240]
 environment = SubResource("Environment_igbk0")
