@@ -19,6 +19,10 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("ui_cancel") or event.is_echo():
 		return
+	# Victory (or any other end screen) owns Esc while it is showing.
+	for screen in get_tree().get_nodes_in_group("end_screen"):
+		if screen.visible:
+			return
 	# If Esc is needed to cancel something else first (placing a tower, terraform
 	# mode, the radial menu), let that happen and don't pause yet.
 	if not get_tree().paused:
@@ -39,11 +43,19 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
+	$/root/Level/FadeCanvas/FadeTransition.show()
+	$/root/Level/FadeCanvas/FadeTransition/fade_timer.start()
+	$/root/Level/FadeCanvas/FadeTransition/AnimationPlayer.play("fade_in")
+	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	if quit_to_main_menu and ResourceLoader.exists(main_menu_scene):
+		$/root/Level/FadeCanvas/FadeTransition.show()
+		$/root/Level/FadeCanvas/FadeTransition/fade_timer.start()
+		$/root/Level/FadeCanvas/FadeTransition/AnimationPlayer.play("fade_in")
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file(main_menu_scene)
 	else:
 		get_tree().quit()

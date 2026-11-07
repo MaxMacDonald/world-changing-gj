@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://di3lwu0rxbh3d" path="res://final ground.png" id="12_lgguw"]
 [ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
 [ext_resource type="Script" uid="uid://dbokdfq4gyy71" path="res://scenes/ui/pause_menu.gd" id="14_jprdt"]
+[ext_resource type="Script" uid="uid://c4tj1bjtfhuq7" path="res://scenes/ui/victory_screen.gd" id="15_ps2vj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
 size = Vector2(120, 120)
@@ -74,12 +75,6 @@ script = ExtResource("8_wallet")
 [node name="BuildController" type="Node" parent="." unique_id=380839138]
 script = ExtResource("9_build")
 
-[node name="FadeTransition" parent="." unique_id=1391081048 instance=ExtResource("9_plydf")]
-visible = false
-mouse_filter = 2
-
-[node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=242412097]
-
 [node name="Bubble" type="Node2D" parent="." unique_id=1845146576]
 visible = false
 position = Vector2(960, 1000)
@@ -120,3 +115,16 @@ compositor = SubResource("Compositor_oluon")
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=467763400]
 script = ExtResource("14_jprdt")
+
+[node name="VictoryScreen" type="CanvasLayer" parent="." unique_id=169713908]
+script = ExtResource("15_ps2vj")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="." unique_id=1521572617]
+layer = 100
+
+[node name="FadeTransition" parent="FadeCanvas" unique_id=1391081048 instance=ExtResource("9_plydf")]
+visible = false
+z_index = 1
+mouse_filter = 2
+
+[node name="fade_timer" type="Timer" parent="FadeCanvas/FadeTransition" unique_id=242412097]
