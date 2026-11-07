@@ -15,3 +15,5 @@ res://Main.tscn
 res://Prototype Enemy/Main/main.tscn
 res://scenes/enemies/armouredslime.tscn
 res://scenes/enemies/armouredslime.gd
+res://scenes/enemies/swordslime.tscn
+res://scenes/enemies/swordslime.gd

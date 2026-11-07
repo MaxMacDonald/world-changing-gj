@@ -11,7 +11,8 @@ signal enemy_killed(reward: int)
 const ENEMY_SCENES := {
 	"basic": preload("res://scenes/enemies/enemybasic.tscn"),
 	"big_slime": preload("res://scenes/enemies/bigslime.tscn"),
-	"armoured": preload("res://scenes/enemies/armouredslime.tscn")
+	"armoured": preload("res://scenes/enemies/armouredslime.tscn"),
+	"sword": preload("res://scenes/enemies/swordslime.tscn")
 }
 
 @export var homebase: Homebase

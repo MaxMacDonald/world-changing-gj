@@ -24,7 +24,7 @@ const WAVES := [
 	# Wave 2
 	{
 		"spawns": [
-			{"enemy": "big_slime", "point": "SpawnLeft", "count": 6, "interval": 1.0},
+			{"enemy": "sword", "point": "SpawnLeft", "count": 6, "interval": 1.0},
 			{"enemy": "armoured", "point": "SpawnRight", "count": 4, "interval": 1.5, "delay": 3.0},
 		],
 		"time_after": 5.0,
@@ -32,7 +32,7 @@ const WAVES := [
 	# Wave 3 - enemies pick a random spawn each time
 	{
 		"spawns": [
-			{"enemy": "basic", "point": ["SpawnLeft", "SpawnRight"], "count": 15, "interval": 0.6},
+			{"enemy": "big_slime", "point": ["SpawnLeft", "SpawnRight"], "count": 15, "interval": 0.6},
 		],
 		"wait_for_clear": true,
 	},
