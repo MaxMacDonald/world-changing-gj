@@ -13,3 +13,5 @@ res://scenes/enemies/bigslime.gd
 res://scenes/levels/level_1_waves.gd
 res://Main.tscn
 res://Prototype Enemy/Main/main.tscn
+res://scenes/enemies/armouredslime.tscn
+res://scenes/enemies/armouredslime.gd

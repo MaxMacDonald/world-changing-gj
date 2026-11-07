@@ -10,7 +10,8 @@ signal enemy_killed(reward: int)
 ## Add new enemy types here; the key is what you write in the wave data.
 const ENEMY_SCENES := {
 	"basic": preload("res://scenes/enemies/enemybasic.tscn"),
-	"big_slime": preload("res://scenes/enemies/bigslime.tscn")
+	"big_slime": preload("res://scenes/enemies/bigslime.tscn"),
+	"armoured": preload("res://scenes/enemies/armouredslime.tscn")
 }
 
 @export var homebase: Homebase
