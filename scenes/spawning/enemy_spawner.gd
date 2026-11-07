@@ -43,6 +43,10 @@ func start(waves: Array) -> void:
 func stop() -> void:
 	_stopped = true
 
+# If the level is restarted or left mid-wave, stop the wave loops cleanly.
+func _exit_tree() -> void:
+	_stopped = true
+
 func _run_waves(waves: Array) -> void:
 	for i in waves.size():
 		var wave: Dictionary = waves[i]
@@ -64,13 +68,25 @@ func _run_waves(waves: Array) -> void:
 
 		var pause: float = wave.get("time_after", 0.0)
 		if pause > 0.0 and i < waves.size() - 1:
-			await get_tree().create_timer(pause).timeout
+			await _wait(pause)
 			if _stopped: return
 
 	while _enemies_alive > 0:
 		await get_tree().process_frame
 		if _stopped: return
 	all_waves_cleared.emit()
+
+## Waits using a Timer node owned by this spawner. Unlike get_tree().create_timer()
+## (which keeps running while the game is paused and outlives the scene), it pauses with
+## the game and disappears with the spawner when the scene is restarted.
+func _wait(seconds: float) -> void:
+	var timer := Timer.new()
+	timer.one_shot = true
+	timer.wait_time = maxf(seconds, 0.001)
+	add_child(timer)
+	timer.start()
+	await timer.timeout
+	timer.queue_free()
 
 func _run_group(group: Dictionary) -> void:
 	_groups_running += 1
@@ -79,12 +95,12 @@ func _run_group(group: Dictionary) -> void:
 	var interval: float = group.get("interval", 1.0)
 
 	if delay > 0.0:
-		await get_tree().create_timer(delay).timeout
+		await _wait(delay)
 	for n in count:
 		if _stopped: break
 		_spawn_enemy(group.get("enemy", "basic"), group.get("point"))
 		if n < count - 1:
-			await get_tree().create_timer(interval).timeout
+			await _wait(interval)
 	_groups_running -= 1
 
 func _spawn_enemy(enemy_id: String, point_def) -> void:

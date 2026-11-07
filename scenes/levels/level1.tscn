@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
 [ext_resource type="Texture2D" uid="uid://di3lwu0rxbh3d" path="res://final ground.png" id="12_lgguw"]
 [ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
+[ext_resource type="Script" uid="uid://dbokdfq4gyy71" path="res://scenes/ui/pause_menu.gd" id="14_jprdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
 size = Vector2(120, 120)
@@ -61,13 +62,9 @@ shape = SubResource("RectangleShape2D_right")
 [node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
 z_index = -2
 position = Vector2(960, 340)
-max_lives = 20
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=153372410]
 script = ExtResource("6_spawner")
-homebase = NodePath("../Homebase")
-spawn_points_root = NodePath("../SpawnPoints")
-enemy_container = NodePath("../Enemies")
 
 [node name="HUD" parent="." unique_id=794922828 instance=ExtResource("7_hud")]
 
@@ -120,3 +117,6 @@ metadata/_edit_lock_ = true
 environment = SubResource("Environment_igbk0")
 camera_attributes = SubResource("CameraAttributesPractical_lrsj2")
 compositor = SubResource("Compositor_oluon")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=467763400]
+script = ExtResource("14_jprdt")
