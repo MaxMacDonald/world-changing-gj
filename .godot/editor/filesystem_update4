@@ -17,3 +17,7 @@ res://scenes/enemies/armouredslime.tscn
 res://scenes/enemies/armouredslime.gd
 res://scenes/enemies/swordslime.tscn
 res://scenes/enemies/swordslime.gd
+res://scenes/ui/PauseMenu.tscn
+res://scenes/ui/hud.gd
+res://scenes/ui/pause_menu.gd
+res://scenes/ui/hud.tscn
