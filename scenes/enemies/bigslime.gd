@@ -6,6 +6,7 @@ var little_slime_scene = preload("res://scenes/enemies/enemybasic.tscn")
 func new_enemy_init() -> void:
 	max_health = 6
 	damage = 5
+	speed = 40.0
 
 func take_damage(amount: int) -> void:
 	if health <= 0:
