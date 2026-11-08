@@ -2,16 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://ctcau21ljcoom" path="res://scenes/towers/tower.tscn" id="1_kruwa"]
 [ext_resource type="Script" uid="uid://cqfyuimq4jvrh" path="res://scenes/towers/tower_basic.gd" id="2_6vco4"]
-[ext_resource type="Texture2D" uid="uid://cey2yaovwhx2a" path="res://Assets-Placeholder/Towers/Combat Towers/spr_tower_crossbow.png" id="3_4fgg7"]
+[ext_resource type="Texture2D" uid="uid://b8o1yurfsmxbg" path="res://projectile_tower.png" id="3_4fgg7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ku0u"]
-radius = 100.0
+radius = 139.0
 
 [node name="TowerBasic" unique_id=761654335 instance=ExtResource("1_kruwa")]
 script = ExtResource("2_6vco4")
 
 [node name="Sprite2D" parent="." index="0" unique_id=661667892]
 texture_filter = 3
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_4fgg7")
 
 [node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(66676875) index="0" unique_id=2053249093]
