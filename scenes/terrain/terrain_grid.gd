@@ -15,6 +15,10 @@ class_name TerrainGrid extends Node2D
 ## An enemy digs when going around takes longer than path_tolerance x going through.
 
 signal terrain_changed
+## Fired after a cell's height changes (used by the visuals for animation only).
+signal cell_height_changed(cell: Vector2i, from_height: int, to_height: int)
+## Fired when an undug wall becomes a tunnel.
+signal tunnel_dug(cell: Vector2i)
 
 const MAX_HEIGHT := 2
 const FLAG_SPAWN := 1
@@ -25,9 +29,13 @@ const FLAG_BASE := 2
 ## Number of cells. The grid starts at this node's position.
 @export var grid_size := Vector2i(40, 23)
 
+@export_group("Visuals")
+## Animate cells growing and sinking. Off = they change instantly. Sprites are set in terrain_art.gd.
+@export var animate := true
+
 @export_group("Terraforming cost")
 ## Gold to raise a cell: [0 -> +1, +1 -> +2].
-@export var raise_costs: Array[int] = [10, 20]
+@export var raise_costs: Array[int] = [20, 40]
 ## Fraction of the raise cost you get back when lowering a cell.
 @export_range(0.0, 1.0) var lower_refund_ratio := 0.5
 
@@ -58,6 +66,7 @@ var _mult := PackedFloat32Array()
 var _fields := {}
 var _fields_version := -1
 
+var _visuals: TerrainVisuals
 var _overlay: Overlay
 var _show_grid := false
 var _hover_cell := Vector2i(-1, -1)
@@ -76,6 +85,9 @@ func _ready() -> void:
 	_open.fill(1)
 	_mult.resize(n)
 	_mult.fill(1.0)
+	_visuals = TerrainVisuals.new()
+	_visuals.animate = animate
+	add_child(_visuals)
 	_overlay = Overlay.new()
 	_overlay.grid = self
 	add_child(_overlay)
@@ -264,14 +276,18 @@ func dig_tunnel(cell: Vector2i) -> void:
 	_tunnel[i] = 1
 	_refresh(i)
 	_touch()
+	tunnel_dug.emit(cell)
 
 func _set_height(cell: Vector2i, h: int) -> void:
 	var i := _idx(cell)
+	var old := _height[i]
 	_height[i] = h
 	if h < MAX_HEIGHT:
 		_tunnel[i] = 0
 	_refresh(i)
 	_touch()
+	if old != h:
+		cell_height_changed.emit(cell, old, h)
 
 func _refresh(i: int) -> void:
 	_open[i] = 1 if (_height[i] < MAX_HEIGHT or _tunnel[i] == 1) else 0
@@ -279,7 +295,6 @@ func _refresh(i: int) -> void:
 
 func _touch() -> void:
 	version += 1
-	queue_redraw()
 	terrain_changed.emit()
 
 func _tower_in_cell(cell: Vector2i) -> bool:
@@ -335,7 +350,14 @@ func get_step(cell: Vector2i, speed: float, dig_time: float, through: bool) -> V
 	var field: FlowField = f[1] if through else f[0]
 	return field.best_neighbor(cell)
 
-# ---------------------------------------------------------------- drawing
+# ---------------------------------------------------------------- visuals
+
+## Cosmetic only: lets a digging enemy make the cliff shake and kick up dust.
+func notify_digging(cell: Vector2i, delta: float) -> void:
+	if _visuals:
+		_visuals.notify_digging(cell, delta)
+
+# ---------------------------------------------------------------- overlay (grid lines / hover)
 
 ## Show or hide the grid lines and highlight one cell (used by the build controller).
 func set_overlay(show_grid: bool, hover: Vector2i = Vector2i(-1, -1), hover_ok: bool = true) -> void:
@@ -346,43 +368,6 @@ func set_overlay(show_grid: bool, hover: Vector2i = Vector2i(-1, -1), hover_ok: 
 	_hover_ok = hover_ok
 	if _overlay:
 		_overlay.queue_redraw()
-
-func _draw() -> void:
-	var cs := float(cell_size)
-	for y in grid_size.y:
-		for x in grid_size.x:
-			var i := y * grid_size.x + x
-			var h := _height[i]
-			if h == 0:
-				continue
-			var r := Rect2(Vector2(x, y) * cs, Vector2(cs, cs))
-			if h == 1:
-				_draw_hill(r)
-			else:
-				_draw_wall(r, _tunnel[i] == 1)
-
-func _draw_hill(r: Rect2) -> void:
-	draw_rect(r, Color(0.5, 0.6, 0.32))
-	draw_rect(r.grow(-6.0), Color(0.62, 0.72, 0.4))
-	draw_rect(r, Color(0.28, 0.36, 0.17), false, 2.0)
-
-func _draw_wall(r: Rect2, tunnel: bool) -> void:
-	draw_rect(r, Color(0.42, 0.39, 0.41))
-	var line := Color(0.26, 0.24, 0.26)
-	var row_h := r.size.y / 3.0
-	for row in 3:
-		var y0 := r.position.y + row_h * row
-		if row > 0:
-			draw_line(Vector2(r.position.x, y0), Vector2(r.end.x, y0), line, 2.0)
-		var offsets := [0.5] if row % 2 == 0 else [0.25, 0.75]
-		for o: float in offsets:
-			var x := r.position.x + r.size.x * o
-			draw_line(Vector2(x, y0), Vector2(x, y0 + row_h), line, 2.0)
-	draw_rect(r, Color(0.16, 0.14, 0.16), false, 3.0)
-	if tunnel:
-		var hole := r.grow(-10.0)
-		draw_rect(hole, Color(0.07, 0.05, 0.04))
-		draw_rect(hole, Color(0.55, 0.42, 0.25), false, 2.0)
 
 func draw_overlay(canvas: CanvasItem) -> void:
 	if not _show_grid:
