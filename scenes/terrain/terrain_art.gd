@@ -16,8 +16,8 @@ extends RefCounted
 
 # ---- sprites ----
 const HILL := [
-	preload("res://terrainAssets/hill.png"),
-	preload("res://terrainAssets/hill.png"),
+	preload("res://terrainAssets/hill-hole.png"),
+	preload("res://terrainAssets/hill-hole.png"),
 ]
 const CLIFF := [
 	preload("res://terrainAssets/cliff.png"),
@@ -26,7 +26,7 @@ const CLIFF := [
 ## Drawn on the front of a cliff cell that has been dug through.
 const TUNNEL := preload("res://terrainAssets/hole.png")
 ## Cracked/disturbed dirt drawn at the base while ground is rising or sinking.
-const CRACK := preload("res://terrainAssets/crack.png")
+const CRACK := null
 
 ## true = pixel art (crisp, nearest-neighbour). false = smooth scaling for hi-res art.
 const PIXEL_ART := true
