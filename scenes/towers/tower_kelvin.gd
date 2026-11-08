@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 		
 func _on_relode_timer_timeout() -> void:
 	if enemies:
+		Sound.play("laser2", -4.0, 0.05)
 		shoot.emit(position, $TurretPointer.rotation, Data.Bullet.HEATRAY, enemies[0])
 
 func _prune_enemies() -> void:

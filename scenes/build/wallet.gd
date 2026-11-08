@@ -16,6 +16,7 @@ func can_afford(cost: int) -> bool:
 func add(amount: int) -> void:
 	money += amount
 	changed.emit(money)
+	Sound.play("money_receive", -12.0)
 
 ## Returns true (and deducts the cost) if the player can afford it.
 func spend(cost: int) -> bool:

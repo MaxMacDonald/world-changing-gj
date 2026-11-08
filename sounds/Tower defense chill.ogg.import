@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctgr856suffco"
+path="res://.godot/imported/Tower defense chill.ogg-d010012397bbd9ee2e0aae25c0b21bad.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Tower defense chill.ogg"
+dest_files=["res://.godot/imported/Tower defense chill.ogg-d010012397bbd9ee2e0aae25c0b21bad.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
