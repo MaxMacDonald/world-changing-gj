@@ -4,6 +4,9 @@ class_name RadialMenu extends Control
 ## open() takes an array of entry dictionaries (one per slot):
 ##   "label"   : String  - shown in the centre when hovered
 ##   "cost"    : int     - shown under the slot (-1 = no cost)
+##   "price_text": String - shown under the slot in green instead of a cost (e.g. "+42")
+##   "angle"   : float   - position on the ring in radians (0 = right, PI/2 = bottom).
+##                         Slots without one are spaced evenly starting from the top.
 ##   "icon"    : Texture2D (optional)
 ##   "glyph"   : String  - short text drawn instead of an icon (optional)
 ##   "enabled" : bool    - can it be clicked?
@@ -40,7 +43,8 @@ func close() -> void:
 	hide()
 
 func _slot_pos(i: int) -> Vector2:
-	return _center + Vector2.from_angle(-PI / 2.0 + TAU * i / _entries.size()) * RING_RADIUS
+	var angle: float = _entries[i].get("angle", -PI / 2.0 + TAU * i / _entries.size())
+	return _center + Vector2.from_angle(angle) * RING_RADIUS
 
 func _slot_at(pos: Vector2) -> int:
 	for i in _entries.size():
@@ -95,10 +99,15 @@ func _draw() -> void:
 			var s := icon.get_size() * sc
 			draw_texture_rect(icon, Rect2(p - s / 2.0, s), false, tint)
 		elif e.get("glyph", "") != "":
-			_text(p + Vector2(-SLOT_RADIUS, 12), SLOT_RADIUS * 2.0, e.glyph, 36, tint)
+			var glyph: String = e.glyph
+			var gsize := 36 if glyph.length() <= 2 else 24
+			_text(p + Vector2(-SLOT_RADIUS, gsize / 3.0), SLOT_RADIUS * 2.0, glyph, gsize, tint)
 
 		var cost: int = e.get("cost", -1)
-		if cost >= 0:
+		var price_text: String = e.get("price_text", "")
+		if price_text != "":
+			_text(p + Vector2(-SLOT_RADIUS, SLOT_RADIUS + 20), SLOT_RADIUS * 2.0, price_text, 18, Color(0.5, 1.0, 0.5))
+		elif cost >= 0:
 			var cost_color := Color(1, 0.85, 0.3) if enabled else Color(1, 0.4, 0.4)
 			_text(p + Vector2(-SLOT_RADIUS, SLOT_RADIUS + 20), SLOT_RADIUS * 2.0, str(cost), 18, cost_color)
 
