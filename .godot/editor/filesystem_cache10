@@ -1,20 +1,26 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794053212
+::res://::1794143973
+canon aoe.png::CompressedTexture2D::5047108197206385594::1794143937::1794143979::1::::<><><>0<>0<>c18efe86f1ec33fbc24a1e681fc40ecc<>res://.godot/imported/canon aoe.png-5b460a17e4a39f2bbf11f44fb06e489a.ctex::
+canon_aoe.png::CompressedTexture2D::5524724882641173301::1794143937::1794143979::1::::<><><>0<>0<>b65b7cbab2539420dd0837b784fc41be<>res://.godot/imported/canon_aoe.png-1a0dbfe494e8b03709ef27c37dafd911.ctex::
 final base.png::CompressedTexture2D::1657317784423988535::1793994622::1794053224::1::::<><><>0<>0<>dd3715b6342f7929c4ebaeae75901895<>res://.godot/imported/final base.png-a07f33a14252cc762b38f650423580a5.ctex::
 final ground front.png::CompressedTexture2D::4029555370920304949::1793994622::1794053224::1::::<><><>0<>0<>389fb80c8443cb2c532df15f611a2aab<>res://.godot/imported/final ground front.png-33598e3b6083b9ca7ab9739319c58a28.ctex::
 final ground.png::CompressedTexture2D::7779283641573874351::1793994622::1794053224::1::::<><><>0<>0<>1150d08d8c98639442b951513b6937ae<>res://.godot/imported/final ground.png-853bb8626012fc887fc7330624c1bb9d.ctex::
 icon.svg::CompressedTexture2D::4909965259265602065::1793793912::1794053220::1::::<><><>0<>0<>7392fe9f8d3a211fe017cdcba4e95aa3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+kelvinator.png::CompressedTexture2D::3376331467009637842::1794143937::1794143979::1::::<><><>0<>0<>8860aa2e6e0b72bec8f24e76b5ed11e8<>res://.godot/imported/kelvinator.png-e866506bd3dbf3ba8a7edb1165d930b3.ctex::
 kori-orro (smallest bouncy).png::CompressedTexture2D::4958874614198525265::1793994622::1794053220::1::::<><><>0<>0<>c57489cec60938dc2a9e1566f5e0c61e<>res://.godot/imported/kori-orro (smallest bouncy).png-83d9c5d88e3e4276d9c69003ada214a1.ctex::
 kori-orro (smallest bouncy)resized.png::CompressedTexture2D::7669394356674259267::1794053211::1794053220::1::::<><><>0<>0<>086447d224a3a02efce6365ea40821fe<>res://.godot/imported/kori-orro (smallest bouncy)resized.png-ec26b964eaceaa237d3da4acafa30514.ctex::
 magna (big).png::CompressedTexture2D::3584104139956628497::1793994622::1794053220::1::::<><><>0<>0<>0f349da57acef21a672ce7e53382a36e<>res://.godot/imported/magna (big).png-187546b573b0a6726fedbc499764267e.ctex::
-Main.tscn::PackedScene::7145563249671358701::1793793912::0::1::::<><><>0<>0<><>::
+Main.tscn::PackedScene::7145563249671358701::1794088687::0::1::::<><><>0<>0<><>::
 mimi (medium).png::CompressedTexture2D::1753054998955669697::1793994622::1794053220::1::::<><><>0<>0<>804fd4c55e52b4f2caf6c092b05b6f63<>res://.godot/imported/mimi (medium).png-cd1f5bc088cf45818990fe5ebf4419fc.ctex::
+projectile tower.png::CompressedTexture2D::785033387780487029::1794143937::1794143979::1::::<><><>0<>0<>7f994baddacce3a3fbfbcea51499ed74<>res://.godot/imported/projectile tower.png-e1fdf185ea84faf92034b515dcc7302d.ctex::
+projectile_tower.png::CompressedTexture2D::4733176390151059556::1794143937::1794143979::1::::<><><>0<>0<>793b70403aa11e4e9d53a822e4997460<>res://.godot/imported/projectile_tower.png-1237659c790c103a64715451e7f0022a.ctex::
 snoofy (small).png::CompressedTexture2D::9041273565812273993::1793994622::1794053220::1::::<><><>0<>0<>c6475e5964480cc72fc5e4ae423eda7d<>res://.godot/imported/snoofy (small).png-2ed10dceaf8ec050c4d88ff1e74ace97.ctex::
+title screen FINAL.png::CompressedTexture2D::1816074089587841665::1794143937::1794143982::1::::<><><>0<>0<>b35a4d10052640e05996b9b0e47980a4<>res://.godot/imported/title screen FINAL.png-e296a0b4cf1b734c76d3dba38104f3f3.ctex::
 Tower defense chill.ogg::AudioStreamOggVorbis::2468428213858897331::1793994622::1794053220::1::::<><><>0<>0<>cfca21ac01a64978f4bd78cadc283fa8<>res://.godot/imported/Tower defense chill.ogg-52b90a32128b5d7cab67561baff007f7.oggvorbisstr::
 uni base.png::CompressedTexture2D::6408035737315904925::1793994622::1794053223::1::::<><><>0<>0<>ec56b6fdf4537cc9e4cebfe7f8592106<>res://.godot/imported/uni base.png-7ad5a77c2f94c713a5f11bbbcc61bb07.ctex::
-::res://Assets-Placeholder/::1793994643
+::res://Assets-Placeholder/::1794053220
 Ellipse 1.png::CompressedTexture2D::6578420666804030943::1793994622::1794053220::1::::<><><>0<>0<>4c5ff2266a11e2205e5ba3a83b8b94ad<>res://.godot/imported/Ellipse 1.png-960fe0d22c07d1ed04a9c0cca3753f1f.ctex::
-::res://Assets-Placeholder/Enemies/::1793994643
+::res://Assets-Placeholder/Enemies/::1794053221
 spr_bat.png::CompressedTexture2D::3557299147360028568::1793793912::1794053220::1::::<><><>0<>0<>e09d6b84478d925e61ed694f1d124aef<>res://.godot/imported/spr_bat.png-631d72c14d99962f042241390f9325a8.ctex::
 spr_big_slime.png::CompressedTexture2D::2924068601579248055::1793793912::1794053220::1::::<><><>0<>0<>b63594671098abde69bc09d076f568f0<>res://.godot/imported/spr_big_slime.png-db08cabe467f977c183e18e7f446ef3d.ctex::
 spr_demon.png::CompressedTexture2D::7686344213321294633::1793793912::1794053220::1::::<><><>0<>0<>dd79642c15d1107072d03aca51e694d5<>res://.godot/imported/spr_demon.png-0783a1381bddd75dd308814a0bd8abe6.ctex::
@@ -25,90 +31,127 @@ spr_normal_slime.png::CompressedTexture2D::1808103625335156262::1793793912::1794
 spr_skeleton.png::CompressedTexture2D::2268287446139585333::1793793912::1794053221::1::::<><><>0<>0<>e3b1e2170f9c332ae64fe5be78524934<>res://.godot/imported/spr_skeleton.png-e7b86d22a43b215f3e74def19723add7.ctex::
 spr_zombie.png::CompressedTexture2D::7708389373156301284::1793793912::1794053221::1::::<><><>0<>0<>09a98b9886e58cfd0662994a1c4307f9<>res://.godot/imported/spr_zombie.png-6e65d76d94960b36a0b26c0d9b33778d.ctex::
 ::res://Assets-Placeholder/Environment/::1793793919
-::res://Assets-Placeholder/Environment/Grass/::1793994643
+::res://Assets-Placeholder/Environment/Grass/::1794053221
 spr_grass_01.png::CompressedTexture2D::1781609417375610796::1793793912::1794053221::1::::<><><>0<>0<>dd76e6fa0eee7bd81bfa70cc915b162a<>res://.godot/imported/spr_grass_01.png-a5a543e1c0e1ddf15c7a23413894ad22.ctex::
 spr_grass_02.png::CompressedTexture2D::6090797288282990790::1793793912::1794053221::1::::<><><>0<>0<>8d39dc88feda08d5cdec203775d6efbb<>res://.godot/imported/spr_grass_02.png-ec6a8ebcfc2d25415781a60a6fb50f86.ctex::
 spr_grass_03.png::CompressedTexture2D::8267402887290902723::1793793912::1794053221::1::::<><><>0<>0<>f8e9b405fc75f52ef8a132eb5020cc68<>res://.godot/imported/spr_grass_03.png-a93b9d17fb4c49c47af804ba343c6505.ctex::
-::res://Assets-Placeholder/Environment/Tile Set/::1793994643
+::res://Assets-Placeholder/Environment/Tile Set/::1794053220
 spr_tile_set_ground.png::CompressedTexture2D::6110882024823519055::1793793912::1794053220::1::::<><><>0<>0<>278b9147cf2a187ae3fe29a906d590f3<>res://.godot/imported/spr_tile_set_ground.png-4b67f899f74ac85768df2c96b63318bd.ctex::
 spr_tile_set_stone.png::CompressedTexture2D::5386436608063921768::1793793912::1794053220::1::::<><><>0<>0<>7a1ea69391a0fad9da6954975fa29b0c<>res://.godot/imported/spr_tile_set_stone.png-2ed622969ae75578df0b28f17295aa6d.ctex::
 ::res://Assets-Placeholder/Towers/::1793793926
-::res://Assets-Placeholder/Towers/Castle/::1793994642
+::res://Assets-Placeholder/Towers/Castle/::1794053220
 spr_castle_blue.png::CompressedTexture2D::9142543922429823621::1793793912::1794053220::1::::<><><>0<>0<>f5bccd0fde832668b41bc05f4c85340b<>res://.godot/imported/spr_castle_blue.png-6b8d162b7251b435b372a0e660c9570c.ctex::
 spr_castle_green.png::CompressedTexture2D::655911198365640208::1793793912::1794053220::1::::<><><>0<>0<>4a11c76d994fb788759ffdb441f3e8c5<>res://.godot/imported/spr_castle_green.png-5d1953f055a351fa9557208334ec0704.ctex::
 spr_castle_red.png::CompressedTexture2D::3642705887465729711::1793793912::1794053220::1::::<><><>0<>0<>0c1a8578de0ee1c1136f902566b4003b<>res://.godot/imported/spr_castle_red.png-59ae3cfacdcf00163bdd5753da7589de.ctex::
-::res://Assets-Placeholder/Towers/Combat Towers/::1793994642
+::res://Assets-Placeholder/Towers/Combat Towers/::1794053220
 spr_tower_archer.png::CompressedTexture2D::8375538795492346781::1793793912::1794053220::1::::<><><>0<>0<>23c3d83f97b878e24ef40e50bd4f88b7<>res://.godot/imported/spr_tower_archer.png-a7dc912216aec1de6ccdfca1d2cf93d6.ctex::
 spr_tower_cannon.png::CompressedTexture2D::4858846525250371506::1793793912::1794053220::1::::<><><>0<>0<>6c7d489e7f347e81dde18a2ff478b20f<>res://.godot/imported/spr_tower_cannon.png-efd84e85915b38deb5b7358a54bdf961.ctex::
 spr_tower_crossbow.png::CompressedTexture2D::5104824048505286058::1793793912::1794053220::1::::<><><>0<>0<>728656b254076d062ffc663cea792900<>res://.godot/imported/spr_tower_crossbow.png-1eec5c88c7c5ac33a5d47e449b58071e.ctex::
 spr_tower_ice_wizard.png::CompressedTexture2D::378017553599974788::1793793912::1794053220::1::::<><><>0<>0<>563701655c75a311edf342983233890b<>res://.godot/imported/spr_tower_ice_wizard.png-cc66bd33728d4d93f0f69949a9e0d671.ctex::
 spr_tower_lightning_tower.png::CompressedTexture2D::5140869001197209856::1793793912::1794053220::1::::<><><>0<>0<>6bb7eb94bb49a91610ff635ac11fca39<>res://.godot/imported/spr_tower_lightning_tower.png-b1a0a1f6d10f7c7d6fa3f8a68eea031b.ctex::
 spr_tower_poison_wizard.png::CompressedTexture2D::5730065685216358116::1793793912::1794053220::1::::<><><>0<>0<>6ba045d8aaf8bc85411a869573a60b61<>res://.godot/imported/spr_tower_poison_wizard.png-7af98d22e00b0b29d313241206248da9.ctex::
-::res://Assets-Placeholder/Towers/Combat Towers Projectiles/::1793994642
+::res://Assets-Placeholder/Towers/Combat Towers Projectiles/::1794053220
 spr_tower_archer_projectile.png::CompressedTexture2D::3365291216330899236::1793793912::1794053220::1::::<><><>0<>0<>8726d27e3efb8831b7cff26e4ff38fb7<>res://.godot/imported/spr_tower_archer_projectile.png-a0352231605a04b7dac1b9b9e08db3cf.ctex::
 spr_tower_cannon_projectile.png::CompressedTexture2D::762318679040694654::1793793912::1794053220::1::::<><><>0<>0<>2ba65e35d2ff16956fd6490e907a73d7<>res://.godot/imported/spr_tower_cannon_projectile.png-fa90bb58f171756c75b5e03bc9411318.ctex::
 spr_tower_crossbow_projectile.png::CompressedTexture2D::5327732597668218608::1793793912::1794053220::1::::<><><>0<>0<>35c4f825d93fa4917761a81b91f2b874<>res://.godot/imported/spr_tower_crossbow_projectile.png-65cdcc906e071b783c2f2822e19190d8.ctex::
 spr_tower_ice_wizard_projectile.png::CompressedTexture2D::5762922488340532715::1793793912::1794053220::1::::<><><>0<>0<>e5742562aca7138dbaa7716d34087ea5<>res://.godot/imported/spr_tower_ice_wizard_projectile.png-82a339b560a7d636b5ea6b43da0e1807.ctex::
 spr_tower_lightning_tower_projectile.png::CompressedTexture2D::2455946071684878268::1793793912::1794053220::1::::<><><>0<>0<>1c5c8273c8a7ecfa3e9b2dc9746011fa<>res://.godot/imported/spr_tower_lightning_tower_projectile.png-74bbed4f432d26baff7d10c56ea90c07.ctex::
 spr_tower_poison_wizard_projectile.png::CompressedTexture2D::8275345251474891053::1793793912::1794053220::1::::<><><>0<>0<>2ac21e466d41a941228687295431f8cc<>res://.godot/imported/spr_tower_poison_wizard_projectile.png-dff7081e5af82eeadad3311d8e317e3e.ctex::
-::res://Assets-Placeholder/Towers/Non-Combat Towers/::1793994642
+::res://Assets-Placeholder/Towers/Non-Combat Towers/::1794053220
 spr_normal_tower_01_blue.png::CompressedTexture2D::6932932513923938687::1793793912::1794053220::1::::<><><>0<>0<>f898eb42f99b48e0e7de8229779bfcf0<>res://.godot/imported/spr_normal_tower_01_blue.png-c16c8f21e337787efb0b9bb805b8daac.ctex::
 spr_normal_tower_01_green.png::CompressedTexture2D::6496700686993375572::1793793912::1794053220::1::::<><><>0<>0<>4a725829901c2af725bba3d6fcd09853<>res://.godot/imported/spr_normal_tower_01_green.png-7f589f68ceb9601cf3d6244a49a2bb2b.ctex::
 spr_normal_tower_01_red.png::CompressedTexture2D::8266061196032638558::1793793912::1794053220::1::::<><><>0<>0<>212839abbd059d2542c5ab09f344d310<>res://.godot/imported/spr_normal_tower_01_red.png-18450679d4952e38c9ed18d7319540b1.ctex::
 spr_normal_tower_02_blue.png::CompressedTexture2D::9155576065828465360::1793793912::1794053220::1::::<><><>0<>0<>cea63e82036a5347acb428c600741c7f<>res://.godot/imported/spr_normal_tower_02_blue.png-d864e0c9685a30d8f06bfde4054655f8.ctex::
 spr_normal_tower_02_green.png::CompressedTexture2D::3571348138318631043::1793793912::1794053220::1::::<><><>0<>0<>c8412027942cdce9ffa095bb599a65bb<>res://.godot/imported/spr_normal_tower_02_green.png-9e386fcc7afd059c12c445f7f3e5f77a.ctex::
 spr_normal_tower_02_red.png::CompressedTexture2D::5909263654932928406::1793793912::1794053220::1::::<><><>0<>0<>a77ee265079be5314e18ef5c91ff2c5e<>res://.godot/imported/spr_normal_tower_02_red.png-a17f0038c04f6e0da946c2f9683411ea.ctex::
-::res://global/::1794053211
+::res://global/::1794143973
 data.gd::GDScript::7897098199713007768::1794053211::0::1::::Data<>Node<><>0<>0<><>::
-::res://Prototype Enemy/::1793793922
-::res://Prototype Enemy/Main/::1793793922
+sound_manager.gd::GDScript::3930841851355960060::1794143937::0::1::::<>Node<><>0<>0<><>::
+::res://Prototype Enemy/::1794143484
+::res://Prototype Enemy/Main/::1794143484
 endpoint.gd::GDScript::5218788465267212473::1793793912::0::1::::<>Marker2D<><>0<>0<><>::
-enemy_spawner.gd::GDScript::740045789202535763::1793793912::0::1::::<>Node2D<><>0<>0<><>::
+enemy_spawner.gd::GDScript::740045789202535763::1794143480::0::1::::<>Node2D<><>0<>0<><>::
 main.gd::GDScript::4023792074162769579::1793793912::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::5849409811094677410::1793793912::0::1::::<><><>0<>0<><>::uid://bxlfjdk5ht2dr::::res://Prototype Enemy/Main/main.gd<>uid://ksqpfuu1af6b::::res://Prototype Enemy/Main/enemy_spawner.gd<>uid://cgmaxiggmaitt::::res://Prototype Enemy/Main/endpoint.gd
+main.tscn::PackedScene::5849409811094677410::1794070070::0::1::::<><><>0<>0<><>::uid://bxlfjdk5ht2dr::::res://Prototype Enemy/Main/main.gd<>uid://ksqpfuu1af6b::::res://Prototype Enemy/Main/enemy_spawner.gd<>uid://cgmaxiggmaitt::::res://Prototype Enemy/Main/endpoint.gd
 ::res://Prototype Enemy/Mob/::1793793922
 Mob.gd::GDScript::4312000737830721674::1793793912::0::1::::<>Area2D<><>0<>0<><>::
 Mob.tscn::PackedScene::5443008411263518991::1793793912::0::1::::<><><>0<>0<><>::uid://b2o1a0vam8bws::::res://Prototype Enemy/Mob/Mob.gd<>uid://cb7on7q6ori6l::::res://icon.svg
-::res://scenes/::1793994630
-::res://scenes/build/::1794053211
-build_controller.gd::GDScript::391997087002230602::1793994622::0::1::::BuildController<>Node<><>0<>0<><>::
-radial_menu.gd::GDScript::5813660289618153151::1793994622::0::1::::RadialMenu<>Control<><>0<>0<><>::
-tower_catalog.gd::GDScript::2155068416376270372::1794053211::0::1::::<>RefCounted<><>0<>0<><>::
+::res://scenes/::1794143973
+::res://scenes/build/::1794143973
+build_controller.gd::GDScript::391997087002230602::1794143937::0::1::::BuildController<>Node<><>0<>0<><>::
+radial_menu.gd::GDScript::5813660289618153151::1794143937::0::1::::RadialMenu<>Control<><>0<>0<><>::
+range_indicator.gd::GDScript::4373141932273028550::1794143937::0::1::::RangeIndicator<>Node2D<><>0<>0<><>::
+tower_catalog.gd::GDScript::2155068416376270372::1794143937::0::1::::<>RefCounted<><>0<>0<><>::
 tower_ghost.gd::GDScript::6070069096107280039::1793994622::0::1::::TowerGhost<>Node2D<><>0<>0<><>::
-wallet.gd::GDScript::5116313137432637012::1793994622::0::1::::Wallet<>Node<><>0<>0<><>::
-::res://scenes/bullets/::1794053211
+wallet.gd::GDScript::5116313137432637012::1794143937::0::1::::Wallet<>Node<><>0<>0<><>::
+::res://scenes/bullets/::1794053217
 bullet.gd::GDScript::1344963323630990629::1793994622::0::1::::<>Area2D<><>0<>0<><>::
 bullet.tscn::PackedScene::8389467113614170384::1793793912::0::1::::<><><>0<>0<><>::uid://k4jjory0eb5o::::res://Assets-Placeholder/Towers/Combat Towers Projectiles/spr_tower_cannon_projectile.png<>uid://tfrl47lna5o8::::res://scenes/bullets/bullet.gd
 heat_ray.gd::GDScript::1525026395113170233::1794053211::0::1::::<>Area2D<><>0<>0<><>::
-heat_ray.tscn::PackedScene::3551797866770751860::1794053211::0::1::::<><><>0<>0<><>::
-::res://scenes/enemies/::1794053211
-enemybasic.gd::GDScript::3562046243834368001::1794053211::0::1::::Enemy<>Area2D<><>0<>0<><>::
-enemybasic.tscn::PackedScene::8062362995370966957::1794053211::0::1::::<><><>0<>0<><>::uid://bq0qm7xivwm5v::::res://scenes/enemies/enemybasic.gd<>uid://ce6txmic805jb::::res://Assets-Placeholder/Enemies/spr_goblin.png
+heat_ray.tscn::PackedScene::3551797866770751860::1794053220::0::1::::<><><>0<>0<><>::uid://vyy7x8ie7p1j::::res://scenes/bullets/heat_ray.gd
+::res://scenes/enemies/::1794143973
+armouredslime.gd::GDScript::548147424260031574::1794143956::0::1::::<>Enemy<><>0<>0<><>::
+armouredslime.tscn::PackedScene::6677501316001156122::1794143956::0::1::::<><><>0<>0<><>::uid://dm4p68lwbrfab::::res://scenes/enemies/enemybasic.tscn<>uid://h2r54vyxt455::::res://scenes/enemies/armouredslime.gd<>uid://d12wppu3mm86h::::res://snoofy (small).png
+bigslime.gd::GDScript::6765098721564163821::1794143956::0::1::::<>Enemy<><>0<>0<><>::
+bigslime.tscn::PackedScene::512133681466104314::1794143956::0::1::::<><><>0<>0<><>::uid://dm4p68lwbrfab::::res://scenes/enemies/enemybasic.tscn<>uid://c3ncgm2q8immv::::res://scenes/enemies/bigslime.gd<>uid://brcfw3kikk0nd::::res://magna (big).png
+enemybasic.gd::GDScript::3562046243834368001::1794143956::0::1::::Enemy<>Area2D<><>0<>0<><>::
+enemybasic.tscn::PackedScene::8062362995370966957::1794143937::0::1::::<><><>0<>0<><>::uid://bq0qm7xivwm5v::::res://scenes/enemies/enemybasic.gd<>uid://dhjd2mbyjy3yt::::res://kori-orro (smallest bouncy)resized.png
 enemy_health_bar.gd::GDScript::1529560786622015253::1793994622::0::1::::EnemyHealthBar<>Node2D<><>0<>0<><>::
-::res://scenes/levels/::1794053211
+swordslime.gd::GDScript::5987655254563701217::1794143956::0::1::::<>Enemy<><>0<>0<><>::
+swordslime.tscn::PackedScene::9075398193512599657::1794143956::0::1::::<><><>0<>0<><>::uid://dm4p68lwbrfab::::res://scenes/enemies/enemybasic.tscn<>uid://crkp2pfttmkw4::::res://scenes/enemies/swordslime.gd<>uid://y8gtba1kcm6d::::res://mimi (medium).png
+::res://scenes/levels/::1794143966
 bubble.gd::GDScript::4863852419806467319::1793994622::0::1::::<>Node2D<><>0<>0<><>::
-level1.tscn::PackedScene::2262409185558469128::1794053211::0::1::::<><><>0<>0<><>::uid://cpfplu8a1pjau::::res://scenes/levels/level_1.gd<>uid://istbmwh6vr0q::::res://scenes/towers/homebase.tscn<>uid://clv6qj81vau1d::::res://scenes/spawning/spawn_point.gd<>uid://bg86r1cvsys7y::::res://scenes/spawning/enemy_spawner.gd<>res://scenes/ui/hud.tscn<>uid://ce5m6u6v3tm4s::::res://scenes/build/wallet.gd<>uid://ft5et1jgu0cc::::res://scenes/build/build_controller.gd<>uid://hgxyo4trnsn5::::res://scenes/tools/fade_transition.tscn<>uid://c0yvvld7dhdbj::::res://Assets-Placeholder/Ellipse 1.png<>uid://cbkc66gdmaxo6::::res://scenes/levels/bubble.gd<>uid://dkea5j701pse3::::res://scenes/terrain/terrain_grid.gd
-level_1.gd::GDScript::5836927410832330896::1794053211::0::1::::<>Node2D<><>0<>0<><>::
-level_1_waves.gd::GDScript::5924051716322711841::1793793912::0::1::::<>RefCounted<><>0<>0<><>::
-main_menu.gd::GDScript::329202317780943572::1793994622::0::1::::<>Node2D<><>0<>0<><>::
-main_menu.tscn::PackedScene::6976347418231044834::1793994622::0::1::::<><><>0<>0<><>::uid://exp6cw4yugsy::::res://scenes/levels/main_menu.gd
-::res://scenes/spawning/::1793994630
-enemy_spawner.gd::GDScript::2877592166353287328::1793994622::0::1::::EnemySpawner<>Node<><>0<>0<><>::
+level1.tscn::PackedScene::2262409185558469128::1794143937::0::1::::<><><>0<>0<><>::uid://cpfplu8a1pjau::::res://scenes/levels/level_1.gd<>uid://istbmwh6vr0q::::res://scenes/towers/homebase.tscn<>uid://clv6qj81vau1d::::res://scenes/spawning/spawn_point.gd<>uid://bg86r1cvsys7y::::res://scenes/spawning/enemy_spawner.gd<>res://scenes/ui/hud.tscn<>uid://ce5m6u6v3tm4s::::res://scenes/build/wallet.gd<>uid://ft5et1jgu0cc::::res://scenes/build/build_controller.gd<>uid://hgxyo4trnsn5::::res://scenes/tools/fade_transition.tscn<>uid://c0yvvld7dhdbj::::res://Assets-Placeholder/Ellipse 1.png<>uid://cbkc66gdmaxo6::::res://scenes/levels/bubble.gd<>uid://dkea5j701pse3::::res://scenes/terrain/terrain_grid.gd<>uid://di3lwu0rxbh3d::::res://final ground.png<>uid://bxn7gnulnxq5r::::res://final ground front.png<>uid://dbokdfq4gyy71::::res://scenes/ui/pause_menu.gd<>uid://c4tj1bjtfhuq7::::res://scenes/ui/victory_screen.gd
+level_1.gd::GDScript::5836927410832330896::1794143937::0::1::::<>Node2D<><>0<>0<><>::
+level_1_waves.gd::GDScript::5924051716322711841::1794143956::0::1::::<>RefCounted<><>0<>0<><>::
+main_menu.gd::GDScript::329202317780943572::1794143937::0::1::::<>Node2D<><>0<>0<><>::
+main_menu.tscn::PackedScene::6976347418231044834::1794143937::0::1::::<><><>0<>0<><>::uid://exp6cw4yugsy::::res://scenes/levels/main_menu.gd<>uid://04yqfanyx7x2::::res://title screen FINAL.png<>uid://hgxyo4trnsn5::::res://scenes/tools/fade_transition.tscn
+::res://scenes/spawning/::1794143961
+enemy_spawner.gd::GDScript::2877592166353287328::1794143956::0::1::::EnemySpawner<>Node<><>0<>0<><>::
 spawn_point.gd::GDScript::5590181904616157463::1793793912::0::1::::SpawnPoint<>Area2D<><>0<>0<><>::
-::res://scenes/terrain/::1793994630
+::res://scenes/terrain/::1794143973
 flow_field.gd::GDScript::5277173928467086505::1793994622::0::1::::FlowField<>RefCounted<><>0<>0<><>::
-terrain_grid.gd::GDScript::7869462095608146468::1793994622::0::1::::TerrainGrid<>Node2D<><>0<>0<><>::
+terrain_art.gd::GDScript::6269882464092468405::1794143937::0::1::::<>RefCounted<><>0<>0<><>::
+terrain_grid.gd::GDScript::7869462095608146468::1794143937::0::1::::TerrainGrid<>Node2D<><>0<>0<><>::
+terrain_visuals.gd::GDScript::1939645059801253668::1794143937::0::1::::TerrainVisuals<>Node2D<><>0<>0<><>::
 ::res://scenes/tools/::1793793922
 fade_transition.tscn::PackedScene::505148302890684600::1793793912::0::1::::<><><>0<>0<><>::
-::res://scenes/towers/::1794053211
-homebase.gd::GDScript::6653645855845011448::1793994622::0::1::::Homebase<>Tower<><>0<>0<><>::
+::res://scenes/towers/::1794143961
+homebase.gd::GDScript::6653645855845011448::1794143937::0::1::::Homebase<>Tower<><>0<>0<><>::
 homebase.tscn::PackedScene::599825621960021918::1794053211::0::1::::<><><>0<>0<><>::uid://ctcau21ljcoom::::res://scenes/towers/tower.tscn<>uid://d3iymlh8wqbu0::::res://Assets-Placeholder/Towers/Castle/spr_castle_blue.png<>res://scenes/towers/homebase.gd
-tower.gd::GDScript::6400998729109288179::1793994622::0::1::::Tower<>Node2D<><>0<>0<><>::
+tower.gd::GDScript::6400998729109288179::1794143937::0::1::::Tower<>Node2D<><>0<>0<><>::
 tower.tscn::PackedScene::6110595326702315552::1793793912::0::1::::<><><>0<>0<><>::uid://cxgxrqbgchdeh::::res://scenes/towers/tower.gd
-tower_basic.gd::GDScript::5907678117560065461::1794053211::0::1::::<>Tower<><>0<>0<><>::
+tower_basic.gd::GDScript::5907678117560065461::1794143937::0::1::::<>Tower<><>0<>0<><>::
 tower_basic.tscn::PackedScene::4728852298271446923::1793793912::0::1::::<><><>0<>0<><>::uid://ctcau21ljcoom::::res://scenes/towers/tower.tscn<>uid://cqfyuimq4jvrh::::res://scenes/towers/tower_basic.gd<>uid://cey2yaovwhx2a::::res://Assets-Placeholder/Towers/Combat Towers/spr_tower_crossbow.png
-tower_kelvin.gd::GDScript::4705350714274559091::1794053211::0::1::::<>Tower<><>0<>0<><>::
-tower_kelvin.tscn::PackedScene::8653829789520116100::1794053211::0::1::::<><><>0<>0<><>::
-::res://scenes/ui/::1793994630
-hud.gd::GDScript::7868929198642441232::1793994622::0::1::::<>CanvasLayer<><>0<>0<><>::
-hud.tscn::PackedScene::-1::1793994622::0::1::::<><><>0<>0<><>::res://scenes/ui/hud.gd
+tower_kelvin.gd::GDScript::4705350714274559091::1794143937::0::1::::<>Tower<><>0<>0<><>::
+tower_kelvin.tscn::PackedScene::8653829789520116100::1794143937::0::1::::<><><>0<>0<><>::uid://ctcau21ljcoom::::res://scenes/towers/tower.tscn<>uid://b8bko6i0i3012::::res://scenes/towers/tower_kelvin.gd<>uid://bodrxk8raptug::::res://kelvinator.png
+::res://scenes/ui/::1794143973
+hud.gd::GDScript::7868929198642441232::1794143827::0::1::::<>CanvasLayer<><>0<>0<><>::
+hud.tscn::PackedScene::1857306483173881571::1794143956::0::1::::<><><>0<>0<><>::uid://dkd1d5b7u1bb1::::res://scenes/ui/hud.gd
+PauseMenu.tscn::PackedScene::1058053454223144277::1794143956::0::1::::<><><>0<>0<><>::
+pause_menu.gd::GDScript::7258964999243790586::1794143937::0::1::::<>CanvasLayer<><>0<>0<><>::
+victory_screen.gd::GDScript::6848133961089545912::1794143937::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://sounds/::1794143973
+Button.ogg::AudioStreamOggVorbis::4110453311655098818::1794143937::1794143978::1::::<><><>0<>0<>bdc773e687ac4516fc04fb822aa2691b<>res://.godot/imported/Button.ogg-c57e2d67879553d3dbb7026dcd122250.oggvorbisstr::
+construct_terrain.wav::AudioStreamWAV::326546621920418022::1794143937::1794143982::1::::<><><>0<>0<>68cb1aaefd1c1016d10d6a57e580e9e1<>res://.godot/imported/construct_terrain.wav-feda58ec363280e586edaf36eec98f17.sample::
+construct_tower.wav::AudioStreamWAV::5837298108099880937::1794143937::1794143982::1::::<><><>0<>0<>81e8d88fcdb11e59219b134da30bc119<>res://.godot/imported/construct_tower.wav-c9f318d0daab76617e19316562971d6d.sample::
+cross_bow_tower_attack.wav::AudioStreamWAV::258845646951866936::1794143937::1794143982::1::::<><><>0<>0<>2f57b53ea305177da28217b87798f47f<>res://.godot/imported/cross_bow_tower_attack.wav-d9dfe49cedc69ae0e5776a281fec94a1.sample::
+defeat_2.wav::AudioStreamWAV::6050647172110731079::1794143937::1794143982::1::::<><><>0<>0<>11e4aebc58b88e75a6014372004df9c2<>res://.godot/imported/defeat_2.wav-c5a236450e5581c9ff07533bcc628d5a.sample::
+defeat_game_over.wav::AudioStreamWAV::6048955944629847612::1794143937::1794143982::1::::<><><>0<>0<>11fa94832dd6d5cc77eb6603820f7b37<>res://.godot/imported/defeat_game_over.wav-f87ac8f6cb6f65413cb3b3b5045c5432.sample::
+enemy_die_slime_2.wav::AudioStreamWAV::1267346121450328920::1794143937::1794143982::1::::<><><>0<>0<>62f045eeda0c50498c8ad9b19339035d<>res://.godot/imported/enemy_die_slime_2.wav-9d5834b45fb36efbca3e24bc052a1959.sample::
+enemy_die_slime_armored.wav::AudioStreamWAV::1240892504774677883::1794143937::1794143982::1::::<><><>0<>0<>29190767d8e6bcfae745c422846640b8<>res://.godot/imported/enemy_die_slime_armored.wav-3afe34042ee4abbca3d95c58180f200f.sample::
+enemy_hit_tower.wav::AudioStreamWAV::484301060118783815::1794143937::1794143982::1::::<><><>0<>0<>823f92deaf71b8937da0cb2d143b3677<>res://.godot/imported/enemy_hit_tower.wav-1530f24fb46b7c9f721f2834dcfc7a27.sample::
+laser2.ogg::AudioStreamOggVorbis::4762813725967681155::1794143937::1794143978::1::::<><><>0<>0<>816be2332018a47277568d495b1a0ec3<>res://.godot/imported/laser2.ogg-fd9be7a0744f12b8117b25629114463e.oggvorbisstr::
+Laser(quick).ogg::AudioStreamOggVorbis::1689315455519243772::1794143937::1794143978::1::::<><><>0<>0<>15c320d0bfcaa1409dee29268e553a34<>res://.godot/imported/Laser(quick).ogg-10ba863ad6e56ad3b270d8b38a9d3249.oggvorbisstr::
+Losing.ogg::AudioStreamOggVorbis::587676728135439676::1794143937::1794143978::1::::<><><>0<>0<>4129c630d85b2e5343b93cefcf3de260<>res://.godot/imported/Losing.ogg-306d690fb199413aefd7f19d1e1b0870.oggvorbisstr::
+money_receive.wav::AudioStreamWAV::5681636950497423441::1794143937::1794143982::1::::<><><>0<>0<>ce941228594274cae8bc8626f631ee7a<>res://.godot/imported/money_receive.wav-d4dde369bd6dc8106a4cc684ad4bc942.sample::
+money_spent.wav::AudioStreamWAV::903057234833185875::1794143937::1794143982::1::::<><><>0<>0<>aa9dda9aa0405b91e674296085ff141f<>res://.godot/imported/money_spent.wav-8c823f8808d6eb39b1b1e8b91e20f22e.sample::
+steam_tower_attack.wav::AudioStreamWAV::370768485472654704::1794143937::1794143982::1::::<><><>0<>0<>ce7a3dde537f7b53301088cee9e6b8b8<>res://.godot/imported/steam_tower_attack.wav-72f12243edb83c2667280f5d8945860e.sample::
+Tower defense chill.ogg::AudioStreamOggVorbis::6119908407543275470::1794143937::1794143978::1::::<><><>0<>0<>dea60eb3ab8c32bca5c6ee743e1afe65<>res://.godot/imported/Tower defense chill.ogg-d010012397bbd9ee2e0aae25c0b21bad.oggvorbisstr::
+Tower Hurting.ogg::AudioStreamOggVorbis::3077140696360734396::1794143937::1794143978::1::::<><><>0<>0<>446858a764e4c5d8c074b85ef65df437<>res://.godot/imported/Tower Hurting.ogg-bb8f6d791065b8b7f90cffa417fe94f2.oggvorbisstr::
+victory.wav::AudioStreamWAV::3595865951272501137::1794143937::1794143982::1::::<><><>0<>0<>4701d7cf5b1d815e9df2354e3a56f623<>res://.godot/imported/victory.wav-f74952015a40a26575b1b8d070790a37.sample::
+::res://terrainAssets/::1794143973
+cliff.png::CompressedTexture2D::9151811645671248504::1794143937::1794143978::1::::<><><>0<>0<>aec0819c6b7fad67dcb8ab037f9d6326<>res://.godot/imported/cliff.png-45fd29affd97d931af4d256e6bc4e958.ctex::
+crack.png::CompressedTexture2D::4079475949527249082::1794143937::1794143978::1::::<><><>0<>0<>421b0adea0eb3d5fe180381d69b60130<>res://.godot/imported/crack.png-19648a97176228f78dc2235dfada0549.ctex::
+hill.png::CompressedTexture2D::7183529245046660224::1794143937::1794143978::1::::<><><>0<>0<>641dd1382d78be4466264f8d102f3b55<>res://.godot/imported/hill.png-21b916668aad72222fcb103d2f8e480d.ctex::
+hole.png::CompressedTexture2D::3704574210300029398::1794143937::1794143978::1::::<><><>0<>0<>df33627eae96136c3bc21b73cb221a94<>res://.godot/imported/hole.png-1f8f36b938eb2b70270c8e418b87b84a.ctex::

@@ -1,3 +1,2 @@
-res://scenes/ui/PauseMenu.tscn
-res://scenes/ui/hud.gd
-res://scenes/ui/hud.tscn
+res://scenes/levels/level_1_waves.gd
+res://scenes/build/wallet.gd
