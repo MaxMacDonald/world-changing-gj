@@ -85,7 +85,7 @@ const WAVES := [
 	},
 	# Wave 8 - Longer Wave, more swords
 	{
-		"spawns": [ # Lasts too long - specifically swords
+		"spawns": [
 			{"enemy": "armoured", "point": "SpawnLeft", "count": 20, "interval": 5.0},
 			{"enemy": "big_slime", "point": ["SpawnLeft","SpawnTopLeft"], "count": 8, "interval": 5.0},
 			{"enemy": "basic", "point": "SpawnLeft", "count": 20, "interval": 1.5},

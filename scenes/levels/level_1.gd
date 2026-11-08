@@ -35,7 +35,7 @@ func _ready() -> void:
 	$BuildController.tower_placed.connect(_on_tower_placed)
 	$Homebase.lives_changed.connect($HUD.set_lives)
 	$Homebase.destroyed.connect(_on_homebase_destroyed)
-	$EnemySpawner.wave_started.connect(func(n): print("Wave ", n))
+	$EnemySpawner.wave_started.connect($HUD.show_wave_started)
 	$EnemySpawner.all_waves_cleared.connect(func(): print("Level cleared!"))
 	$EnemySpawner.all_waves_cleared.connect(_on_level_cleared)
 	if $Bubble:
