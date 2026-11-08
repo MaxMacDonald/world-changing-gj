@@ -1,23 +1,2 @@
-res://global/data.gd
-res://scenes/build/tower_catalog.gd
-res://scenes/enemies/enemybasic.gd
-res://scenes/enemies/enemybasic.tscn
-res://scenes/levels/level_1.gd
-res://scenes/towers/tower_basic.gd
-res://scenes/bullets/heat_ray.tscn
-res://scenes/towers/tower_kelvin.tscn
-res://Prototype Enemy/Main/enemy_spawner.gd
-res://scenes/enemies/bigslime.tscn
-res://scenes/spawning/enemy_spawner.gd
-res://scenes/enemies/bigslime.gd
-res://scenes/levels/level_1_waves.gd
-res://Main.tscn
-res://Prototype Enemy/Main/main.tscn
-res://scenes/enemies/armouredslime.tscn
-res://scenes/enemies/armouredslime.gd
-res://scenes/enemies/swordslime.tscn
-res://scenes/enemies/swordslime.gd
 res://scenes/ui/PauseMenu.tscn
 res://scenes/ui/hud.gd
-res://scenes/ui/pause_menu.gd
-res://scenes/ui/hud.tscn
