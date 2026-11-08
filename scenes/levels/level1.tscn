@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
 [ext_resource type="Script" uid="uid://dbokdfq4gyy71" path="res://scenes/ui/pause_menu.gd" id="14_jprdt"]
 [ext_resource type="Script" uid="uid://c4tj1bjtfhuq7" path="res://scenes/ui/victory_screen.gd" id="15_ps2vj"]
+[ext_resource type="Script" uid="uid://fsv3lk8b3f32" path="res://scenes/ui/tutorial.gd" id="16_sbmf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
 size = Vector2(120, 120)
@@ -144,3 +145,6 @@ z_index = 1
 mouse_filter = 2
 
 [node name="fade_timer" type="Timer" parent="FadeCanvas/FadeTransition" unique_id=242412097]
+
+[node name="Tutorial" type="CanvasLayer" parent="." unique_id=1826021780]
+script = ExtResource("16_sbmf2")

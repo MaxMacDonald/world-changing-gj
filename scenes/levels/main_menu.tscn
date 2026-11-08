@@ -15,19 +15,28 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="Control" unique_id=1320597184]
 layout_mode = 0
-offset_left = 1176.0
-offset_top = 412.0
-offset_right = 1876.0
-offset_bottom = 492.0
+offset_left = 1175.0
+offset_top = 400.0
+offset_right = 1875.0
+offset_bottom = 480.0
 text = "Start
+"
+
+[node name="Tutorial" type="Button" parent="Control" unique_id=1938106748]
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 500.0
+offset_right = 1875.0
+offset_bottom = 580.0
+text = "Tutorial
 "
 
 [node name="Quit" type="Button" parent="Control" unique_id=906514587]
 layout_mode = 0
-offset_left = 1174.0
-offset_top = 526.0
-offset_right = 1874.0
-offset_bottom = 606.0
+offset_left = 1175.0
+offset_top = 600.0
+offset_right = 1875.0
+offset_bottom = 680.0
 text = "Quit"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=133819930]
@@ -43,5 +52,6 @@ visible = false
 [node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=898522706]
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="FadeTransition/fade_timer" to="." method="_on_fade_timer_timeout"]

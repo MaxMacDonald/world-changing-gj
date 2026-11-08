@@ -40,9 +40,19 @@ func _ready() -> void:
 	$EnemySpawner.all_waves_cleared.connect(_on_level_cleared)
 	if $Bubble:
 		$Bubble.wave_ready.connect(_on_wave_ready)
+		$Bubble.hide()
+		$Bubble.process_mode = Node.PROCESS_MODE_DISABLED
+	if $Tutorial.should_run():
+		$Tutorial.finished.connect(_begin_game, CONNECT_ONE_SHOT)
+		$Tutorial.start($Homebase, $SpawnPoints, $BuildController, $Terrain, $Wallet)
+	else:
+		_begin_game()
 	
 
-
+func _begin_game() -> void:
+	$Bubble.show()
+	$Bubble.process_mode = Node.PROCESS_MODE_INHERIT
+	
 func _on_wave_ready():
 	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)

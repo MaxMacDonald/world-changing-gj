@@ -10,6 +10,10 @@ var money := 0
 func _ready() -> void:
 	money = starting_money
 
+func set_amount(amount: int) -> void:
+	money = amount
+	changed.emit(money)
+
 func can_afford(cost: int) -> bool:
 	return money >= cost
 

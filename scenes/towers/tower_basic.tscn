@@ -14,6 +14,7 @@ script = ExtResource("2_6vco4")
 texture_filter = 3
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_4fgg7")
+offset = Vector2(0, -100)
 
 [node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(66676875) index="0" unique_id=2053249093]
 shape = SubResource("CircleShape2D_6ku0u")

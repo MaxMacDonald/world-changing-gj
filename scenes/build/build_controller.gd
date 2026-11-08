@@ -7,6 +7,9 @@ class_name BuildController extends Node
 ##   TERRAFORM  Left click (or drag) raises terrain, right click (or drag) lowers it. Esc exits.
 
 signal tower_placed(tower: Tower)
+signal tower_selected(tower: Tower)
+signal tower_upgraded(tower: Tower, stat: String)
+signal terraform_exited
 
 const CATALOG = preload("res://scenes/build/tower_catalog.gd")
 
@@ -20,6 +23,8 @@ enum Mode { IDLE, PLACING, TERRAFORM }
 @export var snap_towers_to_grid := true
 ## How close (px) a click must be to a tower to select it.
 @export var tower_pick_radius := 30.0
+## Size of the radial menu (build wheel and tower upgrade wheel). 1.0 = full size.
+@export_range(0.4, 1.5, 0.05) var wheel_scale := 0.65
 ## After buying an upgrade, show the tower's wheel again so you can keep upgrading.
 @export var reopen_menu_after_upgrade := true
 
@@ -72,6 +77,18 @@ func setup(new_wallet: Wallet, new_tower_container: Node, new_terrain: TerrainGr
 	wallet = new_wallet
 	tower_container = new_tower_container
 	terrain = new_terrain
+
+
+func is_terraforming() -> bool:
+	return _mode == Mode.TERRAFORM
+
+## Closes the wheel and leaves any placement / terraform / selection state.
+func cancel_everything() -> void:
+	_menu.close()
+	_cancel_placement()
+	_deselect()
+	if _mode == Mode.TERRAFORM:
+		_exit_terraform()
 
 ## True while Esc should cancel something here (placing, terraforming, radial menu)
 ## rather than open the pause menu.
@@ -199,6 +216,7 @@ func _select(tower: Tower) -> void:
 		tower.invested = def.cost
 	tower.recompute_stats()
 	_selected = tower
+	tower_selected.emit(tower)
 
 func _deselect() -> void:
 	_selected = null
@@ -256,6 +274,7 @@ func _open_tower_menu(screen_pos: Vector2) -> void:
 		"note": "Refund %d gold" % refund,
 		"angle": PI / 2.0,
 	})
+
 	_menu.open(screen_pos, entries)
 
 func _tower_upgrades(tower: Tower) -> Array:
@@ -282,6 +301,7 @@ func _buy_upgrade(u: Dictionary) -> bool:
 	_selected.upgrade_levels[u.stat] = level + 1
 	_selected.invested += cost
 	_selected.recompute_stats()
+	tower_upgraded.emit(_selected, u.stat)
 	return true
 
 func _sell_selected() -> void:
@@ -385,6 +405,7 @@ func _exit_terraform() -> void:
 	_stroke.clear()
 	_hint.hide()
 	terrain.set_overlay(false)
+	terraform_exited.emit()
 
 func _terraform_input(event: InputEvent) -> void:
 	_erase_mode = event.shift_pressed if event is InputEventWithModifiers else Input.is_key_pressed(KEY_SHIFT)
