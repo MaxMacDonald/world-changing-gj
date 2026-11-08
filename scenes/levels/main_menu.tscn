@@ -22,21 +22,12 @@ offset_bottom = 492.0
 text = "Start
 "
 
-[node name="Options" type="Button" parent="Control" unique_id=1597747449]
-layout_mode = 0
-offset_left = 1171.0
-offset_top = 518.0
-offset_right = 1871.0
-offset_bottom = 598.0
-text = "Options
-"
-
 [node name="Quit" type="Button" parent="Control" unique_id=906514587]
 layout_mode = 0
-offset_left = 1171.0
-offset_top = 632.0
-offset_right = 1871.0
-offset_bottom = 712.0
+offset_left = 1174.0
+offset_top = 526.0
+offset_right = 1874.0
+offset_bottom = 606.0
 text = "Quit"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=133819930]
@@ -52,6 +43,5 @@ visible = false
 [node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=898522706]
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="FadeTransition/fade_timer" to="." method="_on_fade_timer_timeout"]
