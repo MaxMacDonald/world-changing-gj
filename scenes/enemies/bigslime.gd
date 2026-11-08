@@ -14,7 +14,7 @@ func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
 	if health == 0:
-		killed.emit(reward)		
+		killed.emit(reward)	
 		for i in range(3):
 			call_deferred("split_slime")
 		queue_free()
