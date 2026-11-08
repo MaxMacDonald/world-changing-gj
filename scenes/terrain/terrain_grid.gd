@@ -25,9 +25,9 @@ const FLAG_SPAWN := 1
 const FLAG_BASE := 2
 
 @export_group("Grid")
-@export var cell_size := 48
+@export var cell_size := 80
 ## Number of cells. The grid starts at this node's position.
-@export var grid_size := Vector2i(40, 23)
+@export var grid_size := Vector2i(24, 13.5)
 
 @export_group("Visuals")
 ## Animate cells growing and sinking. Off = they change instantly. Sprites are set in terrain_art.gd.

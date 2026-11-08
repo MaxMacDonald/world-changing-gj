@@ -79,7 +79,7 @@ func _draw() -> void:
 	if _entries.is_empty():
 		return
 
-	draw_arc(_center, RING_RADIUS, 0.0, TAU, 64, Color(0, 0, 0, 0.3), SLOT_RADIUS * 2.0 + 12.0)
+	draw_arc(_center, RING_RADIUS, 0.0, TAU, 64, Color(1, 1, 1, 0.6), 20)
 
 	for i in _entries.size():
 		var e: Dictionary = _entries[i]
