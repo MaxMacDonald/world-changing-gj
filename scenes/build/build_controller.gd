@@ -361,9 +361,14 @@ func _try_place() -> void:
 	var tower := _placing.scene.instantiate() as Tower
 	tower_container.add_child(tower)
 	tower.global_position = pos
+
+	tower.update_range() # pick up the hill bonus for its final position
+	Sound.play("construct_tower")
+
 	tower.upgrade_defs = _placing.get("upgrades", [])
 	tower.invested = _placing.cost
 	tower.recompute_stats() # also picks up the hill bonus for its final position
+
 	tower_placed.emit(tower)
 
 	if not (keep_placing and wallet.can_afford(_placing.cost)):
@@ -429,6 +434,7 @@ func _raise(cell: Vector2i) -> void:
 		_flash("Not enough gold (need %d)" % cost)
 		return
 	terrain.raise_cell(cell)
+	Sound.play("construct_terrain", 0.0, 0.1)
 
 func _lower(cell: Vector2i) -> void:
 	if not terrain.can_lower(cell):

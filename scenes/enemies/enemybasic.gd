@@ -21,6 +21,8 @@ signal killed(reward: int)
 @export var base_duration := 0.5       # average cycle time
 @export var duration_jitter := 0.15     # +/- 15% variation
 
+@export var death_sound := "enemy_die_slime_2"
+
 var target: Node2D
 var terrain: TerrainGrid
 var health: int
@@ -127,6 +129,7 @@ func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
 	if health == 0:
+		Sound.play(death_sound, 0.0, 0.1)
 		killed.emit(reward)
 		queue_free()
 
@@ -142,6 +145,7 @@ func _bounce_loop() -> void:
 	
 	
 func _on_area_entered(bullet: Area2D) -> void:
+	Sound.play("enemy_hit_tower", -6.0, 0.15)
 	take_damage(bullet.damage)
 	if not bullet.has_node("Sparks"):
 		bullet.queue_free()
