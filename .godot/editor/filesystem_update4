@@ -1,2 +1,5 @@
 res://scenes/levels/level_1_waves.gd
 res://scenes/build/wallet.gd
+res://scenes/enemies/bigslime.gd
+res://scenes/ui/PauseMenu.tscn
+res://scenes/levels/level1.tscn
