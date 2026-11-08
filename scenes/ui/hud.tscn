@@ -1,11 +1,11 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://1pxti1wd04yh"]
 
-[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://dkd1d5b7u1bb1" path="res://scenes/ui/hud.gd" id="1_hud"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=739454109]
 script = ExtResource("1_hud")
 
-[node name="LivesLabel" type="Label" parent="."]
+[node name="LivesLabel" type="Label" parent="." unique_id=1368299928]
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 324.0
@@ -15,7 +15,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 36
 text = "Lives: 20"
 
-[node name="MoneyLabel" type="Label" parent="."]
+[node name="MoneyLabel" type="Label" parent="." unique_id=1729496654]
 offset_left = 24.0
 offset_top = 64.0
 offset_right = 324.0
@@ -26,7 +26,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 36
 text = "Gold: 200"
 
-[node name="GameOverLabel" type="Label" parent="."]
+[node name="GameOverLabel" type="Label" parent="." unique_id=1512702638]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

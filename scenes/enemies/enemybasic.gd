@@ -41,6 +41,7 @@ var _dig_cell := Vector2i(-1, -1)
 var _dig_progress := 0.0
 
 func _ready() -> void:
+	new_enemy_init()
 	add_to_group("enemies")
 	health = max_health
 
@@ -57,6 +58,9 @@ func _ready() -> void:
 	_cycle_duration = base_duration * randf_range(1.0 - duration_jitter, 1.0 + duration_jitter)
 	_base_scale = visual.scale          # remembers what you set in the editor
 	_bounce_loop()
+
+func new_enemy_init() -> void:
+	pass #By default does nothing, but sets things up for other enemy types
 
 func setup(new_target: Node2D, new_terrain: TerrainGrid = null) -> void:
 	target = new_target
