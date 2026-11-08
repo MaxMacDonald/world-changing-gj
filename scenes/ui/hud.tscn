@@ -5,20 +5,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0mwgc"]
 font_size = 50
 
-[sub_resource type="GDScript" id="GDScript_0mwgc"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="HUD" type="CanvasLayer" unique_id=739454109]
 script = ExtResource("1_hud")
 
@@ -82,8 +68,3 @@ layout_mode = 2
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_0mwgc")
 horizontal_alignment = 1
-
-[node name="ExitGame" type="Button" parent="PauseMenu/ControlsList" unique_id=438705112]
-layout_mode = 2
-text = "Exit Game"
-script = SubResource("GDScript_0mwgc")
