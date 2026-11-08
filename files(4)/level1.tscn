@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://7h6swl3nvvho"]
+
+[ext_resource type="Script" uid="uid://cpfplu8a1pjau" path="res://scenes/levels/level_1.gd" id="1_x6ivy"]
+[ext_resource type="PackedScene" uid="uid://b8mxrhp32tjr4" path="res://scenes/towers/tower_basic.tscn" id="3_bfxgj"]
+[ext_resource type="PackedScene" uid="uid://istbmwh6vr0q" path="res://scenes/towers/homebase.tscn" id="4_bfxgj"]
+[ext_resource type="Script" path="res://scenes/spawning/spawn_point.gd" id="5_spawnpt"]
+[ext_resource type="Script" path="res://scenes/spawning/enemy_spawner.gd" id="6_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="7_hud"]
+[ext_resource type="Script" path="res://scenes/build/wallet.gd" id="8_wallet"]
+[ext_resource type="Script" path="res://scenes/build/build_controller.gd" id="9_build"]
+[ext_resource type="Script" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="11_pause"]
+[ext_resource type="Script" path="res://scenes/ui/victory_screen.gd" id="12_victory"]
+[ext_resource type="Script" path="res://scenes/ui/tutorial.gd" id="13_tutorial"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(120, 120)
+
+[node name="Level" type="Node2D" unique_id=1259410256]
+script = ExtResource("1_x6ivy")
+
+[node name="Terrain" type="Node2D" parent="."]
+script = ExtResource("10_terrain")
+
+[node name="Towers" type="Node2D" parent="." unique_id=1403035586]
+
+[node name="TowerBasic" parent="Towers" unique_id=761654335 instance=ExtResource("3_bfxgj")]
+position = Vector2(388, 967)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnLeft" type="Area2D" parent="SpawnPoints"]
+position = Vector2(250, 1052)
+script = ExtResource("5_spawnpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnLeft"]
+shape = SubResource("RectangleShape2D_left")
+
+[node name="SpawnRight" type="Area2D" parent="SpawnPoints"]
+position = Vector2(1700, 950)
+script = ExtResource("5_spawnpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/SpawnRight"]
+shape = SubResource("RectangleShape2D_right")
+
+[node name="Homebase" parent="." unique_id=31041920 instance=ExtResource("4_bfxgj")]
+position = Vector2(922, 180)
+
+[node name="EnemySpawner" type="Node" parent="."]
+script = ExtResource("6_spawner")
+homebase = NodePath("../Homebase")
+spawn_points_root = NodePath("../SpawnPoints")
+enemy_container = NodePath("../Enemies")
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]
+
+[node name="Wallet" type="Node" parent="."]
+script = ExtResource("8_wallet")
+
+[node name="BuildController" type="Node" parent="."]
+script = ExtResource("9_build")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("11_pause")
+
+[node name="VictoryScreen" type="CanvasLayer" parent="."]
+script = ExtResource("12_victory")
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+script = ExtResource("13_tutorial")
