@@ -23,5 +23,7 @@ func take_damage(amount: int) -> void:
 		return
 	lives = max(lives - amount, 0)
 	lives_changed.emit(lives)
+	if lives > 0:
+		Sound.play("Tower Hurting")
 	if lives == 0:
 		destroyed.emit()

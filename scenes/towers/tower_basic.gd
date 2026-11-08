@@ -7,6 +7,8 @@ func _process(_delta: float) -> void:
 func _on_relode_timer_timeout() -> void:
 	_prune_enemies()
 	if _aim_at_target():
+
+		Sound.play("cross_bow_tower_attack", -4.0, 0.1)
 		shoot.emit(global_position, $TurretPointer.rotation, Data.Bullet.SINGLE, damage)
 
 ## Points the turret at the best visible enemy. Returns false if there isn't one.

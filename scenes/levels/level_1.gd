@@ -6,9 +6,13 @@ var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 var heat_ray_bullet_scene = preload("res://scenes/bullets/heat_ray.tscn")
 
 func _ready() -> void:
+
+	Sound.play_music("Tower defense chill")
+
 	$FadeCanvas/FadeTransition.show()
 	$FadeCanvas/FadeTransition/fade_timer.start()
 	$FadeCanvas/FadeTransition/AnimationPlayer.play("fade_out")
+
 	var bg := Polygon2D.new()
 	bg.color = Color("c976a9")
 	bg.polygon = PackedVector2Array([
@@ -63,6 +67,8 @@ func _on_tower_placed(tower: Tower) -> void:
 	tower.shoot.connect(create_bullet)
 
 func _on_homebase_destroyed() -> void:
+	Sound.stop_music()
+	Sound.play("defeat_game_over")
 	$HUD.show_game_over()
 	$EnemySpawner.stop()
 	

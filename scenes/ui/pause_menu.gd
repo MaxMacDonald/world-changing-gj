@@ -93,6 +93,7 @@ func _make_button(parent: Node, text: String, callback: Callable) -> Button:
 	b.text = text
 	b.custom_minimum_size = Vector2(320, 64)
 	b.add_theme_font_size_override("font_size", 32)
+	b.pressed.connect(func(): Sound.play("Button"))
 	b.pressed.connect(callback)
 	parent.add_child(b)
 	return b
