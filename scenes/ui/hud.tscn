@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dkd1d5b7u1bb1" path="res://scenes/ui/hud.gd" id="1_hud"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_0mwgc"]
-font_size = 50
-
 [node name="HUD" type="CanvasLayer" unique_id=739454109]
 script = ExtResource("1_hud")
 
@@ -48,23 +45,3 @@ theme_override_font_sizes/font_size = 96
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PauseMenu" type="Panel" parent="." unique_id=1336672387]
-visible = false
-offset_left = 730.0
-offset_top = 190.0
-offset_right = 1190.0
-offset_bottom = 890.0
-
-[node name="ControlsList" type="VBoxContainer" parent="PauseMenu" unique_id=1028394808]
-layout_mode = 0
-offset_left = 57.5
-offset_top = 87.5
-offset_right = 402.5
-offset_bottom = 612.5
-
-[node name="Label" type="Label" parent="PauseMenu/ControlsList" unique_id=1141579287]
-layout_mode = 2
-text = "PAUSED"
-label_settings = SubResource("LabelSettings_0mwgc")
-horizontal_alignment = 1
