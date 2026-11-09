@@ -24,7 +24,7 @@ func _on_tutorial_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	Sound.play("Button")
-	await get_tree().create_timer(1.0) # 0.15 sec delay for the sound effect
+	await get_tree().create_timer(0.15).timeout # 0.15 sec delay for the sound effect
 	get_tree().quit()
 
 
