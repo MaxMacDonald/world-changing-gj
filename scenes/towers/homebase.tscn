@@ -15,6 +15,9 @@ max_lives = 20
 effect_duration = 3.0
 shake_amplitude = 30.0
 flash_color = Color(1, 0, 0, 1)
+death_shake_amplitude = 60.0
+fall_distance = 500.0
+fall_duration = 1.5
 
 [node name="Sprite2D" parent="." index="0" unique_id=661667892]
 position = Vector2(2, 193)
