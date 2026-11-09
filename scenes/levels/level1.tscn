@@ -41,14 +41,18 @@ glow_hdr_threshold = 0.7
 [sub_resource type="Compositor" id="Compositor_oluon"]
 
 [node name="Level" type="Node2D" unique_id=1259410256]
+y_sort_enabled = true
 script = ExtResource("1_x6ivy")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1146821143]
+y_sort_enabled = true
 script = ExtResource("10_terrain")
 
 [node name="Towers" type="Node2D" parent="." unique_id=1403035586]
+y_sort_enabled = true
 
 [node name="Enemies" type="Node2D" parent="." unique_id=2074312030]
+y_sort_enabled = true
 
 [node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
 

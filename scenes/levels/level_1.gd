@@ -70,6 +70,7 @@ func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target:
 			
 		Data.Bullet.HEATRAY:
 			var heatray = heat_ray_bullet_scene.instantiate()
+			heatray.damage = damage
 			$Bullets.add_child(heatray)
 			heatray.setup(pos, target.global_position)
 

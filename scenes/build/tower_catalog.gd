@@ -27,8 +27,8 @@ const SELL_RATIO := 0.7
 
 const TOWERS := [
 	{
-		"name": "Crossbow",
-		"cost": 60,
+		"name": "Students",
+		"cost": 50,
 		"scene": preload("res://scenes/towers/tower_basic.tscn"),
 		"icon": preload("res://projectile tower.png"),
 		"upgrades": [
