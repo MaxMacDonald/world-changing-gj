@@ -26,6 +26,7 @@ steam_length = 2
 base_damage = 0.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=661667892]
+position = Vector2(0, -8.999999)
 scale = Vector2(0.1, 0.1)
 texture = SubResource("CompressedTexture2D_vbs6a")
 
@@ -50,7 +51,7 @@ color = Color(1, 1, 1, 0.078431375)
 color_ramp = SubResource("Gradient_ncc2f")
 
 [node name="DamageTick" type="Timer" parent="." index="4" unique_id=1893857649]
-wait_time = 0.5
+wait_time = 0.8
 
 [connection signal="timeout" from="RelodeTimer" to="." method="_on_relode_timer_timeout"]
 [connection signal="timeout" from="DamageTick" to="." method="_on_damage_tick_timeout"]

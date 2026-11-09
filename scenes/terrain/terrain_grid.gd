@@ -36,7 +36,7 @@ const FLAG_BASE := 2
 
 @export_group("Terraforming cost")
 ## Gold to raise a cell: [0 -> +1, +1 -> +2].
-@export var raise_costs: Array[int] = [20, 40]
+@export var raise_costs: Array[int] = [10, 20]
 ## Fraction of the raise cost you get back when lowering a cell.
 @export_range(0.0, 1.0) var lower_refund_ratio := 0.5
 
