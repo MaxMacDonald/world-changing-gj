@@ -15,16 +15,20 @@ extends RefCounted
 ##     of the silhouette at the top of the sprite.
 
 # ---- sprites ----
-const HILL := [
-	preload("res://terrainAssets/hill-hole.png"),
-	preload("res://terrainAssets/hill-hole.png"),
+const HILL_BACK := [
+	preload("res://terrainAssets/hill-hole-back.png"),
+	preload("res://terrainAssets/hill-hole-back.png"),
+]
+const HILL_FRONT := [
+	preload("res://terrainAssets/hill-hole-front.png"),
+	preload("res://terrainAssets/hill-hole-front.png"),
 ]
 const CLIFF := [
 	preload("res://terrainAssets/cliff.png"),
 	preload("res://terrainAssets/cliff.png"),
 ]
 ## Drawn on the front of a cliff cell that has been dug through.
-const TUNNEL := preload("res://terrainAssets/hole.png")
+const TUNNEL := preload("res://terrainAssets/broken cliff without crater.png")
 ## Cracked/disturbed dirt drawn at the base while ground is rising or sinking.
 const CRACK := null
 
@@ -37,6 +41,8 @@ const CLIFF_RISE_TIME := 0.8     # hill -> cliff
 const LOWER_TIME := 0.4          # any lowering
 const TUNNEL_POP_TIME := 0.3     # tunnel mouth appearing when an enemy finishes digging
 
+const CRATER_BACK_SORT := -0.7
+const CRATER_FRONT_SORT := -0.3
 ## How far the top overshoots on the way up before settling (fraction of one level).
 ## 0 = no bounce. Around 0.1 is a gentle pop.
 const OVERSHOOT := 0.12

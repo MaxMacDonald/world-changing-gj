@@ -40,6 +40,8 @@ var health: int
 var health_bar: EnemyHealthBar
 var dig_bar: EnemyHealthBar
 var _tween: Tween
+var _tween_death: Tween
+var _tween_fade: Tween
 var _cycle_duration: float
 var _base_scale: Vector2
 
@@ -151,11 +153,16 @@ func hit(amount: int) -> void:
 func take_damage(amount: int) -> void:
 	if health <= 0:
 		return
+	$KorriOrroSprite.modulate = Color(1,0,0)
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
+	await get_tree().create_timer(0.1)
+	$KorriOrroSprite.modulate = Color(1,1,1)
 	if health == 0:
 		Sound.play(death_sound, 0.0, 0.1)
 		killed.emit(reward)
+		_death_animation()
+		await _tween_fade.finished
 		queue_free()
 
 func _bounce_loop() -> void:
@@ -202,3 +209,20 @@ func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: 
 		_next_click_ms = now + int(CLICK_COOLDOWN * 1000)
 		Sound.play("enemy_hit_tower", -6.0, 0.15)
 		hit(click_damage)
+		
+func _death_animation():
+	remove_from_group("enemies")
+	set_process(false)
+	set_deferred("monitoring", false)  
+	set_deferred("monitorable", false)
+	health_bar.visible = false
+	dig_bar.visible = false
+	if _tween:
+		_tween.kill()    
+	_tween_death = create_tween()
+	_tween_fade = create_tween()
+	_tween_death.tween_property(visual,"scale",Vector2(_base_scale.x * 1.5, _base_scale.y * 0.2), 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	$DeathParticles.emitting = true
+	_tween_fade.tween_interval(0.1)
+	_tween_fade.tween_property(visual, "modulate:a", 0.0, 0.4)

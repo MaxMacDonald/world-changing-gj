@@ -32,6 +32,7 @@ const FLAG_BASE := 2
 @export_group("Visuals")
 ## Animate cells growing and sinking. Off = they change instantly. Sprites are set in terrain_art.gd.
 @export var animate := true
+@export var entities_root: Node2D
 
 @export_group("Terraforming cost")
 ## Gold to raise a cell: [0 -> +1, +1 -> +2].
@@ -87,10 +88,12 @@ func _ready() -> void:
 	_mult.fill(1.0)
 	_visuals = TerrainVisuals.new()
 	_visuals.animate = animate
+	_visuals.entities_root = entities_root
 	add_child(_visuals)
 	_overlay = Overlay.new()
 	_overlay.grid = self
 	add_child(_overlay)
+	
 
 ## Call once from the level: marks the homebase and spawn areas as protected
 ## and tells the pathfinding where the goal is.

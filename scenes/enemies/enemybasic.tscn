@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://bq0qm7xivwm5v" path="res://scenes/enemies/enemybasic.gd" id="1_i7xyq"]
 [ext_resource type="Texture2D" uid="uid://dhjd2mbyjy3yt" path="res://kori-orro (smallest bouncy)resized.png" id="2_i7xyq"]
 
+[sub_resource type="Gradient" id="Gradient_i7xyq"]
+offsets = PackedFloat32Array(0.42610836, 1)
+colors = PackedColorArray(0.36078432, 1, 1, 1, 0.36078432, 1, 1, 0)
+
 [node name="Enemy" type="Area2D" unique_id=2142404571]
 position = Vector2(1, -13)
 collision_mask = 2
@@ -19,5 +23,27 @@ visible = false
 position = Vector2(-21, 17)
 scale = Vector2(0.46540713, 1.1866647)
 polygon = PackedVector2Array(8.594627, -1.6853961, 2.1486588, -6.7415843, 30.081192, -16.85396, 58.013725, -16.85396, 88.09491, -5.056188, 85.94626, -1.6853961)
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=2100637183]
+emitting = false
+amount = 50
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.8
+randomness = 0.4
+use_fixed_seed = true
+seed = 3649666101
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, -50)
+spread = 50.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+linear_accel_max = 40.48
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+color = Color(0.36078432, 1, 1, 1)
+color_ramp = SubResource("Gradient_i7xyq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
