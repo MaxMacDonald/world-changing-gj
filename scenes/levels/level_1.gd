@@ -4,10 +4,8 @@ const LEVEL_WAVES = preload("res://scenes/levels/level_1_waves.gd")
 
 var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 var heat_ray_bullet_scene = preload("res://scenes/bullets/heat_ray.tscn")
-
+var steam_bullet_scene = preload("res://scenes/bullets/steam.tscn")
 func _ready() -> void:
-	get_viewport().physics_object_picking = true
-	get_viewport().physics_object_picking_sort = true
 
 	Sound.play_music("Tower defense chill")
 
@@ -24,7 +22,7 @@ func _ready() -> void:
 	bg.z_index = -100
 	add_child(bg)
 	move_child(bg, 0)
-	#$Towers/TowerBasic.connect("shoot", create_bullet)
+	
 
 	$Terrain.setup($Homebase, $SpawnPoints)
 	$EnemySpawner.terrain = $Terrain
@@ -75,6 +73,12 @@ func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target:
 			heatray.damage = damage
 			$Bullets.add_child(heatray)
 			heatray.setup(pos, target.global_position)
+			
+		Data.Bullet.STEAM:
+			var steam = steam_bullet_scene.instantiate()
+			steam.damage = damage
+			$Bullets.add_child(steam)
+			steam.setup(target.global_position)
 
 
 func _on_tower_placed(tower: Tower) -> void:
@@ -85,7 +89,6 @@ func _on_homebase_destroyed() -> void:
 	Sound.play("defeat_game_over")
 	$HUD.show_game_over()
 	$EnemySpawner.stop()
-	
 	
 func _on_level_cleared() -> void:
 	# Don't count it as a win if the base fell on the very last enemy.
