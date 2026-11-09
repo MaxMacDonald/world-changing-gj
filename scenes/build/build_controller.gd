@@ -71,6 +71,7 @@ func _ready() -> void:
 	_hint.add_theme_font_size_override("font_size", 26)
 	_hint.add_theme_color_override("font_outline_color", Color.BLACK)
 	_hint.add_theme_constant_override("outline_size", 8)
+	#_hint.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	_hint.hide()
 
 func setup(new_wallet: Wallet, new_tower_container: Node, new_terrain: TerrainGrid) -> void:
@@ -173,7 +174,7 @@ func _open_menu(screen_pos: Vector2) -> void:
 			})
 		else:
 			entries.append({"label": "Empty slot", "enabled": false})
-	entries.append({"label": "Terraform", "glyph": "T", "enabled": terrain != null})
+	entries.append({"label": "Terraform", "icon": preload("res://hill-hole.png"), "enabled": terrain != null})
 	_menu.open(screen_pos, entries)
 
 func _on_menu_entry_selected(index: int) -> void:
@@ -357,11 +358,11 @@ func _update_ghost() -> void:
 		hill_bonus = terrain.range_multiplier_at(pos)
 	_ghost.set_range_multiplier(hill_bonus)
 
-	var text := "Left click: place (%d gold)    Right click / Esc: cancel" % _placing.cost
+	var text := "Left click: place    Right click: cancel"
 	if not valid:
 		text = "Can't build here"
-	elif hill_bonus > 1.0:
-		text += "\nHill: +%d%% range" % roundi((hill_bonus - 1.0) * 100.0)
+	#elif hill_bonus > 1.0:
+		#text += "\nHill: +%d%% range" % roundi((hill_bonus - 1.0) * 100.0)
 	_hint.text = text
 
 func _can_place(pos: Vector2) -> bool:
@@ -450,7 +451,7 @@ func _raise(cell: Vector2i) -> void:
 		return
 	var cost := terrain.get_raise_cost(cell)
 	if not wallet.spend(cost):
-		_flash("Not enough gold (need %d)" % cost)
+		_flash("Not enough gold" % cost)
 		return
 	terrain.raise_cell(cell)
 	Sound.play("construct_terrain", 0.0, 0.1)
@@ -479,7 +480,7 @@ func _update_terraform_hover() -> void:
 	if reason == "":
 		info = "Raise to +%d: %d gold" % [terrain.get_height(cell) + 1, cost]
 		if not wallet.can_afford(cost):
-			info += "  (not enough gold)"
+			info += "  not enough gold"
 	if terrain.can_lower(cell):
 		info += "    |    Lower: +%d gold" % terrain.get_lower_refund(cell)
 	if _message_time > 0.0:

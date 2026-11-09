@@ -85,8 +85,8 @@ func _goto(index: int) -> void:
 	var min_gold: int = step.get("min_gold", 0)
 	if min_gold > 0 and _wallet.money < min_gold:
 		_wallet.set_amount(min_gold)
-
-	_title.text = "%d/%d   %s" % [index + 1, STEPS.STEPS.size(), step.title]
+	_title.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
+	_title.text = "%d of %d - %s" % [index + 1, STEPS.STEPS.size(), step.title]
 	_title.add_theme_color_override("font_color", Color(1.0, 0.88, 0.35))
 	_body.text = _format(step.text)
 	_continue_button.visible = _wait == "continue"
@@ -164,7 +164,7 @@ func _set_highlights(names: Array) -> void:
 			"spawns":
 				for sp in _spawn_root.get_children():
 					if sp is Node2D:
-						items.append({"pos": sp.global_position, "radius": 64.0, "label": "Enemies come from here"})
+						items.append({"pos": sp.global_position, "radius": 64.0, "label": "Enemy Spawn"})
 	_highlights.items = items
 	_highlights.queue_redraw()
 
@@ -205,12 +205,14 @@ func _build_ui() -> void:
 
 	_title = Label.new()
 	_title.add_theme_font_size_override("font_size", 30)
+	_title.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	box.add_child(_title)
 
 	_body = Label.new()
 	_body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_body.custom_minimum_size = Vector2(616, 0)
 	_body.add_theme_font_size_override("font_size", 22)
+	#_body.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	box.add_child(_body)
 
 	var row := HBoxContainer.new()
@@ -221,6 +223,7 @@ func _build_ui() -> void:
 	_continue_button = Button.new()
 	_continue_button.custom_minimum_size = Vector2(180, 44)
 	_continue_button.add_theme_font_size_override("font_size", 24)
+	_continue_button.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	_continue_button.pressed.connect(_on_continue_pressed)
 	row.add_child(_continue_button)
 
@@ -228,6 +231,7 @@ func _build_ui() -> void:
 	_skip_button.text = "Skip tutorial"
 	_skip_button.custom_minimum_size = Vector2(150, 44)
 	_skip_button.add_theme_font_size_override("font_size", 20)
+	_skip_button.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	_skip_button.pressed.connect(_on_skip_pressed)
 	row.add_child(_skip_button)
 

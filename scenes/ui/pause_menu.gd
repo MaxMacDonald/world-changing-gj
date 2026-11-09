@@ -77,6 +77,7 @@ func _build_ui() -> void:
 	center.add_child(box)
 
 	var title := Label.new()
+	title.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	title.text = "Paused"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 72)
@@ -93,6 +94,7 @@ func _make_button(parent: Node, text: String, callback: Callable) -> Button:
 	b.text = text
 	b.custom_minimum_size = Vector2(320, 64)
 	b.add_theme_font_size_override("font_size", 32)
+	b.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	b.pressed.connect(func(): Sound.play("Button"))
 	b.pressed.connect(callback)
 	parent.add_child(b)

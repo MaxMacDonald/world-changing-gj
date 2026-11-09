@@ -14,6 +14,10 @@ const HEART_SIZE := Vector2(56, 56)
 
 var _hearts: Array[TextureRect] = []
 
+func _ready() -> void:
+	money_label.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
+	game_over_label.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
+	wave_label.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 # create a full row of 10 hearts
 func set_max_lives(max_lives: int) -> void:
 	for heart in _hearts:
@@ -40,7 +44,6 @@ func set_lives(lives: int) -> void:
 			_hearts[i].texture = EMPTY_HEART
 
 func set_money(amount: int) -> void:
-	money_label.add_theme_font_override("font", preload("res://scenes/ui/HARRINGT.TTF"))
 	money_label.text = "%d" % amount
 
 func show_game_over() -> void:
