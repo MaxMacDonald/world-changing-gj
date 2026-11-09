@@ -28,7 +28,7 @@ signal killed(reward: int)
 @export var click_radius := 28.0
 @export var click_offset := Vector2(0, -4)
 
-const CLICK_COOLDOWN := 1.0 # damage per click
+const CLICK_COOLDOWN := 1.0 # cool down between click
 static var _next_click_ms := 0 # when the next click is allowed
 
 const CRIT_CHANCE := 0.15

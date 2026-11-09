@@ -22,11 +22,11 @@ var tween_flash: Tween #flash of light on enemy hit
 var flicker_strength := 0.5  
 var terrain: TerrainGrid
 # chain upgrade
-var chain := 0
+var chains := 0
 # chain starting point
-var target_enemy := 0
-const CHAIN_RANGE := 140.0 # how far chain can reach
-const CHAIN_DAMAGE_FACTOR := 0.75 # each jump does 75% of the previous hit
+var target_enemy : Node2D
+const CHAIN_RANGE := 300.0 # how far chain can reach
+const CHAIN_DAMAGE_FACTOR := 0.6 # each jump does 60% of the previous hit
 const CHAIN_DELAY := 0.06 # seconds between jumps
 
 
@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 		segment.b = target_position
 		laser_finished = true
 		disappear_tween()
+		_start_chain()
 		_vanish_soon()
  
 	var line_points := PackedVector2Array([segment.a, segment.b])
@@ -115,3 +116,65 @@ func _vanish_soon() -> void:
 func finish(t: Tween) -> void:
 	if t and t.is_running():
 		await t.finished
+
+#-----------------------------------------------------------------
+func _start_chain() -> void:
+	if chains <= 0 or not is_instance_valid(target_enemy):
+		return
+	var already_hit: Array = [target_enemy]
+	var from_pos := target_enemy.global_position
+	var chain_damage := float(damage)
+	for i in chains:
+		var next := _nearest_enemy(from_pos, already_hit)
+		if next == null:
+			return
+		chain_damage *= CHAIN_DAMAGE_FACTOR
+		_draw_bolt(from_pos, next.global_position)
+		Sound.play("Laser(quick)", -6.0, 0.15)
+		next.hit(maxi(1, roundi(chain_damage)))
+		already_hit.append(next)
+		from_pos = next.global_position
+		await get_tree().create_timer(CHAIN_DELAY).timeout
+		
+# find the closest enemy that has not been hit yet and isn't behind a wall
+func _nearest_enemy(pos: Vector2, exclude: Array) -> Node2D:
+	var best: Node2D = null
+	var best_dist := CHAIN_RANGE
+	for e in get_tree().get_nodes_in_group("enemies"):
+		if not is_instance_valid(e) or e in exclude or e.is_queued_for_deletion() or e.health <= 0:
+			continue
+		var dist := pos.distance_to(e.global_position)
+		if dist > best_dist:
+			continue
+		if terrain and terrain.segment_blocked(pos, e.global_position):
+			continue
+		best = e
+		best_dist = dist
+	return best
+
+func _draw_bolt(from: Vector2, to: Vector2) -> void:
+	var points := PackedVector2Array([from])
+	var steps := 6
+	var side := (to - from).orthogonal().normalized()
+	for i in range(1, steps):
+		var p := from.lerp(to, float(i) / steps)
+		points.append(p + side * randf_range(-12.0, 12.0))
+	points.append(to)
+	var bolt := Node2D.new()
+	bolt.z_index = 50
+	for layer in [[12.0, Color(0.3, 0.85, 1.0, 0.75)], [4.0, Color(1,1,1)]]:
+		var line := Line2D.new()
+		line.points = points
+		line.width = layer[0]
+		line.default_color = layer[1]
+		line.joint_mode = Line2D.LINE_JOINT_ROUND
+		line.begin_cap_mode = Line2D.LINE_CAP_ROUND
+		line.end_cap_mode = Line2D.LINE_CAP_ROUND
+		bolt.add_child(line)
+	get_parent().add_child(bolt)
+	var tween := bolt.create_tween()
+	tween.tween_interval(0.15)
+	tween.tween_property(bolt, "modulate:a", 0.0, 0.35)
+	tween.tween_callback(bolt.queue_free)
+		
+	

@@ -254,6 +254,8 @@ func _open_tower_menu(screen_pos: Vector2) -> void:
 		var entry := {
 			"label": "%s  %d/%d" % [u.name, level, max_level],
 			"glyph": u.get("glyph", u.name.left(3).to_upper()),
+			"icon": u.get("icon"),
+			"icon_size": u.get("icon_size", 1.3),
 			"angle": PI / 2.0 + step * (i + 1), # clockwise from the bottom: left, top, right...
 		}
 		if level >= max_level:
