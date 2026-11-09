@@ -39,7 +39,7 @@ const TOWERS := [
 	},
 	{
 		"name": "Kelvin",
-		"cost": 80,
+		"cost": 125,
 		"scene": preload("res://scenes/towers/tower_kelvin.tscn"),
 		"icon": preload("res://kelvinator.png"),
 		"upgrades": [
@@ -50,7 +50,7 @@ const TOWERS := [
 	},
 	{
 		"name": "Steam",
-		"cost": 70,
+		"cost": 100,
 		"scene": preload("res://scenes/towers/tower_steam.tscn"),
 		"icon": preload("res://canon_aoe.png"),
 		"upgrades": [

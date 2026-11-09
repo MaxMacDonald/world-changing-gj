@@ -50,7 +50,7 @@ const WAVES := [
 	# Wave 5 - More sword slimes
 	{
 		"spawns": [
-			{"enemy": "armoured", "point": "SpawnLeft", "count": 24, "interval": 2.5}, # About right
+			{"enemy": "armoured", "point": "SpawnLeft", "count": 14, "interval": 4.0}, # About right
 			{"enemy": "basic", "point": "SpawnRight", "count": 10, "interval": 1.5}, # Should be faster
 			{"enemy": "sword", "point": "SpawnRight", "count": 10, "interval": 1.75}, # Should be faster
 			{"enemy": "sword", "point": "SpawnTopRight", "count": 2, "interval": 1.5}, # Should be faster
@@ -62,7 +62,7 @@ const WAVES := [
 	{
 		"spawns": [
 			{"enemy": "armoured", "point": "SpawnLeft", "count": 10, "interval": 5.0},
-			{"enemy": "big_slime", "point": "SpawnLeft", "count": 2, "interval": 5.0},
+			{"enemy": "big_slime", "point": "SpawnLeft", "count": 1, "interval": 5.0, "delay": 5.0},
 			{"enemy": "basic", "point": "SpawnRight", "count": 10, "interval": 3.0},
 			{"enemy": "sword", "point": "SpawnRight", "count": 6, "interval": 7.0},
 			{"enemy": "basic", "point": "SpawnBottom", "count": 10, "interval": 5.0},
