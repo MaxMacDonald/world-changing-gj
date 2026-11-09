@@ -40,6 +40,7 @@ func set_lives(lives: int) -> void:
 			_hearts[i].texture = EMPTY_HEART
 
 func set_money(amount: int) -> void:
+	money_label.add_theme_font_override("font", preload("res://scenes/ui/HARRINGT.TTF"))
 	money_label.text = "%d" % amount
 
 func show_game_over() -> void:

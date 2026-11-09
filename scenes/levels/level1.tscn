@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cbkc66gdmaxo6" path="res://scenes/levels/bubble.gd" id="10_nkeig"]
 [ext_resource type="Texture2D" uid="uid://d2iu6c588cnvx" path="res://start slime.png" id="10_sbmf2"]
 [ext_resource type="Script" uid="uid://dkea5j701pse3" path="res://scenes/terrain/terrain_grid.gd" id="10_terrain"]
+[ext_resource type="FontFile" uid="uid://bebbmovbfvnvo" path="res://scenes/ui/HARRINGT.TTF" id="11_1xax6"]
 [ext_resource type="Texture2D" uid="uid://di3lwu0rxbh3d" path="res://final ground.png" id="12_lgguw"]
 [ext_resource type="Texture2D" uid="uid://bxn7gnulnxq5r" path="res://final ground front.png" id="13_jprdt"]
 [ext_resource type="Script" uid="uid://dbokdfq4gyy71" path="res://scenes/ui/pause_menu.gd" id="14_jprdt"]
@@ -24,6 +25,8 @@ size = Vector2(120, 120)
 size = Vector2(120, 120)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbmf2"]
+font = ExtResource("11_1xax6")
+font_size = 25
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -114,10 +117,10 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("10_sbmf2")
 
 [node name="Label" type="Label" parent="Bubble" unique_id=360383928]
-offset_left = -66.24999
-offset_top = -12.499999
-offset_right = 85.75001
-offset_bottom = 10.500001
+offset_left = -87.49999
+offset_top = 3.749999
+offset_right = 103.50001
+offset_bottom = 26.75
 text = "Hold space to Start!"
 label_settings = SubResource("LabelSettings_sbmf2")
 
