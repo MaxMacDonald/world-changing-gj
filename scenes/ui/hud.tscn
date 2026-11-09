@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://1pxti1wd04yh"]
 
 [ext_resource type="Script" uid="uid://dkd1d5b7u1bb1" path="res://scenes/ui/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" uid="uid://cg0s70y7pffn7" path="res://goldbars.png" id="2_hqnrr"]
 
 [node name="HUD" type="CanvasLayer" unique_id=739454109]
 script = ExtResource("1_hud")
+
 
 [node name="WaveLabel" type="Label" parent="." unique_id=482412068]
 visible = false
@@ -17,26 +19,17 @@ theme_override_font_sizes/font_size = 36
 text = "Wave x Started!"
 horizontal_alignment = 1
 
-[node name="LivesLabel" type="Label" parent="." unique_id=1368299928]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 324.0
-offset_bottom = 64.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 36
-text = "Lives: 20"
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=1729496654]
-offset_left = 24.0
-offset_top = 64.0
+offset_left = 84.0
+offset_top = 76.0
 offset_right = 324.0
-offset_bottom = 112.0
+offset_bottom = 126.0
 theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 36
-text = "Gold: 200"
+text = "200"
 
 [node name="GameOverLabel" type="Label" parent="." unique_id=1512702638]
 visible = false
@@ -57,3 +50,22 @@ theme_override_font_sizes/font_size = 96
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Hearts" type="HBoxContainer" parent="." unique_id=1917266436]
+anchors_preset = -1
+anchor_right = 0.055000003
+anchor_bottom = 0.019000001
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 494.4
+offset_bottom = 47.48
+theme_override_constants/separation = -6
+
+[node name="GoldIcon" type="TextureRect" parent="." unique_id=1146353242]
+offset_left = 20.0
+offset_top = 72.0
+offset_right = 76.0
+offset_bottom = 128.0
+texture = ExtResource("2_hqnrr")
+expand_mode = 1
+stretch_mode = 6
