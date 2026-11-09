@@ -174,7 +174,7 @@ func _open_menu(screen_pos: Vector2) -> void:
 			})
 		else:
 			entries.append({"label": "Empty slot", "enabled": false})
-	entries.append({"label": "Terraform", "icon": preload("res://hill-hole.png"), "enabled": terrain != null})
+	entries.append({"label": "Terraform", "icon": preload("res://terrainAssets/hill-hole.png"), "enabled": terrain != null})
 	_menu.open(screen_pos, entries)
 
 func _on_menu_entry_selected(index: int) -> void:

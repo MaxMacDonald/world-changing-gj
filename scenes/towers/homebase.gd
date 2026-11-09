@@ -13,10 +13,16 @@ var lives: int
 @export var effect_duration := 3.0
 @export var shake_amplitude := 30.0
 @export var flash_color := Color(1.0, 0.0, 0.0)
+@export var death_shake_amplitude := 60.0   # vs. 30.0 for normal hits
+@export var fall_distance := 500.0
+@export var fall_duration := 1.5
 
 var _base_offset: Vector2
 var _base_modulate: Color
 var _time_since_hit := INF
+var _dying := false
+var _current_amplitude: float   # which amplitude _process should use
+
 
 func _ready() -> void:
 	super()
@@ -24,26 +30,24 @@ func _ready() -> void:
 	attack_point.area_entered.connect(_on_attack_point_area_entered)
 	_base_offset = sprite.offset     
 	_base_modulate = sprite.modulate
+	destroyed.connect(_on_destroyed)
+	_current_amplitude = shake_amplitude
 
 
 func _process(delta: float) -> void:
+	# While dying, shake continuously until the tween finishes
+	if _dying:
+		_apply_shake_and_flash(delta)
+		return
+
 	if _time_since_hit > effect_duration:
-		# Ensure we reset exactly once after the effect ends
 		sprite.offset = _base_offset
 		sprite.modulate = _base_modulate
 		set_process(false)
 		return
-	_time_since_hit += delta
-	var t := _time_since_hit
-	var falloff := exp(-3.0 * t)
 
-	sprite.offset.x = _base_offset.x + shake_amplitude * falloff * cos(t * 10.0)
-	sprite.modulate = _base_modulate + Color(
-		flash_color.r * falloff,
-		flash_color.g * falloff,
-		flash_color.b * falloff
-	)
-	set_process(true)
+	_time_since_hit += delta
+	_apply_shake_and_flash(delta)
 
 func _on_attack_point_area_entered(area: Area2D) -> void:
 	if area is Enemy:
@@ -64,3 +68,29 @@ func take_damage(amount: int) -> void:
 		destroyed.emit()
 		
 		
+func _on_destroyed() -> void:
+	_dying = true
+	_time_since_hit = 0.0
+	_current_amplitude = death_shake_amplitude
+	set_process(true)
+
+	# Fall: use position so the whole node drops, not just the texture.
+	var tween := create_tween()
+	tween.tween_property(sprite, "position:y", sprite.position.y + fall_distance, fall_duration) \
+		.set_ease(Tween.EASE_IN) \
+		.set_trans(Tween.TRANS_QUAD)
+	tween.finished.connect(func():
+		set_process(false)
+		sprite.visible = false
+	)
+	
+func _apply_shake_and_flash(delta: float) -> void:
+	var t := _time_since_hit
+	var falloff := exp(-3.0 * t)
+
+	sprite.offset.x = _base_offset.x + _current_amplitude * falloff * cos(t * 10.0)
+	sprite.modulate = _base_modulate.lerp(flash_color, falloff * 0.5)
+
+	if not _dying:
+		return  # falling case: keep t advancing for the next shake pulse
+	_time_since_hit += delta
