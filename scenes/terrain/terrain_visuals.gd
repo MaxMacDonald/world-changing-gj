@@ -186,12 +186,14 @@ func _process(delta: float) -> void:
 @warning_ignore("integer_division")
 func _draw() -> void:
 	# 1. Disturbed ground, under everything.
-	for i in _decals:
-		var d: Dictionary = _decals[i]
-		var alpha := sin(clampf(d.t / d.dur, 0.0, 1.0) * PI) * ART.CRACK_ALPHA
-		var size: float = _cs * ART.CRACK_SCALE
-		var centre := Vector2((i % _w + 0.5) * _cs, (i / _w + 0.55) * _cs)
-		draw_texture_rect(ART.CRACK, Rect2(centre - Vector2(size, size) / 2.0, Vector2(size, size)), false, Color(1, 1, 1, alpha))
+	if ART.CRACK:
+			
+		for i in _decals:
+			var d: Dictionary = _decals[i]
+			var alpha := sin(clampf(d.t / d.dur, 0.0, 1.0) * PI) * ART.CRACK_ALPHA
+			var size: float = _cs * ART.CRACK_SCALE
+			var centre := Vector2((i % _w + 0.5) * _cs, (i / _w + 0.55) * _cs)
+			draw_texture_rect(ART.CRACK, Rect2(centre - Vector2(size, size) / 2.0, Vector2(size, size)), false, Color(1, 1, 1, alpha))
 
 	# 2. Cells, back rows first so cliffs in front overlap the ones behind them.
 	for y in _h:

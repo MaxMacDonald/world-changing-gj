@@ -30,7 +30,7 @@ const TOWERS := [
 		"name": "Crossbow",
 		"cost": 60,
 		"scene": preload("res://scenes/towers/tower_basic.tscn"),
-		"icon": preload("res://Assets-Placeholder/Towers/Combat Towers/spr_tower_crossbow.png"),
+		"icon": preload("res://projectile tower.png"),
 		"upgrades": [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40, 80], "per_level": 1.0},
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
@@ -41,7 +41,7 @@ const TOWERS := [
 		"name": "Kelvin",
 		"cost": 80,
 		"scene": preload("res://scenes/towers/tower_kelvin.tscn"),
-		"icon": preload("res://Assets-Placeholder/Towers/Combat Towers/spr_tower_lightning_tower.png"),
+		"icon": preload("res://kelvinator.png"),
 		"upgrades": [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40, 80], "per_level": 1.0},
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},

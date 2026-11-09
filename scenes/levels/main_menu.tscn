@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://exp6cw4yugsy" path="res://scenes/levels/main_menu.gd" id="1_fsby3"]
 [ext_resource type="Texture2D" uid="uid://04yqfanyx7x2" path="res://title screen FINAL.png" id="2_721jg"]
+[ext_resource type="Texture2D" uid="uid://cjca42mh6b4ri" path="res://title final.png" id="2_geflf"]
 [ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="2_leamy"]
 
 [node name="MainMenu" type="Node2D" unique_id=1690912587]
@@ -15,29 +16,34 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="Control" unique_id=1320597184]
 layout_mode = 0
-offset_left = 1176.0
-offset_top = 412.0
-offset_right = 1876.0
-offset_bottom = 492.0
+offset_left = 1175.0
+offset_top = 600.0
+offset_right = 1875.0
+offset_bottom = 680.0
 text = "Start
 "
 
-[node name="Options" type="Button" parent="Control" unique_id=1597747449]
+[node name="Tutorial" type="Button" parent="Control" unique_id=1938106748]
 layout_mode = 0
-offset_left = 1171.0
-offset_top = 518.0
-offset_right = 1871.0
-offset_bottom = 598.0
-text = "Options
+offset_left = 1175.0
+offset_top = 700.0
+offset_right = 1875.0
+offset_bottom = 780.0
+text = "Tutorial
 "
 
 [node name="Quit" type="Button" parent="Control" unique_id=906514587]
 layout_mode = 0
-offset_left = 1171.0
-offset_top = 632.0
-offset_right = 1871.0
-offset_bottom = 712.0
+offset_left = 1175.0
+offset_top = 800.0
+offset_right = 1875.0
+offset_bottom = 880.0
 text = "Quit"
+
+[node name="TitleFinal" type="Sprite2D" parent="Control" unique_id=570568675]
+position = Vector2(1490, 201)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_geflf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=133819930]
 z_index = -1
@@ -52,6 +58,6 @@ visible = false
 [node name="fade_timer" type="Timer" parent="FadeTransition" unique_id=898522706]
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="FadeTransition/fade_timer" to="." method="_on_fade_timer_timeout"]

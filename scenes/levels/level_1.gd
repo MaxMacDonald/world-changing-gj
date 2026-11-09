@@ -36,14 +36,24 @@ func _ready() -> void:
 	$BuildController.tower_placed.connect(_on_tower_placed)
 	$Homebase.lives_changed.connect($HUD.set_lives)
 	$Homebase.destroyed.connect(_on_homebase_destroyed)
-	$EnemySpawner.wave_started.connect(func(n): print("Wave ", n))
+	$EnemySpawner.wave_started.connect($HUD.show_wave_started)
 	$EnemySpawner.all_waves_cleared.connect(func(): print("Level cleared!"))
 	$EnemySpawner.all_waves_cleared.connect(_on_level_cleared)
 	if $Bubble:
 		$Bubble.wave_ready.connect(_on_wave_ready)
+		$Bubble.hide()
+		$Bubble.process_mode = Node.PROCESS_MODE_DISABLED
+	if $Tutorial.should_run():
+		$Tutorial.finished.connect(_begin_game, CONNECT_ONE_SHOT)
+		$Tutorial.start($Homebase, $SpawnPoints, $BuildController, $Terrain, $Wallet)
+	else:
+		_begin_game()
 	
 
-
+func _begin_game() -> void:
+	$Bubble.show()
+	$Bubble.process_mode = Node.PROCESS_MODE_INHERIT
+	
 func _on_wave_ready():
 	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)

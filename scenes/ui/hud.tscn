@@ -6,6 +6,20 @@
 [node name="HUD" type="CanvasLayer" unique_id=739454109]
 script = ExtResource("1_hud")
 
+
+[node name="WaveLabel" type="Label" parent="." unique_id=482412068]
+visible = false
+offset_left = 799.0
+offset_top = 28.0
+offset_right = 1099.0
+offset_bottom = 78.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 36
+text = "Wave x Started!"
+horizontal_alignment = 1
+
+
 [node name="MoneyLabel" type="Label" parent="." unique_id=1729496654]
 offset_left = 84.0
 offset_top = 76.0

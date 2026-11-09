@@ -12,12 +12,15 @@ func _on_start_pressed() -> void:
 	$FadeTransition/fade_timer.start()
 	$FadeTransition/AnimationPlayer.play("fade_in")
 
-func _on_options_pressed() -> void:
+
+
+func _on_tutorial_pressed() -> void:
 	Sound.play("Button")
-	button_type = "options"
+	button_type = "tutorial"
 	$FadeTransition.show()
 	$FadeTransition/fade_timer.start()
 	$FadeTransition/AnimationPlayer.play("fade_in")
+
 
 func _on_quit_pressed() -> void:
 	Sound.play("Button")
@@ -27,6 +30,9 @@ func _on_quit_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:#
 	if button_type == "start":
+		get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
+	elif button_type == "tutorial":
+		Tutorial.force_next = true
 		get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 		
 	elif button_type == "options":

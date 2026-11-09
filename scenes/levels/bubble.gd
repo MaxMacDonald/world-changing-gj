@@ -18,7 +18,6 @@ var _label: Label
 
 func _ready():
 	_sprite = $BubbleSprite
-	_label = $BubbleLabel
 	
 		
 	# Reset visual state
@@ -145,6 +144,7 @@ func _pop_effect():
 	tween.parallel().tween_property(self, "modulate:a", 0.0, 0.15)
 	tween.tween_callback(_hide_bubble)
 	tween.tween_callback(complete_burst)
+
 
 func _hide_bubble():
 	visible = false

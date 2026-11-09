@@ -10,6 +10,7 @@ const HEART_SIZE := Vector2(56, 56)
 @onready var hearts_box: HBoxContainer = $Hearts
 @onready var money_label: Label = $MoneyLabel
 @onready var game_over_label: Label = $GameOverLabel
+@onready var wave_label: Label = $WaveLabel
 
 var _hearts: Array[TextureRect] = []
 
@@ -43,3 +44,9 @@ func set_money(amount: int) -> void:
 
 func show_game_over() -> void:
 	game_over_label.show()
+
+func show_wave_started(wave) -> void:
+	wave_label.text = "Wave " + str(wave) + " Started!"
+	wave_label.show()
+	await get_tree().create_timer(5.0).timeout
+	wave_label.hide()
