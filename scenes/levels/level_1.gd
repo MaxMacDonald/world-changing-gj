@@ -6,6 +6,8 @@ var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 var heat_ray_bullet_scene = preload("res://scenes/bullets/heat_ray.tscn")
 var steam_bullet_scene = preload("res://scenes/bullets/steam.tscn")
 func _ready() -> void:
+	get_viewport().physics_object_picking = true
+	get_viewport().physics_object_picking_sort = true
 
 	Sound.play_music("Tower defense chill")
 
@@ -58,7 +60,7 @@ func _on_wave_ready():
 	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)
 	
-func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target: Area2D, damage: int = 1):
+func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target: Area2D, damage: int = 1, chains: int = 0):
 	match bullet_enum:
 		
 		Data.Bullet.SINGLE:
@@ -71,6 +73,8 @@ func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target:
 		Data.Bullet.HEATRAY:
 			var heatray = heat_ray_bullet_scene.instantiate()
 			heatray.damage = damage
+			heatray.chains = chains
+			heatray.target_enemy = target
 			$Bullets.add_child(heatray)
 			heatray.setup(pos, target.global_position)
 			

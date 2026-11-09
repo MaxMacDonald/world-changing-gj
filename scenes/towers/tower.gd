@@ -61,6 +61,7 @@ func recompute_stats() -> void:
 	damage = base_damage
 	fire_rate_multiplier = 1.0
 	range_multiplier = 1.0
+	chain_count = 0
 	for u: Dictionary in upgrade_defs:
 		var level := get_upgrade_level(u.stat)
 		match u.stat:
@@ -70,6 +71,8 @@ func recompute_stats() -> void:
 				fire_rate_multiplier += u.per_level * level
 			"range":
 				range_multiplier += u.per_level * level
+			"chain":
+				chain_count += roundi(u.per_level * level)
 	if _reload_timer:
 		_reload_timer.wait_time = _base_wait / fire_rate_multiplier
 	update_range()

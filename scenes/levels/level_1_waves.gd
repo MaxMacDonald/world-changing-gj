@@ -17,7 +17,7 @@ const WAVES := [
 	# Wave 1 - Just basic slimes
 	{
 		"spawns": [
-			{"enemy": "basic", "point": "SpawnLeft", "count": 10, "interval": 3.25}, # Needs to be way quicker
+			{"enemy": "basic", "point": "SpawnLeft", "count": 10, "interval": 3.25},
 		],
 		"time_after": 10.0,
 	},
@@ -109,7 +109,7 @@ const WAVES := [
 			{"enemy": "basic", "point": "SpawnBottom", "count": 10, "interval": 0.75},
 			{"enemy": "basic", "point": ["SpawnTopRight","SpawnTopLeft"], "count": 10, "interval": 2.5},
 		],
-		"time_after": 30.0,
+		"time_after": 15.0,
 	},
 	# Wave 10 - Boss Wave
 	{
@@ -117,6 +117,7 @@ const WAVES := [
 			{"enemy": "big_slime", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 50, "interval": 2.5},
 			{"enemy": "sword", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 1.25},
 			{"enemy": "armoured", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 0.5},
+			{"enemy": "emperor", "point": "SpawnBottom", "count": 1, "interval": 3.25},
 		],
 		"wait_for_clear": true,
 	},
