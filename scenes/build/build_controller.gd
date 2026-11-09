@@ -301,12 +301,14 @@ func _buy_upgrade(u: Dictionary) -> bool:
 	_selected.upgrade_levels[u.stat] = level + 1
 	_selected.invested += cost
 	_selected.recompute_stats()
+	Sound.play("money_spent")
 	tower_upgraded.emit(_selected, u.stat)
 	return true
 
 func _sell_selected() -> void:
 	wallet.add(_sell_value(_selected))
 	_selected.remove_from_group("towers") # stop counting it immediately (queue_free is deferred)
+	Sound.play("money_receive")
 	_selected.queue_free()
 	_deselect()
 
@@ -385,6 +387,7 @@ func _try_place() -> void:
 	tower.invested = _placing.cost
 	tower.recompute_stats() # also picks up the hill bonus for its final position
 	tower_placed.emit(tower)
+	Sound.play("construct_tower")
 
 	if not (keep_placing and wallet.can_afford(_placing.cost)):
 		_cancel_placement()
@@ -450,12 +453,14 @@ func _raise(cell: Vector2i) -> void:
 		_flash("Not enough gold (need %d)" % cost)
 		return
 	terrain.raise_cell(cell)
+	Sound.play("construct_terrain", 0.0, 0.1)
 
 func _lower(cell: Vector2i) -> void:
 	if not terrain.can_lower(cell):
 		return
 	var refund := terrain.get_lower_refund(cell)
 	terrain.lower_cell(cell)
+	Sound.play("construct_terrain", -4.0, 0.1)
 	if refund > 0:
 		wallet.add(refund)
 
