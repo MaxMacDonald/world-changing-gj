@@ -23,6 +23,17 @@ signal killed(reward: int)
 
 @export var death_sound := "enemy_die_slime_2"
 
+# click damage constants
+@export var click_damage := 1
+@export var click_radius := 28.0
+@export var click_offset := Vector2(0, -4)
+
+const CLICK_COOLDOWN := 1.0 # damage per click
+static var _next_click_ms := 0 # when the next click is allowed
+
+const CRIT_CHANCE := 0.15
+const CRIT_MULTIPLIER := 2
+
 var target: Node2D
 var terrain: TerrainGrid
 var health: int
@@ -58,6 +69,7 @@ func _ready() -> void:
 	_cycle_duration = base_duration * randf_range(1.0 - duration_jitter, 1.0 + duration_jitter)
 	_base_scale = visual.scale          # remembers what you set in the editor
 	_bounce_loop()
+	_make_click_area()
 
 func new_enemy_init() -> void:
 	pass #By default does nothing, but sets things up for other enemy types
@@ -127,12 +139,20 @@ func _stop_digging() -> void:
 	if dig_bar:
 		dig_bar.visible = false
 
+func hit(amount: int) -> void:
+	if health <= 0:
+		return
+	var is_crit := randf() < CRIT_CHANCE
+	if is_crit:
+		amount *= CRIT_MULTIPLIER
+	_show_damage(amount,is_crit)
+	take_damage(amount)
+	
 func take_damage(amount: int) -> void:
 	if health <= 0:
 		return
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
-	_show_damage(amount)
 	if health == 0:
 		Sound.play(death_sound, 0.0, 0.1)
 		killed.emit(reward)
@@ -148,13 +168,37 @@ func _bounce_loop() -> void:
 		.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(visual, "scale", _base_scale, _cycle_duration * 0.3)
 	
-	
 func _on_area_entered(bullet: Area2D) -> void:
 	Sound.play("enemy_hit_tower", -6.0, 0.15)
-	take_damage(bullet.damage)
+	hit(bullet.damage)
 	if not bullet.has_node("Sparks"):
 		bullet.queue_free()
 		
-func _show_damage(amount: int) -> void:
+func _show_damage(amount: int, is_crit:= false) -> void:
 	var pos := global_position + health_bar_offset + Vector2(randf_range(-8, 8), -8)
-	DamageNumber.spawn(get_parent(), pos, amount)
+	DamageNumber.spawn(get_parent(), pos, amount, is_crit)
+
+func _make_click_area() -> void:
+	var area := Area2D.new()
+	area.collision_layer = 1 << 19 # using layer 20 for only clicking
+	area.collision_mask = 0
+	area.monitoring = false
+	area.input_pickable = true
+	area.position = click_offset
+	var shape := CollisionShape2D.new()
+	var circle := CircleShape2D.new()
+	circle.radius = click_radius
+	shape.shape = circle
+	area.add_child(shape)
+	area.input_event.connect(_on_click_area_input_event)
+	add_child(area)
+	
+func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		get_viewport().set_input_as_handled()
+		var now := Time.get_ticks_msec()
+		if now < _next_click_ms: # click in cooldown
+			return
+		_next_click_ms = now + int(CLICK_COOLDOWN * 1000)
+		Sound.play("enemy_hit_tower", -6.0, 0.15)
+		hit(click_damage)
