@@ -5,6 +5,9 @@
 [ext_resource type="FontVariation" uid="uid://b5y4xdfeudeng" path="res://scenes/ui/harrington_fixed.tres" id="2_crctu"]
 [ext_resource type="Texture2D" uid="uid://cjca42mh6b4ri" path="res://title final.png" id="2_geflf"]
 [ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="2_leamy"]
+[ext_resource type="Texture2D" uid="uid://b5l1mip0ybe1p" path="res://button.png" id="4_keln3"]
+[ext_resource type="Texture2D" uid="uid://cxukg652w1mbm" path="res://button_dark.png" id="5_sn5u3"]
+[ext_resource type="Texture2D" uid="uid://c3cy53savhyse" path="res://button_light.png" id="6_cn35j"]
 
 [node name="MainMenu" type="Node2D" unique_id=1690912587]
 script = ExtResource("1_fsby3")
@@ -16,6 +19,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="Control" unique_id=1320597184]
+visible = false
 layout_mode = 0
 offset_left = 1175.0
 offset_top = 600.0
@@ -30,6 +34,7 @@ text = "Start
 vertical_icon_alignment = 2
 
 [node name="Tutorial" type="Button" parent="Control" unique_id=1549394108]
+visible = false
 layout_mode = 0
 offset_left = 1175.0
 offset_top = 700.0
@@ -42,6 +47,7 @@ text = "Tutorial
 "
 
 [node name="Quit" type="Button" parent="Control" unique_id=906514587]
+visible = false
 layout_mode = 0
 offset_left = 1175.0
 offset_top = 800.0
@@ -56,6 +62,89 @@ text = "Quit"
 position = Vector2(1490, 201)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_geflf")
+
+[node name="StartButton" type="TextureButton" parent="Control" unique_id=858859580]
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 452.0
+offset_right = 1983.0
+offset_bottom = 652.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_keln3")
+texture_pressed = ExtResource("5_sn5u3")
+texture_hover = ExtResource("6_cn35j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/StartButton" unique_id=1516624234]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 69.0
+offset_right = 469.0
+offset_bottom = 109.0
+
+[node name="Label" type="Label" parent="Control/StartButton/CenterContainer" unique_id=1497402179]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_crctu")
+theme_override_font_sizes/font_size = 45
+text = "Start"
+
+[node name="TutorialButton" type="TextureButton" parent="Control" unique_id=1150889911]
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 596.0
+offset_right = 1983.0
+offset_bottom = 796.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_keln3")
+texture_pressed = ExtResource("5_sn5u3")
+texture_hover = ExtResource("6_cn35j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/TutorialButton" unique_id=505563635]
+layout_mode = 0
+offset_left = 358.88885
+offset_top = 67.7778
+offset_right = 489.88885
+offset_bottom = 107.7778
+
+[node name="Label" type="Label" parent="Control/TutorialButton/CenterContainer" unique_id=2032623062]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_crctu")
+theme_override_font_sizes/font_size = 45
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Control" unique_id=795344424]
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 746.0
+offset_right = 1983.0
+offset_bottom = 946.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_keln3")
+texture_pressed = ExtResource("5_sn5u3")
+texture_hover = ExtResource("6_cn35j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/QuitButton" unique_id=1477545227]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 69.0
+offset_right = 469.0
+offset_bottom = 109.0
+
+[node name="Label" type="Label" parent="Control/QuitButton/CenterContainer" unique_id=1016776530]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_crctu")
+theme_override_font_sizes/font_size = 45
+text = "Quit"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=133819930]
 z_index = -1
@@ -72,4 +161,7 @@ visible = false
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="FadeTransition/fade_timer" to="." method="_on_fade_timer_timeout"]
