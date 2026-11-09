@@ -306,17 +306,20 @@ func _sync_cell(i: int) -> void:
 		_hide_piece(i, "back")
 		_hide_piece(i, "front")
 
+		# A dug cliff is replaced by the tunnel sprite, so the cliff piece is removed.
+	var dug := cliff_r >= 0.999 and _terrain.is_tunnel(cell)
+
 	# Cliff
-	if cliff_r > 0.0:
+	if cliff_r > 0.0 and not dug:
 		var shake := 0.0
 		if _shakes.has(i):
 			shake = sin(_time * 80.0) * ART.DIG_SHAKE_AMOUNT * clampf(_shakes[i] / ART.DIG_SHAKE_TIME, 0.0, 1.0)
 		_show_piece(i, "cliff", ART.CLIFF[hsh % ART.CLIFF.size()], ground, cliff_r, over if grow_to == 2 else 0.0, flip, shake)
 	else:
-		_hide_piece(i, "cliff")
+		_hide_piece(i, "cliff")   # frees the node
 
-	# Tunnel mouth
-	if cliff_r >= 0.999 and _terrain.is_tunnel(cell):
+	# Tunnel (the dug-out version of the cliff)
+	if dug:
 		var pop := 1.0
 		if _tunnels.has(i):
 			pop = _ease_out_back(clampf(_tunnels[i].t / ART.TUNNEL_POP_TIME, 0.0, 1.0))
