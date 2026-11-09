@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://exp6cw4yugsy" path="res://scenes/levels/main_menu.gd" id="1_fsby3"]
 [ext_resource type="Texture2D" uid="uid://04yqfanyx7x2" path="res://title screen FINAL.png" id="2_721jg"]
-[ext_resource type="FontFile" uid="uid://bebbmovbfvnvo" path="res://scenes/ui/HARRINGT.TTF" id="2_fkd6t"]
+[ext_resource type="FontVariation" uid="uid://b5y4xdfeudeng" path="res://scenes/ui/harrington_fixed.tres" id="2_crctu"]
 [ext_resource type="Texture2D" uid="uid://cjca42mh6b4ri" path="res://title final.png" id="2_geflf"]
 [ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="2_leamy"]
-[ext_resource type="StyleBox" uid="uid://7t53ftyx2oxp" path="res://scenes/ui/new_style_box_flat_buttons.tres" id="3_keln3"]
 
 [node name="MainMenu" type="Node2D" unique_id=1690912587]
 script = ExtResource("1_fsby3")
@@ -24,11 +23,8 @@ offset_right = 1875.0
 offset_bottom = 680.0
 offset_transform_enabled = true
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_fkd6t")
+theme_override_fonts/font = ExtResource("2_crctu")
 theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = ExtResource("3_keln3")
-theme_override_styles/pressed = ExtResource("3_keln3")
-theme_override_styles/hover = ExtResource("3_keln3")
 text = "Start
 "
 vertical_icon_alignment = 2
@@ -40,11 +36,8 @@ offset_top = 700.0
 offset_right = 1875.0
 offset_bottom = 780.0
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_fkd6t")
+theme_override_fonts/font = ExtResource("2_crctu")
 theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = ExtResource("3_keln3")
-theme_override_styles/pressed = ExtResource("3_keln3")
-theme_override_styles/hover = ExtResource("3_keln3")
 text = "Tutorial
 "
 
@@ -55,11 +48,8 @@ offset_top = 800.0
 offset_right = 1875.0
 offset_bottom = 880.0
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_fkd6t")
+theme_override_fonts/font = ExtResource("2_crctu")
 theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = ExtResource("3_keln3")
-theme_override_styles/pressed = ExtResource("3_keln3")
-theme_override_styles/hover = ExtResource("3_keln3")
 text = "Quit"
 
 [node name="TitleFinal" type="Sprite2D" parent="Control" unique_id=570568675]

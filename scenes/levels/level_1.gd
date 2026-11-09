@@ -6,6 +6,8 @@ var bullet_scene = preload("res://scenes/bullets/bullet.tscn")
 var heat_ray_bullet_scene = preload("res://scenes/bullets/heat_ray.tscn")
 
 func _ready() -> void:
+	get_viewport().physics_object_picking = true
+	get_viewport().physics_object_picking_sort = true
 
 	Sound.play_music("Tower defense chill")
 
@@ -70,6 +72,7 @@ func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target:
 			
 		Data.Bullet.HEATRAY:
 			var heatray = heat_ray_bullet_scene.instantiate()
+			heatray.damage = damage
 			$Bullets.add_child(heatray)
 			heatray.setup(pos, target.global_position)
 

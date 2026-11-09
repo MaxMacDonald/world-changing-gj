@@ -43,7 +43,7 @@ const FLAG_BASE := 2
 ## Enemy speed multiplier while on a +1 hill.
 @export_range(0.05, 1.0) var hill_speed_multiplier := 0.5
 ## Tower range multiplier while on a +1 hill.
-@export var hill_range_multiplier := 0
+@export var hill_range_multiplier := 1
 ## Enemies dig when going around takes longer than this many times going through.
 @export var path_tolerance := 1.5
 ## Cells within this many pixels of the homebase can't be terraformed.

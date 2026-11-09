@@ -97,6 +97,7 @@ func _build_ui() -> void:
 	title.text = "Victory!"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 96)
+	title.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
 	title.add_theme_color_override("font_outline_color", Color.BLACK)
 	title.add_theme_constant_override("outline_size", 14)
@@ -106,6 +107,7 @@ func _build_ui() -> void:
 	message.text = "Congratulations! You defended the base."
 	message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	message.add_theme_font_size_override("font_size", 36)
+	message.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	message.add_theme_color_override("font_outline_color", Color.BLACK)
 	message.add_theme_constant_override("outline_size", 8)
 	box.add_child(message)
@@ -114,6 +116,7 @@ func _build_ui() -> void:
 	_stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_stats.add_theme_font_size_override("font_size", 28)
 	_stats.add_theme_color_override("font_outline_color", Color.BLACK)
+	_stats.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	_stats.add_theme_constant_override("outline_size", 8)
 	box.add_child(_stats)
 
@@ -130,6 +133,7 @@ func _make_button(parent: Node, text: String, callback: Callable) -> Button:
 	b.text = text
 	b.custom_minimum_size = Vector2(320, 64)
 	b.add_theme_font_size_override("font_size", 32)
+	b.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
 	b.pressed.connect(callback)
 	parent.add_child(b)
 	return b

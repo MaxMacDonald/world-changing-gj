@@ -4,7 +4,7 @@ var random = RandomNumberGenerator.new()
 var little_slime_scene = preload("res://scenes/enemies/enemybasic.tscn")
 
 func new_enemy_init() -> void:
-	max_health = 6
+	max_health = 30
 	damage = 5
 	speed = 40.0
 

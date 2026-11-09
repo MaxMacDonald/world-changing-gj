@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://b5y4xdfeudeng"]
+
+[ext_resource type="FontFile" uid="uid://bebbmovbfvnvo" path="res://scenes/ui/HARRINGT.TTF" id="1_lbtib"]
+
+[resource]
+base_font = ExtResource("1_lbtib")
+baseline_offset = 2.0

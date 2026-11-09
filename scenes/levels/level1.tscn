@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://istbmwh6vr0q" path="res://scenes/towers/homebase.tscn" id="4_bfxgj"]
 [ext_resource type="Script" uid="uid://clv6qj81vau1d" path="res://scenes/spawning/spawn_point.gd" id="5_spawnpt"]
 [ext_resource type="Script" uid="uid://bg86r1cvsys7y" path="res://scenes/spawning/enemy_spawner.gd" id="6_spawner"]
-[ext_resource type="PackedScene" uid="uid://1pxti1wd04yh" path="res://scenes/ui/hud.tscn" id="7_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="7_hud"]
 [ext_resource type="Script" uid="uid://ce5m6u6v3tm4s" path="res://scenes/build/wallet.gd" id="8_wallet"]
 [ext_resource type="Script" uid="uid://ft5et1jgu0cc" path="res://scenes/build/build_controller.gd" id="9_build"]
 [ext_resource type="PackedScene" uid="uid://hgxyo4trnsn5" path="res://scenes/tools/fade_transition.tscn" id="9_plydf"]
@@ -41,14 +41,18 @@ glow_hdr_threshold = 0.7
 [sub_resource type="Compositor" id="Compositor_oluon"]
 
 [node name="Level" type="Node2D" unique_id=1259410256]
+y_sort_enabled = true
 script = ExtResource("1_x6ivy")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1146821143]
+y_sort_enabled = true
 script = ExtResource("10_terrain")
 
 [node name="Towers" type="Node2D" parent="." unique_id=1403035586]
+y_sort_enabled = true
 
 [node name="Enemies" type="Node2D" parent="." unique_id=2074312030]
+y_sort_enabled = true
 
 [node name="Bullets" type="Node2D" parent="." unique_id=1646585787]
 
