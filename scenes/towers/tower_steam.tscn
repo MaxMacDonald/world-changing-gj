@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://kkg82vd7jtjm"]
+
+[ext_resource type="PackedScene" uid="uid://ctcau21ljcoom" path="res://scenes/towers/tower.tscn" id="1_himl3"]
+[ext_resource type="Script" uid="uid://b0agoiyayfeks" path="res://scenes/towers/tower_steam.gd" id="2_gf62x"]
+[ext_resource type="Texture2D" uid="uid://e10joyhoo56j" path="res://steam.png" id="3_0f76g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vbs6a"]
+load_path = "res://.godot/imported/canon_aoe.png-1a0dbfe494e8b03709ef27c37dafd911.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4vpr"]
+radius = 100.0
+
+[sub_resource type="Curve" id="Curve_r2kbk"]
+_limits = [0.0, 100.0, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(3, 50), 46.666664, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_ncc2f"]
+offsets = PackedFloat32Array(0, 0.3768473, 0.4507389, 0.8054187)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TowerSteam" unique_id=761654335 instance=ExtResource("1_himl3")]
+script = ExtResource("2_gf62x")
+steam_length = 2
+base_damage = 0.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=661667892]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("CompressedTexture2D_vbs6a")
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" parent_id_path=PackedInt32Array(66676875) index="0" unique_id=2053249093]
+shape = SubResource("CircleShape2D_g4vpr")
+
+[node name="Steam" type="CPUParticles2D" parent="." index="3" unique_id=623225403]
+amount = 1000
+texture = ExtResource("3_0f76g")
+lifetime = 6.0
+lifetime_randomness = 0.3
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 35.0
+damping_min = 35.0
+damping_max = 40.0
+damping_curve = SubResource("Curve_r2kbk")
+scale_amount_min = 0.0
+scale_amount_max = 0.1
+color = Color(1, 1, 1, 0.078431375)
+color_ramp = SubResource("Gradient_ncc2f")
+
+[node name="DamageTick" type="Timer" parent="." index="4" unique_id=1893857649]
+wait_time = 0.5
+
+[connection signal="timeout" from="RelodeTimer" to="." method="_on_relode_timer_timeout"]
+[connection signal="timeout" from="DamageTick" to="." method="_on_damage_tick_timeout"]
