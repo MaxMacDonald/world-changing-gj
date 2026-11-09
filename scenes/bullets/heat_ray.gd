@@ -21,6 +21,14 @@ var tween_end: Tween # tween shrink
 var tween_flash: Tween #flash of light on enemy hit
 var flicker_strength := 0.5  
 var terrain: TerrainGrid
+# chain upgrade
+var chain := 0
+# chain starting point
+var target_enemy := 0
+const CHAIN_RANGE := 140.0 # how far chain can reach
+const CHAIN_DAMAGE_FACTOR := 0.75 # each jump does 75% of the previous hit
+const CHAIN_DELAY := 0.06 # seconds between jumps
+
 
 func _ready() -> void:
 	terrain = get_tree().get_first_node_in_group("terrain") as TerrainGrid
