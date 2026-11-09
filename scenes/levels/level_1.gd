@@ -27,6 +27,7 @@ func _ready() -> void:
 	$Terrain.setup($Homebase, $SpawnPoints)
 	$EnemySpawner.terrain = $Terrain
 
+	$HUD.set_max_lives($Homebase.max_lives)
 	$HUD.set_lives($Homebase.lives)
 	$HUD.set_money($Wallet.money)
 	$Wallet.changed.connect($HUD.set_money)
