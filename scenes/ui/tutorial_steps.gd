@@ -62,6 +62,12 @@ const STEPS := [
 		"min_gold": 100,
 	},
 	{
+		"title": "You can fight too!",
+		"text": "If you need to you can squish the slimes by hand. It doesn't do much damage though!",
+		"wait": "continue",
+		"button": "Ok!",
+	},
+	{
 		"title": "You're ready!",
 		"text": "Spend your gold wisely, mix walls and towers, and protect the base. Press ESC any time to pause.\n\nGood luck!",
 		"wait": "continue",

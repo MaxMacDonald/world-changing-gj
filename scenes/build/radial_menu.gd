@@ -95,7 +95,8 @@ func _draw() -> void:
 		var tint := Color(1, 1, 1, 1.0 if enabled else 0.4)
 		var icon: Texture2D = e.get("icon")
 		if icon:
-			var sc := (SLOT_RADIUS * 1.3) / maxf(icon.get_width(), icon.get_height())
+			var size_factor: float = e.get("icon_size", 1.3)
+			var sc := (SLOT_RADIUS * size_factor) / maxf(icon.get_width(), icon.get_height())
 			var s := icon.get_size() * sc
 			draw_texture_rect(icon, Rect2(p - s / 2.0, s), false, tint)
 		elif e.get("glyph", "") != "":

@@ -6,6 +6,7 @@ var emitting_steam = false
 @onready var area := $EnemyDetectionArea/CollisionShape2D
 
 func _ready() -> void:
+	super()
 	$DamageTick.stop()
 	emit_steam()
 		

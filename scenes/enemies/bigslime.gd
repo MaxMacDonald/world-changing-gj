@@ -7,7 +7,7 @@ func new_enemy_init() -> void:
 	max_health = 40
 	damage = 5
 	speed = 40.0
-	reward = 20
+	reward = 30
 
 func take_damage(amount: int) -> void:
 	if health <= 0:
