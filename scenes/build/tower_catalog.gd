@@ -39,7 +39,7 @@ const TOWERS := [
 	},
 	{
 		"name": "Kelvin",
-		"cost": 125, # Originally 80
+		"cost": 80,
 		"scene": preload("res://scenes/towers/tower_kelvin.tscn"),
 		"icon": preload("res://kelvinator.png"),
 		"upgrades": [
@@ -47,5 +47,16 @@ const TOWERS := [
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30, 60], "per_level": 0.2},
 		],
-	}
-]
+	},
+	{
+		"name": "Steam",
+		"cost": 70,
+		"scene": preload("res://scenes/towers/tower_steam.tscn"),
+		"icon": preload("res://canon_aoe.png"),
+		"upgrades": [
+			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40,80], "per_level": 1.0},
+			{"stat": "fire_rate", "name":"", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
+			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30,60], "per_level":0.2},
+		],
+	},
+	]
