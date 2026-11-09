@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7w268kt2o1dl"]
+
+[ext_resource type="Script" uid="uid://cbbugc4gurs2l" path="res://scenes/bullets/steam.gd" id="1_c00cu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igbk0"]
+
+[node name="InvisSteam" type="Area2D" unique_id=1884567183]
+collision_layer = 2
+script = ExtResource("1_c00cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840420317]
+shape = SubResource("CircleShape2D_igbk0")
