@@ -3,7 +3,7 @@ extends "res://scenes/enemies/bigslime.gd"
 var big_slime_scene = preload("res://scenes/enemies/bigslime.tscn")
 
 func new_enemy_init() -> void:
-	max_health = 500
+	max_health = 1500
 	damage = 20
 	speed = 10.0
 	reward = 1000

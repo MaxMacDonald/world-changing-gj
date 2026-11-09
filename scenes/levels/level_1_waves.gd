@@ -114,9 +114,9 @@ const WAVES := [
 	# Wave 10 - Boss Wave
 	{
 		"spawns": [
-			{"enemy": "big_slime", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 50, "interval": 2.5},
-			{"enemy": "sword", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 1.25},
-			{"enemy": "armoured", "point": ["SpawnLeft","SpawnRight","SpawnBottom","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 0.5},
+			{"enemy": "big_slime", "point": ["SpawnLeft","SpawnRight","SpawnTopLeft","SpawnTopRight"], "count": 50, "interval": 2.5},
+			{"enemy": "sword", "point": ["SpawnLeft","SpawnRight","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 1.25},
+			{"enemy": "armoured", "point": ["SpawnLeft","SpawnRight","SpawnTopLeft","SpawnTopRight"], "count": 100, "interval": 0.5},
 			{"enemy": "emperor", "point": "SpawnBottom", "count": 1, "interval": 3.25},
 		],
 		"wait_for_clear": true,

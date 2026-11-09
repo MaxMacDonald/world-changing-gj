@@ -68,7 +68,10 @@ func show_game_over() -> void:
 	game_over_label.show()
 
 func show_wave_started(wave) -> void:
-	wave_label.text = "Wave " + str(wave) + " Started!"
+	if wave != 10:
+		wave_label.text = "Wave " + str(wave) + " Started!"
+	else:
+		wave_label.text = "The Emperor hath cometh"
 	wave_label.show()
 	await get_tree().create_timer(5.0).timeout
 	wave_label.hide()
