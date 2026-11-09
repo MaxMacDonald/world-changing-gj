@@ -52,7 +52,7 @@ const WAVES := [
 		"spawns": [
 			{"enemy": "armoured", "point": "SpawnLeft", "count": 24, "interval": 2.5}, # About right
 			{"enemy": "basic", "point": "SpawnRight", "count": 10, "interval": 1.5}, # Should be faster
-			{"enemy": "sword", "point": "SpawnRight", "count": 10, "interval": 1.5}, # Should be faster
+			{"enemy": "sword", "point": "SpawnRight", "count": 10, "interval": 1.75}, # Should be faster
 			{"enemy": "sword", "point": "SpawnTopRight", "count": 2, "interval": 1.5}, # Should be faster
 			{"enemy": "basic", "point": "SpawnBottom", "count": 10, "interval": 5.0},
 		],

@@ -9,7 +9,7 @@ radius = 350.0
 
 [node name="TowerKelvin" unique_id=761654335 instance=ExtResource("1_ru550")]
 script = ExtResource("2_8q1di")
-base_damage = 3
+base_damage = 6
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=661667892]

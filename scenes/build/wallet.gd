@@ -3,7 +3,7 @@ class_name Wallet extends Node
 
 signal changed(amount: int)
 
-@export var starting_money := 200 # Should be 200 but set to 1 million for debugging since game is too hard right now
+@export var starting_money := 100 # Original 200
 
 var money := 0
 

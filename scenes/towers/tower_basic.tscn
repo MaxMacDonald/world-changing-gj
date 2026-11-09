@@ -9,6 +9,7 @@ radius = 139.0
 
 [node name="TowerBasic" unique_id=761654335 instance=ExtResource("1_kruwa")]
 script = ExtResource("2_6vco4")
+base_damage = 2
 
 [node name="Sprite2D" parent="." index="0" unique_id=661667892]
 texture_filter = 3

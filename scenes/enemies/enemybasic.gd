@@ -6,7 +6,7 @@ signal killed(reward: int)
 @export var speed := 50.0
 ## How many lives the player loses when this enemy reaches the base.
 @export var damage := 1
-@export var max_health := 3
+@export var max_health := 6
 ## Gold awarded to the player when this enemy is killed.
 @export var reward := 6
 ## Seconds to dig through ONE +2 block.

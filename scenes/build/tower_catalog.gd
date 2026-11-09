@@ -39,7 +39,7 @@ const TOWERS := [
 	},
 	{
 		"name": "Kelvin",
-		"cost": 80,
+		"cost": 125, # Originally 80
 		"scene": preload("res://scenes/towers/tower_kelvin.tscn"),
 		"icon": preload("res://kelvinator.png"),
 		"upgrades": [
