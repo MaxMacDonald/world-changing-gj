@@ -12,7 +12,8 @@ const ENEMY_SCENES := {
 	"basic": preload("res://scenes/enemies/enemybasic.tscn"),
 	"big_slime": preload("res://scenes/enemies/bigslime.tscn"),
 	"armoured": preload("res://scenes/enemies/armouredslime.tscn"),
-	"sword": preload("res://scenes/enemies/swordslime.tscn")
+	"sword": preload("res://scenes/enemies/swordslime.tscn"),
+	"emperor": preload("res://scenes/enemies/emperorslime.tscn")
 }
 
 @export var homebase: Homebase
