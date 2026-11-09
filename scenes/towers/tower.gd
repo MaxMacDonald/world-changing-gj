@@ -19,6 +19,7 @@ var invested := -1                    # gold spent on this tower (sell price); -
 var damage := 1
 var fire_rate_multiplier := 1.0
 var range_multiplier := 1.0
+var chain_count := 0
 
 var terrain: TerrainGrid
 var _range_shape: CircleShape2D
