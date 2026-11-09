@@ -13,6 +13,7 @@ func take_damage(amount: int) -> void:
 		return
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
+	_show_damage(amount)
 	if health == 0:
 		Sound.play(death_sound, 0.0, 0.1)
 		killed.emit(reward)	

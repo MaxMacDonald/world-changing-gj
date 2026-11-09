@@ -132,6 +132,7 @@ func take_damage(amount: int) -> void:
 		return
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
+	_show_damage(amount)
 	if health == 0:
 		Sound.play(death_sound, 0.0, 0.1)
 		killed.emit(reward)
@@ -153,3 +154,7 @@ func _on_area_entered(bullet: Area2D) -> void:
 	take_damage(bullet.damage)
 	if not bullet.has_node("Sparks"):
 		bullet.queue_free()
+		
+func _show_damage(amount: int) -> void:
+	var pos := global_position + health_bar_offset + Vector2(randf_range(-8, 8), -8)
+	DamageNumber.spawn(get_parent(), pos, amount)
