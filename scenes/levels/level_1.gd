@@ -91,13 +91,16 @@ func _on_tower_placed(tower: Tower) -> void:
 	tower.shoot.connect(create_bullet)
 
 func _on_homebase_destroyed() -> void:
-	Sound.stop_music()
-	Sound.play("defeat_game_over")
-	$HUD.show_game_over()
 	$EnemySpawner.stop()
+	Sound.stop_music()
+	Sound.stop_all_sfx()
+	Sound.play("defeat_game_over")
+	Sound.muted = true
+	$VictoryScreen.show_defeat()
 	
 func _on_level_cleared() -> void:
 	# Don't count it as a win if the base fell on the very last enemy.
 	if $Homebase.lives <= 0:
 		return
+	Sound.play("victory")
 	$VictoryScreen.show_victory("Lives remaining: %d" % $Homebase.lives)

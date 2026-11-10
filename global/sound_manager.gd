@@ -6,7 +6,7 @@ var _sounds:= {}
 var _players: Array[AudioStreamPlayer]
 var _next := 0
 var _music: AudioStreamPlayer
-
+var muted := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # music runs even when game is paused
@@ -33,6 +33,8 @@ func _ready() -> void:
 
 # function to play the sound effect
 func play(sound_name: String, volume_db := 0.0, pitch_variation := 0.0) -> void:
+	if muted:
+		return
 	if not _sounds.has(sound_name): # check if audio exist
 		push_warning("Sound: no sound file such as '%s'" %sound_name)
 		return
@@ -64,3 +66,7 @@ func play_music(sound_name: String) -> void:
 # cut the music off 
 func stop_music() -> void:
 	_music.stop()
+
+func stop_all_sfx() -> void:
+	for player in _players:
+		player.stop()
