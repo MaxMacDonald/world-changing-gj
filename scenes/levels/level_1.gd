@@ -60,13 +60,14 @@ func _on_wave_ready():
 	# Call your spawner
 	$EnemySpawner.start(LEVEL_WAVES.WAVES)
 	
-func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target: Area2D, damage: int = 1, chains: int = 0):
+func create_bullet(pos: Vector2, angle: float, bullet_enum: Data.Bullet, target: Area2D, damage: int = 1, chains: int = 0, explosion_radius: float = 0.0):
 	match bullet_enum:
 		
 		Data.Bullet.SINGLE:
 			var bullet = bullet_scene.instantiate()
 			bullet.setup(pos, angle, bullet_enum)
 			bullet.damage = damage
+			bullet.explosion_radius = explosion_radius
 			$Bullets.add_child(bullet)
 			bullet.setup(pos, angle, bullet_enum)
 			

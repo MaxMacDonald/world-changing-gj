@@ -20,6 +20,7 @@ var damage := 1
 var fire_rate_multiplier := 1.0
 var range_multiplier := 1.0
 var chain_count := 0
+var explosion_radius := 0.0
 
 var terrain: TerrainGrid
 var _range_shape: CircleShape2D
@@ -62,6 +63,7 @@ func recompute_stats() -> void:
 	fire_rate_multiplier = 1.0
 	range_multiplier = 1.0
 	chain_count = 0
+	explosion_radius = 0.0
 	for u: Dictionary in upgrade_defs:
 		var level := get_upgrade_level(u.stat)
 		match u.stat:
@@ -73,6 +75,8 @@ func recompute_stats() -> void:
 				range_multiplier += u.per_level * level
 			"chain":
 				chain_count += roundi(u.per_level * level)
+			"explosive":
+				explosion_radius += u.per_level * level
 	if _reload_timer:
 		_reload_timer.wait_time = _base_wait / fire_rate_multiplier
 	update_range()

@@ -35,6 +35,7 @@ const TOWERS := [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40, 80], "per_level": 1.0},
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30, 60], "per_level": 0.2},
+			{"stat": "explosive", "name": "Explosive", "glyph": "BOM", "costs": [150], "per_level": 140.0, "description": "Bolt explode, hitting nearby slimes", "icon": preload("res://explosion circle.png"), "icon_size": 2.35},
 		],
 	},
 	{
