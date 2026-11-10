@@ -21,12 +21,14 @@ var fire_rate_multiplier := 1.0
 var range_multiplier := 1.0
 var chain_count := 0
 var explosion_radius := 0.0
+var scald_duration := 0.0
 
 var terrain: TerrainGrid
 var _range_shape: CircleShape2D
 var _base_range := 0.0
 var _reload_timer: Timer
 var _base_wait := 1.0
+
 
 func _ready() -> void:
 	damage = base_damage
@@ -77,6 +79,8 @@ func recompute_stats() -> void:
 				chain_count += roundi(u.per_level * level)
 			"explosive":
 				explosion_radius += u.per_level * level
+			"scald":
+				scald_duration += u.per_level * level
 	if _reload_timer:
 		_reload_timer.wait_time = _base_wait / fire_rate_multiplier
 	update_range()

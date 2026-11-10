@@ -18,6 +18,8 @@ func emit_steam():
 
 func _on_damage_tick_timeout() -> void:
 	_prune_enemies()
+	if not enemies.is_empty():
+		Sound.play("steam_tower_attack", -6.0, 0.1)
 	for enemy in enemies:
-			shoot.emit(global_position,0.0,Data.Bullet.STEAM, enemy)
+			shoot.emit(global_position,0.0,Data.Bullet.STEAM, enemy, maxi(damage, 1), 0, 0.0, scald_duration)
 	
