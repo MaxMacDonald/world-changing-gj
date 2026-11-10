@@ -16,6 +16,9 @@ var _stats: Label
 var _next_button: Button
 var _restart_button: Button
 
+var _title: Label
+var _message: Label
+
 func _ready() -> void:
 	add_to_group("end_screen") # tells the pause menu to stay out of the way
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -48,6 +51,22 @@ func show_victory(stats_text: String = "") -> void:
 	get_tree().paused = true
 	(_next_button if _next_button.visible else _restart_button).grab_focus()
 
+func show_defeat(stats_text: String = "") -> void:
+	if _shown:
+		return
+	_shown = true
+	await get_tree().create_timer(2.0, false).timeout
+	
+	_title.text = "Defeat"
+	_title.add_theme_color_override("font_color", Color(0.9, 0.25, 0.25))
+	_message.text = "The slimes broke through the university!"
+	_stats.text = stats_text
+	_stats.visible = stats_text != ""
+	_next_button.hide()
+	_restart_button.text = "Try Again"
+	show()
+	_restart_button.grab_focus()
+	
 func _has_next_level() -> bool:
 	return next_level_scene != "" and ResourceLoader.exists(next_level_scene)
 
@@ -80,7 +99,7 @@ func _on_main_menu_pressed() -> void:
 
 func _build_ui() -> void:
 	var dim := ColorRect.new()
-	dim.color = Color(0, 0, 0, 0.65)
+	dim.color = Color(0.35, 0.35, 0.35, 0.6)
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(dim)
 	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -94,6 +113,7 @@ func _build_ui() -> void:
 	center.add_child(box)
 
 	var title := Label.new()
+	_title = title
 	title.text = "Victory!"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 96)
@@ -104,6 +124,7 @@ func _build_ui() -> void:
 	box.add_child(title)
 
 	var message := Label.new()
+	_message = message
 	message.text = "Congratulations! You defended the base."
 	message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	message.add_theme_font_size_override("font_size", 36)
@@ -134,6 +155,11 @@ func _make_button(parent: Node, text: String, callback: Callable) -> Button:
 	b.custom_minimum_size = Vector2(320, 64)
 	b.add_theme_font_size_override("font_size", 32)
 	b.add_theme_font_override("font", preload("res://scenes/ui/harrington_fixed.tres"))
+	b.pressed.connect(_on_any_button_pressed)
 	b.pressed.connect(callback)
 	parent.add_child(b)
 	return b
+
+func _on_any_button_pressed() -> void:
+	Sound.muted = false
+	Sound.play("Button")

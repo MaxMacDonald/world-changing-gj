@@ -35,7 +35,7 @@ const TOWERS := [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40, 80], "per_level": 1.0},
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30, 60], "per_level": 0.2},
-			{"stat": "explosive", "name": "Explosive", "glyph": "BOM", "costs": [150], "per_level": 140.0, "description": "Bolt explode, hitting nearby slimes", "icon": preload("res://explosion circle.png"), "icon_size": 2.35},
+			{"stat": "explosive", "name": "Explosive", "glyph": "BOM", "costs": [200], "per_level": 130.0, "description": "Bolt explode, hitting nearby slimes", "icon": preload("res://explosion circle.png"), "icon_size": 2.35},
 		],
 	},
 	{
@@ -47,7 +47,7 @@ const TOWERS := [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40, 80], "per_level": 1.0},
 			{"stat": "fire_rate", "name": "Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30, 60], "per_level": 0.2},
-			{"stat": "chain", "name": "Chain", "glyph": "CHN", "icon": preload("res://thunder circle.png"), "icon_size": 2.35,"costs": [180], "per_level": 2, "description": "Beam jumps to 2 more enemies"},
+			{"stat": "chain", "name": "Chain", "glyph": "CHN", "icon": preload("res://thunder circle.png"), "icon_size": 2.35,"costs": [235], "per_level": 2, "description": "Beam jumps to 2 more enemies"},
 		],
 	},
 	{
@@ -59,7 +59,7 @@ const TOWERS := [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40,80], "per_level": 1.0},
 			{"stat": "fire_rate", "name":"Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30,60], "per_level":0.2},
-			{"stat": "scald", "name": "Scald", "glyph": "SCD", "icon": preload("res://steam circle.png"), "icon_size": 2.35, "costs": [160], "per_level": 3.0, "description": "Scalded slimes take 50% more damage"
+			{"stat": "scald", "name": "Scald", "glyph": "SCD", "icon": preload("res://steam circle.png"), "icon_size": 2.35, "costs": [210], "per_level": 3.0, "description": "Scalded slimes take 30% more damage"
 			}
 		],
 	},

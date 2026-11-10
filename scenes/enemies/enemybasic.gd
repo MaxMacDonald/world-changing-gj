@@ -22,6 +22,7 @@ signal killed(reward: int)
 @export var duration_jitter := 0.15     # +/- 15% variation
 
 @export var death_sound := "enemy_die_slime_2"
+@export var death_volume := 0.0
 
 # click damage constants
 @export var click_damage := 1
@@ -170,7 +171,7 @@ func take_damage(amount: int) -> void:
 	await get_tree().create_timer(0.1).timeout
 	$KorriOrroSprite.modulate = Color(1,1,1)
 	if health == 0:
-		Sound.play(death_sound, 0.0, 0.1)
+		Sound.play(death_sound, death_volume, 0.1)
 		killed.emit(reward)
 		_death_animation()
 		await _tween_fade.finished
