@@ -156,7 +156,7 @@ func take_damage(amount: int) -> void:
 	$KorriOrroSprite.modulate = Color(1,0,0)
 	health = max(health - amount, 0)
 	health_bar.set_ratio(float(health) / max_health)
-	await get_tree().create_timer(0.1)
+	await get_tree().create_timer(0.1).timeout
 	$KorriOrroSprite.modulate = Color(1,1,1)
 	if health == 0:
 		Sound.play(death_sound, 0.0, 0.1)
@@ -178,6 +178,8 @@ func _bounce_loop() -> void:
 func _on_area_entered(bullet: Area2D) -> void:
 	Sound.play("enemy_hit_tower", -6.0, 0.15)
 	hit(bullet.damage)
+	if bullet.has_method("explode"):
+		bullet.explode(self)
 	if not bullet.has_node("Sparks"):
 		bullet.queue_free()
 		
