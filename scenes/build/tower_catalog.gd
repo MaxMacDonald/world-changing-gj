@@ -57,8 +57,10 @@ const TOWERS := [
 		"icon": preload("res://canon_aoe.png"),
 		"upgrades": [
 			{"stat": "damage", "name": "Damage", "glyph": "DMG", "costs": [40,80], "per_level": 1.0},
-			{"stat": "fire_rate", "name":"", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
+			{"stat": "fire_rate", "name":"Fire Rate", "glyph": "SPD", "costs": [40, 80], "per_level": 0.3},
 			{"stat": "range", "name": "Range", "glyph": "RNG", "costs": [30,60], "per_level":0.2},
+			{"stat": "scald", "name": "Scald", "glyph": "SCD", "icon": preload("res://steam circle.png"), "icon_size": 2.35, "costs": [160], "per_level": 3.0, "description": "Scalded slimes take 50% more damage"
+			}
 		],
 	},
 	]

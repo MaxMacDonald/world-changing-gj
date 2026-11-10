@@ -34,6 +34,11 @@ static var _next_click_ms := 0 # when the next click is allowed
 const CRIT_CHANCE := 0.15
 const CRIT_MULTIPLIER := 2
 
+# scald
+const SCALD_MULTIPLIER := 1.5
+const SCALD_TINT := Color(1, 0.55, 0.45)
+var _scald_left := 0.0
+
 var target: Node2D
 var terrain: TerrainGrid
 var health: int
@@ -81,6 +86,10 @@ func setup(new_target: Node2D, new_terrain: TerrainGrid = null) -> void:
 	terrain = new_terrain
 
 func _process(delta: float) -> void:
+	if _scald_left > 0.0:
+		_scald_left -= delta
+		if _scald_left <= 0.0:
+			$KorriOrroSprite.self_modulate = Color(1,1,1)
 	if not is_instance_valid(target):
 		return
 	if terrain == null:
@@ -147,6 +156,8 @@ func hit(amount: int) -> void:
 	var is_crit := randf() < CRIT_CHANCE
 	if is_crit:
 		amount *= CRIT_MULTIPLIER
+	if _scald_left > 0.0:
+		amount = roundi(amount * SCALD_MULTIPLIER)
 	_show_damage(amount,is_crit)
 	take_damage(amount)
 	
@@ -177,6 +188,10 @@ func _bounce_loop() -> void:
 	
 func _on_area_entered(bullet: Area2D) -> void:
 	Sound.play("enemy_hit_tower", -6.0, 0.15)
+	if not bullet.has_method("scald"):
+		Sound.play("enemy_hit_tower", -6.0, 0.15)
+	if bullet.has_method("scald"):
+		bullet.scald(self)
 	hit(bullet.damage)
 	if bullet.has_method("explode"):
 		bullet.explode(self)
@@ -228,3 +243,9 @@ func _death_animation():
 	$DeathParticles.emitting = true
 	_tween_fade.tween_interval(0.1)
 	_tween_fade.tween_property(visual, "modulate:a", 0.0, 0.4)
+
+func apply_scald(seconds: float) -> void:
+	if _scald_left <= 0.0:
+		Sound.play("steam_tower_attack", -8.0, 0.3)
+	_scald_left = maxf(_scald_left, seconds)
+	$KorriOrroSprite.self_modulate = SCALD_TINT
