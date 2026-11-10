@@ -25,7 +25,7 @@ var terrain: TerrainGrid
 var chains := 0
 # chain starting point
 var target_enemy : Node2D
-const CHAIN_RANGE := 300.0 # how far chain can reach
+const CHAIN_RANGE := 250.0 # how far chain can reach
 const CHAIN_DAMAGE_FACTOR := 0.6 # each jump does 60% of the previous hit
 const CHAIN_DELAY := 0.06 # seconds between jumps
 
